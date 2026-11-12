@@ -1,0 +1,74 @@
+---
+# SFM flow meter ESP32 examples: the app matrix read by the build scripts, the CI and the docs Examples page.
+version: "1.0"
+
+metadata:
+  project: "ESP32 SFM flow meter Driver Examples"
+  default_app: "sfm_flow_meter_basic_example"
+  target: "esp32c6"
+  idf_versions: ["release/v5.5"]
+  build_types: [["Debug", "Release"]]
+
+apps:
+  sfm_flow_meter_basic_example:
+    description: "Identify an SFM3003-300-CL, start air and log the flow twice a second (menuconfig options)"
+    source_file: "sfm_flow_meter_basic_example.cpp"
+    category: "example"
+    idf_versions: ["release/v5.5"]
+    build_types: ["Debug", "Release"]
+    ci_enabled: true
+    featured: true
+    hardware_required: true
+    features:
+      - "ESP-IDF i2c_master port with every optional hook"
+      - "Config from Kconfig (menuconfig) through sfm_flow_meter_kconfig.hpp"
+      - "Every Result checked and logged by name; a sensor reset is recovered"
+
+  sfm_flow_meter_task_example:
+    description: "SFM4300-20-B mixture measurement with the waits owned by a FreeRTOS task and a live oxygen update"
+    source_file: "sfm_flow_meter_task_example.cpp"
+    category: "example"
+    idf_versions: ["release/v5.5"]
+    build_types: ["Debug", "Release"]
+    ci_enabled: true
+    featured: false
+    hardware_required: true
+    features:
+      - "Non-blocking start-up: BeginInitialize() and Poll() with vTaskDelay"
+      - "AirO2 mixture and UpdateConcentration() while measuring"
+
+  sfm_flow_meter_legacy_example:
+    description: "SFM3400-AW (legacy command set): flow, temperature and recovery after errors in a row"
+    source_file: "sfm_flow_meter_legacy_example.cpp"
+    category: "example"
+    idf_versions: ["release/v5.5"]
+    build_types: ["Debug", "Release"]
+    ci_enabled: true
+    featured: false
+    hardware_required: true
+    features:
+      - "Sf05 family: ReadTemperature() and GetTemperature()"
+      - "Error limit with a power cycle through the port, then initialisation again"
+
+build_config:
+  build_types:
+    Debug:
+      description: "Debug build"
+      cmake_build_type: "Debug"
+      optimization: "-O0"
+      debug_level: "-g3"
+      defines: ["DEBUG"]
+    Release:
+      description: "Release build"
+      cmake_build_type: "Release"
+      optimization: "-O2"
+      debug_level: "-g0"
+      defines: ["NDEBUG"]
+  build_directory_pattern: "build-app-{app_type}-type-{build_type}-target-{target}-idf-{idf_version}"
+  project_name_pattern: "esp32_sfm_flow_meter_{app_type}_app"
+
+ci_config:
+  timeout_minutes: 30
+  fail_fast: false
+  exclude_combinations: []
+  special_apps: []

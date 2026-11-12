@@ -1,0 +1,34 @@
+{
+  "name": "sfm_flow_meter",
+  "cls": "SfmFlowMeter",
+  "calls": [
+    "BeginInitialize",
+    "EnsureInitialized",
+    "Deinitialize",
+    "StartMeasurement",
+    "Stop",
+    "SetAveraging",
+    "ReadScaling",
+    "Sleep",
+    "WakeUp",
+    "SoftReset",
+    "HardReset",
+    "UpdateConcentration",
+    "Poll",
+    "AwaitPending",
+    "ReadSample",
+    "ReadRawReply",
+    "ReadTemperature"
+  ],
+  "sources": [
+    "inc/sfm_flow_meter.hpp:public calls",
+    "inc/sfm_flow_meter_i2c_interface.hpp:I2cInterface"
+  ],
+  "bus": "I2C",
+  "base": "I2cInterface",
+  "hooks": [
+    "EnsureInitialized",
+    "Write",
+    "Read"
+  ]
+}

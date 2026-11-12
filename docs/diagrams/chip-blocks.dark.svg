@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="547" viewBox="0 0 1200 547" role="img" aria-labelledby="chip-blocks-title chip-blocks-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<title id="chip-blocks-title">Inside the SFM modules</title>
+<desc id="chip-blocks-desc">Block diagram of the SFM modules: its function blocks, how they connect and which package pins reach each block.</desc>
+<defs><marker id="fk-arrow-rail" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#6C7889"/></marker></defs>
+<rect x="0.5" y="0.5" width="1199" height="546" rx="16" fill="#0E131A" stroke="#283241"/>
+<text x="32" y="44" font-size="12.5" font-weight="700" letter-spacing="1.2" fill="#F8D27A">HARDWARE</text>
+<text x="32" y="77.3" font-size="26" font-weight="700" fill="#E8EDF3">Inside the SFM modules</text>
+<text x="32" y="103.8" font-size="15" fill="#9AA6B5">Function blocks and their links, from the datasheet's block diagram (3 Measurement Mode, p. 7). Pins on the edge carry their package number.</text>
+<rect x="32" y="119.8" width="1136" height="1" fill="#252F3C"/>
+<rect x="120" y="137.8" width="960" height="304" rx="14" fill="#1B232E" stroke="#3A4656" stroke-width="1.2"/>
+<path d="M127 217.8 L160 217.8" fill="none" stroke="#60A5FA" stroke-width="1.8"/>
+<path d="M127 241.8 L160 241.8" fill="none" stroke="#60A5FA" stroke-width="1.8"/>
+<path d="M127 265.8 L160 265.8" fill="none" stroke="#F0ABFC" stroke-width="1.8"/>
+<path d="M127 361.8 L160 361.8" fill="none" stroke="#FB7185" stroke-width="1.8"/>
+<path d="M127 385.8 L160 385.8" fill="none" stroke="#94A3B8" stroke-width="1.8"/>
+<path d="M1073 369.8 L712 369.8" fill="none" stroke="#4ADE80" stroke-width="1.8"/>
+<path d="M388 241.8 L484 241.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#fk-arrow-rail)" marker-start="url(#fk-arrow-rail)"/>
+<path d="M812 241.8 L716 241.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#fk-arrow-rail)"/>
+<path d="M600 293.8 L600 333.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#fk-arrow-rail)"/>
+<path d="M388 369.8 L394 369.8 Q400 369.8 400 363.8 L400 273.8 Q400 265.8 408 265.8 L484 265.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#fk-arrow-rail)"/>
+<rect x="160" y="201.8" width="224" height="88" rx="10" fill="#13233A" stroke="#60A5FA" stroke-width="1.4"/>
+<rect x="160" y="209.8" width="4" height="72" rx="2" fill="#60A5FA"/>
+<rect x="488" y="201.8" width="224" height="88" rx="10" fill="#2A2113" stroke="#F4B942" stroke-width="1.4"/>
+<rect x="488" y="209.8" width="4" height="72" rx="2" fill="#F4B942"/>
+<rect x="816" y="201.8" width="224" height="88" rx="10" fill="#0F2A28" stroke="#2BB3A3" stroke-width="1.4"/>
+<rect x="816" y="209.8" width="4" height="72" rx="2" fill="#2BB3A3"/>
+<rect x="488" y="337.8" width="224" height="72" rx="10" fill="#2C2310" stroke="#FBBF24" stroke-width="1.4"/>
+<rect x="488" y="345.8" width="4" height="56" rx="2" fill="#FBBF24"/>
+<rect x="160" y="337.8" width="224" height="72" rx="10" fill="#1B232E" stroke="#94A3B8" stroke-width="1.4"/>
+<rect x="160" y="345.8" width="4" height="56" rx="2" fill="#94A3B8"/>
+<rect x="113" y="210.8" width="14" height="14" rx="3" fill="#13233A" stroke="#60A5FA" stroke-width="1.4"/>
+<rect x="113" y="234.8" width="14" height="14" rx="3" fill="#13233A" stroke="#60A5FA" stroke-width="1.4"/>
+<rect x="113" y="258.8" width="14" height="14" rx="3" fill="#2E1533" stroke="#F0ABFC" stroke-width="1.4"/>
+<rect x="113" y="354.8" width="14" height="14" rx="3" fill="#321820" stroke="#FB7185" stroke-width="1.4"/>
+<rect x="113" y="378.8" width="14" height="14" rx="3" fill="#1B232E" stroke="#94A3B8" stroke-width="1.4"/>
+<rect x="1073" y="362.8" width="14" height="14" rx="3" fill="#11281A" stroke="#4ADE80" stroke-width="1.4"/>
+<text x="136" y="162.8" font-size="13" font-weight="700" fill="#E2E8F0">SFM MODULES</text>
+<text x="249.9" y="162.8" font-size="12" fill="#E2E8F0">JST NSH 6-pin 1.0 mm connector</text>
+<text x="180" y="228.6" font-size="15" font-weight="700" fill="#BFDBFE">I2C interface*</text>
+<text x="180" y="253.4" font-size="13" fill="#D2DAE4">address 0x2A to 0x2D from</text>
+<text x="180" y="272.2" font-size="13" fill="#D2DAE4">ADDR</text>
+<text x="508" y="228.6" font-size="15" font-weight="700" fill="#F8D27A">Commands and CRC*</text>
+<text x="508" y="253.4" font-size="13" fill="#D2DAE4">16-bit commands, CRC-8 per</text>
+<text x="508" y="272.2" font-size="13" fill="#D2DAE4">word</text>
+<text x="836" y="228.6" font-size="15" font-weight="700" fill="#A7F3E6">Thermal flow sensor*</text>
+<text x="836" y="253.4" font-size="13" fill="#D2DAE4">heater, flow, temperature</text>
+<text x="508" y="364.6" font-size="15" font-weight="700" fill="#FDE68A">Result-ready line*</text>
+<text x="508" y="389.4" font-size="13" fill="#D2DAE4">IRQn, low until read</text>
+<text x="180" y="364.6" font-size="15" font-weight="700" fill="#E2E8F0">Power and reset*</text>
+<text x="180" y="389.4" font-size="13" fill="#D2DAE4">power-up, soft reset, sleep</text>
+<text x="106" y="222.3" font-size="12.5" font-weight="600" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">SDA  2</text>
+<text x="106" y="246.3" font-size="12.5" font-weight="600" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">SCL  5</text>
+<text x="106" y="270.3" font-size="12.5" font-weight="600" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">ADDR  1</text>
+<text x="106" y="366.3" font-size="12.5" font-weight="600" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">VDD  4</text>
+<text x="106" y="390.3" font-size="12.5" font-weight="600" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">GND  3</text>
+<text x="1094" y="374.3" font-size="12.5" font-weight="600" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">IRQn  6</text>
+<circle cx="160" cy="217.8" r="3" fill="#60A5FA"/>
+<circle cx="160" cy="241.8" r="3" fill="#60A5FA"/>
+<circle cx="160" cy="265.8" r="3" fill="#F0ABFC"/>
+<circle cx="160" cy="361.8" r="3" fill="#FB7185"/>
+<circle cx="160" cy="385.8" r="3" fill="#94A3B8"/>
+<circle cx="712" cy="369.8" r="3" fill="#4ADE80"/>
+<rect x="408.7" y="231.8" width="54.6" height="20" rx="10" fill="#0E131A"/>
+<text x="436" y="246.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">frames</text>
+<rect x="732.6" y="231.8" width="62.8" height="20" rx="10" fill="#0E131A"/>
+<text x="764" y="246.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">samples</text>
+<rect x="576.6" y="303.8" width="46.8" height="20" rx="10" fill="#0E131A"/>
+<text x="600" y="318.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">ready</text>
+<rect x="378.5" y="307.8" width="43" height="20" rx="10" fill="#0E131A"/>
+<text x="400" y="322.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">reset</text>
+<text x="32" y="463.8" font-size="12.5" fill="#9AA6B5">* Not confirmed in the datasheet: I2C interface: no vendor block diagram; Commands and CRC: no vendor block diagram; Thermal flow sensor: no vendor block diagram;</text>
+<text x="32" y="481.8" font-size="12.5" fill="#9AA6B5">Result-ready line: no vendor block diagram; Power and reset: no vendor block diagram.</text>
+<rect x="32" y="500.9" width="14" height="14" rx="4" fill="#321820" stroke="#FB7185" stroke-width="1.4"/>
+<text x="54" y="512.5" font-size="12.5" fill="#9AA6B5">power</text>
+<rect x="117.6" y="500.9" width="14" height="14" rx="4" fill="#1B232E" stroke="#94A3B8" stroke-width="1.4"/>
+<text x="139.6" y="512.5" font-size="12.5" fill="#9AA6B5">ground</text>
+<rect x="208.5" y="500.9" width="14" height="14" rx="4" fill="#13233A" stroke="#60A5FA" stroke-width="1.4"/>
+<text x="230.5" y="512.5" font-size="12.5" fill="#9AA6B5">bus</text>
+<rect x="277.4" y="500.9" width="14" height="14" rx="4" fill="#11281A" stroke="#4ADE80" stroke-width="1.4"/>
+<text x="299.4" y="512.5" font-size="12.5" fill="#9AA6B5">digital out</text>
+<rect x="384.9" y="500.9" width="14" height="14" rx="4" fill="#2E1533" stroke="#F0ABFC" stroke-width="1.4"/>
+<text x="406.9" y="512.5" font-size="12.5" fill="#9AA6B5">analog</text>
+<path d="M472.9 507.2L502.9 507.2" fill="none" stroke="#6C7889" stroke-width="1.6" marker-end="url(#fk-arrow-rail)"/>
+<text x="516.9" y="512.5" font-size="12.5" fill="#9AA6B5">signal or data between blocks</text>
+</svg>

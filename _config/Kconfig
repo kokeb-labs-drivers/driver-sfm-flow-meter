@@ -1,0 +1,62 @@
+# Kconfig for the SFM flow meter driver. The root CMakeLists.txt registers it with ESP-IDF
+# (idf_component_register(... KCONFIG _config/Kconfig)), so `idf.py menuconfig` shows
+# "SFM flow meter". The values reach the code only through inc/sfm_flow_meter_kconfig.hpp; no public
+# driver signature uses them. The variant and the address are chosen in code (they name the part).
+menuconfig SFM_FLOW_METER
+    bool "SFM flow meter"
+    default y
+    help
+      Defaults for sfm::KconfigDefaults(). The driver itself does not
+      need Kconfig; outside ESP-IDF the same defaults come from Config{}.
+
+if SFM_FLOW_METER
+
+config SFM_FLOW_METER_AVERAGING
+    int "Averaging N (-1: the family's reset value)"
+    range -1 128
+    default -1
+    help
+      Config::averaging. -1 keeps the reset value of the family (0, average until read, for the SF06
+      family; 2 for the SFM3304 and SFM3505). Parts without averaging reject any other value.
+
+choice SFM_FLOW_METER_SCALING_CHECK
+    prompt "Scaling check"
+    default SFM_FLOW_METER_SCALING_STRICT
+    help
+      What happens when the scale or offset a sensor reports differs from the datasheet's.
+
+config SFM_FLOW_METER_SCALING_STRICT
+    bool "Strict: any difference is DeviceFault"
+config SFM_FLOW_METER_SCALING_LENIENT
+    bool "Lenient: a scale within 1 percent is accepted"
+config SFM_FLOW_METER_SCALING_OFF
+    bool "Off: use the sensor's values"
+
+endchoice
+
+config SFM_FLOW_METER_RANGE_FLAG
+    bool "Flag out-of-range flows instead of rejecting them"
+    default n
+
+config SFM_FLOW_METER_TIMING_DATASHEET
+    bool "Use the datasheet's own waits (needs a known variant)"
+    default n
+    help
+      Off: at least 20 ms after every SF06 reset and wake, the longest in the family.
+
+config SFM_FLOW_METER_ALLOW_GENERAL_CALL_RESET
+    bool "Allow the general-call reset"
+    default n
+    help
+      The general call resets every device on the bus that listens to it.
+
+config SFM_FLOW_METER_NO_RESTART_BEFORE_READ
+    bool "SF05 family: do not send the start command again after each read"
+    default n
+
+config SFM_FLOW_METER_ERROR_LIMIT
+    int "SF05 family: errors in a row before a hard reset"
+    range 1 255
+    default 5
+
+endif

@@ -1,0 +1,137 @@
+---
+# The hardware of the SFM I2C flow meters in one file, in the simple connector view: the six-pin JST NSH connector of
+# the SFM4300 is drawn as the reference module, the other connectors are listed as variants with their pin orders.
+# `kokeb-docs figures` draws the pinout, the module outline, the block diagram and the circuits from it,
+# `kokeb-docs gen` writes the chip card of the README and the tables of docs/hardware.md, and
+# `kokeb-docs hardware --check` validates it. Schema: docs/chip-diagrams.md in kokeb-labs/ci-tools.
+#
+# These are modules, not packages: the "package" is the connector body, and the pins are the connector's circuits in
+# the order the datasheet gives. Every pin and figure cites the SFM4300 datasheet (document `sfm4300`, version 1.0,
+# D1, April 2022) unless it says otherwise. A fact no document states is marked `unverified` with the reason.
+schema: 1
+chip: SFM modules
+
+refs:
+  connector: {doc: sfm4300, section: "2.8 Pin Assignment, Table 1", page: 6}
+  address: {doc: sfm4300, section: "4.1 I2C Address, Table 2", page: 9}
+  electrical: {doc: sfm4300, section: "2.3 Electrical Specifications", page: 5}
+  limits: {doc: sfm4300, section: "2.7 Absolute Minimum and Maximum Ratings", page: 6}
+  irqn: {doc: sfm4300, section: "3.3 Active-low Interrupt Signaling", page: 8}
+  bus: {doc: sfm4300, section: "4 Digital Interface Description", page: 9}
+  measurement: {doc: sfm4300, section: "3 Measurement Mode", page: 7}
+  reset: {doc: sfm4300, section: "4.3.7 Soft Reset", page: 13}
+  outline: {doc: sfm4300, section: "6 Package Outline, Figure 4", page: 18}
+  order: {doc: sfm4300, section: "1 Ordering Information", page: 2}
+  dura: {doc: sfm3003, section: "2.8 Pin Assignment, Table 1", page: 4}
+  zr: {doc: sfm3200, section: "Electrical connection", page: 4}
+  ph: {doc: sfm4200, section: "Pin assignment", page: 5}
+  nsh5: {doc: sfm3505, section: "Pin assignment", page: 4}
+  mlp: {doc: sfx6000d, section: "Pin assignment", page: 8}
+  pad: {doc: sfm3304, section: "Pin assignment (6-pad interface)", page: 5}
+  hdr8: {doc: sfm4100, section: "6.5 Pin assignments", page: 7}
+
+package:
+  type: "JST NSH 6-pin 1.0 mm connector"
+  layout: dual
+  pins: 6
+  sides: {left: [1, 2, 3, 4, 5, 6]}
+  ref: connector
+  # The body of the SFM4300-xx-B module (length along the connector side, width), from the drawing, read by eye.
+  outline: {length_mm: 42.5, width_mm: 26.0, pitch_mm: 1.0, pitch_ref: connector, ref: outline}
+  variants:
+    - {id: dura4, type: "Molex DuraClik 502351-0400, 4-pin, 2.0 mm", pins: 4,
+       ordering: "SFM3000-200-C (order unverified), SFM3003-300-CL/-CE/-CET, SFM3013-300-CL/-CLM, SFM3019-200-CL, SFM3119-240-CL",
+       note: "drawing order SDA, GND, VDD, SCL; the datasheets print no pin numbers", ref: dura}
+    - {id: zr4, type: "JST B4B-ZR-SM4-TF, 4-pin", pins: 4, ordering: "SFM3200",
+       note: "1 SDA, 2 GND, 3 VCC, 4 SCK", ref: zr}
+    - {id: ph5, type: "JST B5B-PH-SM4-TBT, 5-pin", pins: 5, ordering: "SFM4200",
+       note: "1 SCK, 2 VCC, 3 GND, 4 SDA, 5 /RES", ref: ph}
+    - {id: nsh5, type: "JST BM05B-NSHSS-TBT, 5-pin, 1.0 mm", pins: 5, ordering: "SFM3505-300, -300-X",
+       note: "1 SDA, 2 VDD, 3 GND, 4 SCL, 5 DRDY", ref: nsh5}
+    - {id: mlp6, type: "Molex Micro-Lock Plus, 6 circuits, 1.25 mm", pins: 6, ordering: "SFM6000D (preliminary)",
+       note: "1 VDD, 2 GND, 3 reserved, 4 SCL, 5 ADDR, 6 SDA", ref: mlp}
+    - {id: pad6, type: "6-pad clip-on interface", pins: 6,
+       ordering: "SFM3304-250-D; SFM3200-AW, SFM3300, SFM3400 (pad names not read)",
+       note: "SFM3304: HEATER_GND, VDD, SCL, GND, SDA, HEATER", ref: pad}
+    - {id: hdr8, type: "8-pin header (E-Tec SL2-008-SH108/01-55B or Samtec HTSW-104-07-6.D)", pins: 8,
+       ordering: "SFM4100", note: "pin functions not read (the figure was not extracted)", ref: hdr8}
+
+supply:
+  - {name: VDD, min_v: 3.0, max_v: 5.5, ref: electrical}
+
+hooks:
+  - {id: bus, call: "Write(), Read()", kind: i2c, source: inc/sfm_flow_meter_i2c_interface.hpp, symbol: Write}
+
+pins:
+  - {number: 1, name: ADDR, type: analog, domain: VDD,
+     function: "I2C address select: open or GND, or a resistor to GND (1.2, 2.7 or 5.6 kΩ); never VDD",
+     unused: "Leave open (address 0x2A)", ref: address}
+  - {number: 2, name: SDA, type: bus, domain: VDD, function: "I2C data, needs an external pull-up to the bus voltage",
+     hook: bus, ref: bus}
+  - {number: 3, name: GND, type: ground, domain: GND, function: Ground, ref: connector}
+  - {number: 4, name: VDD, type: power, domain: VDD, function: "Supply, 3.0 V to 5.5 V (3.3 V recommended)",
+     ref: electrical}
+  - {number: 5, name: SCL, type: bus, domain: VDD, function: "I2C clock, up to 1 MHz, needs an external pull-up",
+     hook: bus, ref: bus}
+  - {number: 6, name: IRQn, type: digital-out, domain: VDD,
+     function: "Active low: a result is ready, or the sensor reset", unused: "Leave open; never to GND or VDD",
+     ref: irqn}
+
+block_diagram:
+  ref: measurement
+  blocks:
+    - {id: bus, label: I2C interface, detail: "address 0x2A to 0x2D from ADDR", at: [0, 0], tone: blue,
+       pins: [SDA, SCL, ADDR], unverified: "no vendor block diagram"}
+    - {id: cmd, label: Commands and CRC, detail: "16-bit commands, CRC-8 per word", at: [1, 0],
+       unverified: "no vendor block diagram"}
+    - {id: sense, label: Thermal flow sensor, detail: "heater, flow, temperature", at: [2, 0], tone: teal,
+       unverified: "no vendor block diagram"}
+    - {id: irq, label: Result-ready line, detail: "IRQn, low until read", at: [1, 1], tone: amber, pins: [IRQn],
+       side: right, unverified: "no vendor block diagram"}
+    - {id: por, label: Power and reset, detail: "power-up, soft reset, sleep", at: [0, 1], tone: slate,
+       pins: [VDD, GND], unverified: "no vendor block diagram"}
+  links:
+    - {from: bus, to: cmd, label: frames, both: true}
+    - {from: sense, to: cmd, label: samples}
+    - {from: cmd, to: irq, label: ready}
+    - {from: por, to: cmd, label: reset}
+
+circuits:
+  - id: typical
+    title: Typical application
+    description: >-
+      The sensor on an MCU's I2C bus. The datasheet requires pull-ups to the bus voltage but gives no value, so the
+      resistors are marked as unverified. IRQn and ADDR stay open.
+    ref: bus
+    parts:
+      - {id: U1, kind: chip}
+      - id: U2
+        kind: mcu
+        label: MCU
+        pins:
+          - {name: SDA, label: I2C SDA}
+          - {name: SCL, label: I2C SCL}
+          - VDD
+          - GND
+      - {id: R1, kind: resistor, value: "Rp", unverified: "no value is given in the datasheet"}
+      - {id: R2, kind: resistor, value: "Rp", unverified: "no value is given in the datasheet"}
+    nets:
+      - {name: "+3V3", kind: supply, nodes: [U1.VDD, R1.1, R2.1, U2.VDD]}
+      - {name: GND, kind: ground, nodes: [U1.GND, U2.GND]}
+      - {name: SDA, nodes: [U1.SDA, R1.2, U2.SDA]}
+      - {name: SCL, nodes: [U1.SCL, R2.2, U2.SCL]}
+    unused: [U1.ADDR, U1.IRQn]
+
+  - id: address
+    title: Address selection
+    description: >-
+      The ADDR pin with a 2.7 kΩ resistor to GND selects address 0x2C. Open or GND selects 0x2A, 1.2 kΩ 0x2B and
+      5.6 kΩ 0x2D (5 % resistors). ADDR must never go to VDD.
+    ref: address
+    parts:
+      - {id: U1, kind: chip}
+      - {id: R3, kind: resistor, value: 2.7 kΩ, ref: address}
+    nets:
+      - {name: ADDR, nodes: [U1.ADDR, R3.1]}
+      - {name: GND, kind: ground, nodes: [U1.GND, R3.2]}
+    unused: [U1.SDA, U1.SCL, U1.VDD, U1.IRQn]

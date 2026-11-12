@@ -1,0 +1,19 @@
+---
+# How this repository was made from kokeb-labs/driver-template. The template's drift check
+# (tools/scaffold.py --check-drift, CI: kokeb-labs/ci-tools ru-template-drift) scaffolds the template again
+# with these arguments and compares the files it manages. List a file under `local` only when it differs on
+# purpose, with the reason.
+template: 09edbd7e6b30443a17668cab001e86f3640678b5
+kind: "driver"
+name: "sfm_flow_meter"
+bus: "i2c"
+namespace: "sfm"
+description: "C++20 driver for the Sensirion SFM family of I2C mass flow meters (SFM3000 to SFM6000D)."
+include_root: null
+org: "kokeb-labs-drivers"
+repo: "driver-sfm-flow-meter"
+author: "The driver-sfm-flow-meter authors"
+license: "MIT"
+datasheet: null
+platforms: [host, esp32]
+local: []
