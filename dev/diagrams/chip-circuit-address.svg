@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="435" viewBox="0 0 760 435" role="img" aria-labelledby="chip-circuit-address-title chip-circuit-address-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<title id="chip-circuit-address-title">SFM modules: Address selection</title>
+<desc id="chip-circuit-address-desc">Schematic of the SFM modules address selection: the chip with R3 resistor 2.7 kΩ.</desc>
+<rect x="0.5" y="0.5" width="759" height="434" rx="16" fill="#FFFFFF" stroke="#E2E7EE"/>
+<text x="32" y="44" font-size="12.5" font-weight="700" letter-spacing="1.2" fill="#7A360E">HARDWARE</text>
+<text x="32" y="77.3" font-size="26" font-weight="700" fill="#0E1726">SFM modules: Address selection</text>
+<text x="32" y="103.8" font-size="15" fill="#566070">The ADDR pin with a 2.7 kΩ resistor to GND selects address 0x2C. Open or GND selects</text>
+<text x="32" y="125.5" font-size="15" fill="#566070">0x2A, 1.2 kΩ 0x2B and 5.6 kΩ 0x2D (5 % resistors). ADDR must never go to VDD. Above</text>
+<text x="32" y="147.3" font-size="15" fill="#566070">each MCU wire: the port hook that drives it. Datasheet: 4.1 I2C Address, Table 2, p. 9.</text>
+<rect x="32" y="163.3" width="696" height="1" fill="#E2E7EE"/>
+<path d="M296 245.3 L344 245.3" fill="none" stroke="#2B3442" stroke-width="1.5"/>
+<path d="M392 245.3 L416 245.3" fill="none" stroke="#2B3442" stroke-width="1.5"/>
+<path d="M416 245.3 L416 253.3" fill="none" stroke="#2B3442" stroke-width="1.5"/>
+<rect x="64" y="213.3" width="208" height="152" rx="4" fill="#FFFFFF" stroke="#9A4A17" stroke-width="1.8"/>
+<path d="M272 245.3 L296 245.3" fill="none" stroke="#A21CAF" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M272 285.3 L296 285.3" fill="none" stroke="#2563EB" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M272 309.3 L296 309.3" fill="none" stroke="#2563EB" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M272 333.3 L296 333.3" fill="none" stroke="#15803D" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M168 213.3 L168 189.3" fill="none" stroke="#DB2752" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M168 365.3 L168 389.3" fill="none" stroke="#64748B" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M168 389.3 L168 397.3" fill="none" stroke="#0E1726" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M160 397.3 L176 397.3" fill="none" stroke="#0E1726" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M163 400.8 L173 400.8" fill="none" stroke="#0E1726" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M166 404.3 L170 404.3" fill="none" stroke="#0E1726" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M344 245.3 L357 245.3" fill="none" stroke="#0E1726" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M379 245.3 L392 245.3" fill="none" stroke="#0E1726" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M357 250.3 L379 250.3 L379 240.3 L357 240.3 Z" fill="#FFFFFF" stroke="#0E1726" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M416 253.3 L416 261.3" fill="none" stroke="#0E1726" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M408 261.3 L424 261.3" fill="none" stroke="#0E1726" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M411 264.8 L421 264.8" fill="none" stroke="#0E1726" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M414 268.3 L418 268.3" fill="none" stroke="#0E1726" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M164 193.3 L172 185.3" fill="none" stroke="#566070" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M164 185.3 L172 193.3" fill="none" stroke="#566070" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M292 289.3 L300 281.3" fill="none" stroke="#566070" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M292 281.3 L300 289.3" fill="none" stroke="#566070" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M292 313.3 L300 305.3" fill="none" stroke="#566070" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M292 305.3 L300 313.3" fill="none" stroke="#566070" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M292 337.3 L300 329.3" fill="none" stroke="#566070" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M292 329.3 L300 337.3" fill="none" stroke="#566070" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="266" y="249.8" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#0E1726">ADDR</text>
+<text x="276" y="241.3" font-size="11" fill="#566070">1</text>
+<text x="266" y="289.8" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#0E1726">SDA</text>
+<text x="276" y="281.3" font-size="11" fill="#566070">2</text>
+<text x="266" y="313.8" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#0E1726">SCL</text>
+<text x="276" y="305.3" font-size="11" fill="#566070">5</text>
+<text x="266" y="337.8" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#0E1726">IRQn</text>
+<text x="276" y="329.3" font-size="11" fill="#566070">6</text>
+<text x="168" y="229.3" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="middle" fill="#0E1726">VDD</text>
+<text x="172" y="207.3" font-size="11" fill="#566070">4</text>
+<text x="168" y="358.3" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="middle" fill="#0E1726">GND</text>
+<text x="172" y="380.1" font-size="11" fill="#566070">3</text>
+<text x="168" y="286.3" font-size="15" font-weight="700" text-anchor="middle" fill="#7A360E">SFM modules</text>
+<text x="168" y="304.3" font-size="12" text-anchor="middle" fill="#566070">U1</text>
+<text x="368" y="235.3" font-size="12" font-weight="600" text-anchor="middle" fill="#2B3442">R3  2.7 kΩ</text>
+</svg>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1010" height="853" viewBox="0 0 1010 853" role="img" aria-labelledby="chip-outline-title chip-outline-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<title id="chip-outline-title">SFM modules package, JST NSH 6-pin 1.0 mm connector</title>
+<desc id="chip-outline-desc">Outline of the SFM modules in JST NSH 6-pin 1.0 mm connector drawn to scale from above: body 42.5 x 26.0 mm, pitch 1.0 mm, 6 pins.</desc>
+<rect x="0.5" y="0.5" width="1009" height="852" rx="16" fill="#FFFFFF" stroke="#E2E7EE"/>
+<text x="32" y="44" font-size="12.5" font-weight="700" letter-spacing="1.2" fill="#7A360E">HARDWARE</text>
+<text x="32" y="77.3" font-size="26" font-weight="700" fill="#0E1726">SFM modules package, JST NSH 6-pin 1.0 mm connector</text>
+<text x="32" y="103.8" font-size="15" fill="#566070">Package body from above, to scale, pin 1 marked; arrows give the datasheet's dimensions. The pads are centred on each</text>
+<text x="32" y="125.5" font-size="15" fill="#566070">side at the stated pitch: the land pattern is in the datasheet. Datasheet: 6 Package Outline, Figure 4, p. 18.</text>
+<rect x="32" y="141.6" width="946" height="1" fill="#E2E7EE"/>
+<path d="M532.3 177.6 L566.3 177.6" fill="none" stroke="#8893A2" stroke-width="1" stroke-dasharray="3 3"/>
+<path d="M532.3 737.5 L566.3 737.5" fill="none" stroke="#8893A2" stroke-width="1" stroke-dasharray="3 3"/>
+<path d="M185.7 741.5 L185.7 775.5" fill="none" stroke="#8893A2" stroke-width="1" stroke-dasharray="3 3"/>
+<path d="M528.3 741.5 L528.3 775.5" fill="none" stroke="#8893A2" stroke-width="1" stroke-dasharray="3 3"/>
+<path d="M171.7 424.6 L145.7 424.6" fill="none" stroke="#8893A2" stroke-width="1" stroke-dasharray="3 3"/>
+<path d="M171.7 437.8 L145.7 437.8" fill="none" stroke="#8893A2" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="185.7" y="177.6" width="342.6" height="560" rx="8" fill="#F5F7FA" stroke="#2B3442" stroke-width="2"/>
+<rect x="175.7" y="421" width="10" height="7.2" rx="2" fill="#FDF0FF" stroke="#A21CAF" stroke-width="1.4"/>
+<rect x="175.7" y="434.2" width="10" height="7.2" rx="2" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.4"/>
+<rect x="175.7" y="447.3" width="10" height="7.2" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.4"/>
+<rect x="175.7" y="460.5" width="10" height="7.2" rx="2" fill="#FFEEF2" stroke="#DB2752" stroke-width="1.4"/>
+<rect x="175.7" y="473.7" width="10" height="7.2" rx="2" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.4"/>
+<rect x="175.7" y="486.9" width="10" height="7.2" rx="2" fill="#EAF7EF" stroke="#15803D" stroke-width="1.4"/>
+<circle cx="199.7" cy="191.6" r="6" fill="#2B3442"/>
+<path d="M560.3 177.6 L560.3 737.5" fill="none" stroke="#2B3442" stroke-width="1.2"/>
+<path d="M560.3 177.6 L563.3 184.6 L557.3 184.6 Z" fill="#2B3442"/>
+<path d="M560.3 737.5 L557.3 730.5 L563.3 730.5 Z" fill="#2B3442"/>
+<path d="M185.7 769.5 L528.3 769.5" fill="none" stroke="#2B3442" stroke-width="1.2"/>
+<path d="M185.7 769.5 L192.7 766.5 L192.7 772.5 Z" fill="#2B3442"/>
+<path d="M528.3 769.5 L521.3 772.5 L521.3 766.5 Z" fill="#2B3442"/>
+<path d="M139.7 424.6 L139.7 437.8" fill="none" stroke="#2B3442" stroke-width="1.2"/>
+<path d="M139.7 424.6 L142.7 429 L136.7 429 Z" fill="#2B3442"/>
+<path d="M139.7 437.8 L136.7 433.4 L142.7 433.4 Z" fill="#2B3442"/>
+<text x="357" y="449.6" font-size="20" font-weight="700" text-anchor="middle" fill="#0E1726">SFM modules</text>
+<text x="357" y="471.6" font-size="13" text-anchor="middle" fill="#566070">JST NSH 6-pin 1.0 mm connector</text>
+<text x="570.3" y="462.1" font-size="12.5" font-weight="600" fill="#2B3442">42.5 mm</text>
+<text x="357" y="787.5" font-size="12.5" font-weight="600" text-anchor="middle" fill="#2B3442">26.0 mm</text>
+<text x="129.7" y="435.7" font-size="12.5" font-weight="600" text-anchor="end" fill="#2B3442">pitch 1.0 mm</text>
+<text x="689.2" y="199.6" font-size="22" font-weight="700" fill="#0E1726">42.5 x 26.0 mm</text>
+<text x="689.2" y="227.6" font-size="13.5" fill="#566070">JST NSH 6-pin 1.0 mm connector, 6 pins</text>
+<text x="689.2" y="249.6" font-size="13.5" fill="#566070">Leads reach out of the body</text>
+<text x="689.2" y="271.6" font-size="13.5" fill="#566070">Pitch 1.0 mm</text>
+<text x="689.2" y="293.6" font-size="13.5" fill="#566070">7 other packages: Molex DuraClik</text>
+<text x="689.2" y="315.6" font-size="13.5" fill="#566070">502351-0400, 4-pin, 2.0 mm, JST</text>
+<text x="689.2" y="337.6" font-size="13.5" fill="#566070">B4B-ZR-SM4-TF, 4-pin, JST</text>
+<text x="689.2" y="359.6" font-size="13.5" fill="#566070">B5B-PH-SM4-TBT, 5-pin, JST</text>
+<text x="689.2" y="381.6" font-size="13.5" fill="#566070">BM05B-NSHSS-TBT, 5-pin, 1.0 mm, Molex</text>
+<text x="689.2" y="403.6" font-size="13.5" fill="#566070">Micro-Lock Plus, 6 circuits, 1.25 mm,</text>
+<text x="689.2" y="425.6" font-size="13.5" fill="#566070">6-pad clip-on interface, 8-pin header</text>
+<text x="689.2" y="447.6" font-size="13.5" fill="#566070">(E-Tec SL2-008-SH108/01-55B or Samtec</text>
+<text x="689.2" y="469.6" font-size="13.5" fill="#566070">HTSW-104-07-6.D)</text>
+<rect x="32" y="806.7" width="14" height="14" rx="4" fill="#FFEEF2" stroke="#DB2752" stroke-width="1.4"/>
+<text x="54" y="818.3" font-size="12.5" fill="#566070">power</text>
+<rect x="117.6" y="806.7" width="14" height="14" rx="4" fill="#F1F4F8" stroke="#64748B" stroke-width="1.4"/>
+<text x="139.6" y="818.3" font-size="12.5" fill="#566070">ground</text>
+<rect x="208.5" y="806.7" width="14" height="14" rx="4" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.4"/>
+<text x="230.5" y="818.3" font-size="12.5" fill="#566070">bus</text>
+<rect x="277.4" y="806.7" width="14" height="14" rx="4" fill="#EAF7EF" stroke="#15803D" stroke-width="1.4"/>
+<text x="299.4" y="818.3" font-size="12.5" fill="#566070">digital out</text>
+<rect x="384.9" y="806.7" width="14" height="14" rx="4" fill="#FDF0FF" stroke="#A21CAF" stroke-width="1.4"/>
+<text x="406.9" y="818.3" font-size="12.5" fill="#566070">analog</text>
+</svg>
