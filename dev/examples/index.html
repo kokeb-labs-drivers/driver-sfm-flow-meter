@@ -1130,8 +1130,8 @@
 <p>One folder per platform under <code>examples/</code>, each with its own port, built by CI on every pull request. The driver
 itself has no platform code; <a href="../platforms/">Platforms</a> lists what exists.</p>
 <h2 id="host">Host<a class="headerlink" href="#host" title="Permanent link">&para;</a></h2>
-<p><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/examples/host/README.md"><code>examples/host/</code></a> runs the driver on any PC against a simulated sensor, the model of the
-host tests (<a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/tests/model_sfm.hpp"><code>tests/model_sfm.hpp</code></a>) and its port. It has three scenarios: an SFM4300 mixture
+<p><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/examples/host/README.md"><code>examples/host/</code></a> runs the driver on any PC against a simulated sensor, the model of the
+host tests (<a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/tests/model_sfm.hpp"><code>tests/model_sfm.hpp</code></a>) and its port. It has three scenarios: an SFM4300 mixture
 with blocking calls, an SFM3003 with the application owning the waits, and an SFM3400-AW with the legacy error
 handling. No hardware:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cmake<span class="w"> </span>-S<span class="w"> </span>examples/host<span class="w"> </span>-B<span class="w"> </span>build-example<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cmake<span class="w"> </span>--build<span class="w"> </span>build-example<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>./build-example/sfm_flow_meter_host_example
@@ -1140,8 +1140,8 @@ handling. No hardware:</p>
 <h2 id="esp32">ESP32<a class="headerlink" href="#esp32" title="Permanent link">&para;</a></h2>
 <p>ESP-IDF applications that run the driver on an ESP32-C6. They are compiled by CI and have not been run
 against a sensor. The wiring is in the
-<a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/examples/esp32/README.md">example folder's README</a> and the port in
-<a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/examples/esp32/main/esp32_sfm_flow_meter_port.hpp"><code>esp32_sfm_flow_meter_port.hpp</code></a>. The project points
+<a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/examples/esp32/README.md">example folder's README</a> and the port in
+<a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/examples/esp32/main/esp32_sfm_flow_meter_port.hpp"><code>esp32_sfm_flow_meter_port.hpp</code></a>. The project points
 <code>EXTRA_COMPONENT_DIRS</code> at the repository root, which is the driver's ESP-IDF component.</p>
 <h3 id="the-apps">The apps<a class="headerlink" href="#the-apps" title="Permanent link">&para;</a></h3>
 <!-- generated: examples -->
@@ -1158,19 +1158,19 @@ against a sensor. The wiring is in the
 <tr>
 <td><code>sfm_flow_meter_basic_example</code> <span class="twemoji" title="featured"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.45 4.73L5.82 21z"/></svg></span></td>
 <td>Identify an SFM3003-300-CL, start air and log the flow twice a second (menuconfig options)</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/examples/esp32/main/sfm_flow_meter_basic_example.cpp"><code>sfm_flow_meter_basic_example.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/examples/esp32/main/sfm_flow_meter_basic_example.cpp"><code>sfm_flow_meter_basic_example.cpp</code></a></td>
 <td>yes</td>
 </tr>
 <tr>
 <td><code>sfm_flow_meter_task_example</code></td>
 <td>SFM4300-20-B mixture measurement with the waits owned by a FreeRTOS task and a live oxygen update</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/examples/esp32/main/sfm_flow_meter_task_example.cpp"><code>sfm_flow_meter_task_example.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/examples/esp32/main/sfm_flow_meter_task_example.cpp"><code>sfm_flow_meter_task_example.cpp</code></a></td>
 <td>yes</td>
 </tr>
 <tr>
 <td><code>sfm_flow_meter_legacy_example</code></td>
 <td>SFM3400-AW (legacy command set): flow, temperature and recovery after errors in a row</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/examples/esp32/main/sfm_flow_meter_legacy_example.cpp"><code>sfm_flow_meter_legacy_example.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/examples/esp32/main/sfm_flow_meter_legacy_example.cpp"><code>sfm_flow_meter_legacy_example.cpp</code></a></td>
 <td>yes</td>
 </tr>
 </tbody>
@@ -1179,7 +1179,7 @@ against a sensor. The wiring is in the
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>./scripts/build_app.sh<span class="w"> </span>sfm_flow_meter_basic_example<span class="w"> </span>Release
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>./scripts/flash_app.sh<span class="w"> </span>flash_monitor<span class="w"> </span>sfm_flow_meter_basic_example<span class="w"> </span>Release
 </span></code></pre></div>
-<p>Source of this table: <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/examples/esp32/app_config.yml"><code>examples/esp32/app_config.yml</code></a>.</p>
+<p>Source of this table: <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/examples/esp32/app_config.yml"><code>examples/esp32/app_config.yml</code></a>.</p>
 <!-- /generated -->
 
 <h3 id="set-up-once">Set up once<a class="headerlink" href="#set-up-once" title="Permanent link">&para;</a></h3>
@@ -1188,7 +1188,7 @@ against a sensor. The wiring is in the
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>.<span class="w"> </span><span class="nv">$IDF_PATH</span>/export.sh<span class="w">                                 </span><span class="c1"># ESP-IDF v5.5</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>./scripts/build_app.sh<span class="w"> </span>list<span class="w">                           </span><span class="c1"># every app and build type</span>
 </span></code></pre></div>
-<p>The scripts read <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/examples/esp32/app_config.yml"><code>app_config.yml</code></a> (the same file this page's table comes
+<p>The scripts read <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/examples/esp32/app_config.yml"><code>app_config.yml</code></a> (the same file this page's table comes
 from) and build each app as its own firmware image.</p>
 <h3 id="what-to-read-in-an-example">What to read in an example<a class="headerlink" href="#what-to-read-in-an-example" title="Permanent link">&para;</a></h3>
 <table>
@@ -1217,7 +1217,7 @@ from) and build each app as its own firmware image.</p>
 </tr>
 <tr>
 <td>Use menuconfig values</td>
-<td><code>sfm_flow_meter_kconfig.hpp</code> and <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/_config/Kconfig"><code>_config/Kconfig</code></a></td>
+<td><code>sfm_flow_meter_kconfig.hpp</code> and <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/_config/Kconfig"><code>_config/Kconfig</code></a></td>
 </tr>
 </tbody>
 </table>

@@ -1535,7 +1535,7 @@ of the sensor and its pull-ups together, or make sure the pull-ups cannot back-f
 <p>The SF05 error limit does not cycle the supply from inside <code>ReadSample()</code> (which never waits): at the limit the state
 is <code>StateUnknown</code>, and the caller runs <code>HardReset()</code>, then <code>EnsureInitialized()</code>.</p>
 <h2 id="a-port-on-esp-idf">A port on ESP-IDF<a class="headerlink" href="#a-port-on-esp-idf" title="Permanent link">&para;</a></h2>
-<p><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/examples/esp32/main/esp32_sfm_flow_meter_port.hpp"><code>examples/esp32/main/esp32_sfm_flow_meter_port.hpp</code></a> is a port
+<p><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/examples/esp32/main/esp32_sfm_flow_meter_port.hpp"><code>examples/esp32/main/esp32_sfm_flow_meter_port.hpp</code></a> is a port
 for ESP-IDF's <code>i2c_master</code> with every optional hook: a stretching read, the general call, a supply switch for
 <code>PowerCycle()</code> and a /RES pin, both holding SDA and SCL low, and a bus clear after a timed-out transfer. It is
 compiled by CI and has not been run against a sensor.</p>

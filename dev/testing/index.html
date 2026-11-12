@@ -1205,83 +1205,83 @@ a bench can settle.</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/tests/test_all_parts.cpp"><code>tests/test_all_parts.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/tests/test_all_parts.cpp"><code>tests/test_all_parts.cpp</code></a></td>
 <td>Every one of the 32 variants through the whole life cycle: identify, scaling, start, sample, stop, reset</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/tests/test_parts.cpp"><code>tests/test_parts.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/tests/test_parts.cpp"><code>tests/test_parts.cpp</code></a></td>
 <td>The table against hand-typed datasheet expectations, <code>Validate()</code>, presets, <code>CheckedConfig</code>, the CRC vectors of both initial values</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/tests/test_sf06.cpp"><code>tests/test_sf06.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/tests/test_sf06.cpp"><code>tests/test_sf06.cpp</code></a></td>
 <td>SF06: framing, commands, mixtures, concentration updates, averaging, status checks, sleep and wake, a sensor that NACKs between samples (N = 1 and N = 128 stay <code>Measuring</code>, with and without a clock, 20000 tight reads), device loss only after the silence bound, rejected frames and raw reads keep the silence clock running, no escalation without a clock, the stop time after a reported reset, start-up from a sleeping sensor, NACKed polls are not bus errors, the identifier poll option, no empty write, no soft reset in sleep, stuck lines</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/tests/test_gen2_dual.cpp"><code>tests/test_gen2_dual.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/tests/test_gen2_dual.cpp"><code>tests/test_gen2_dual.cpp</code></a></td>
 <td>SFM3304 (filter argument, status layout) and SFM3505 (24-bit frame, two flows)</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/tests/test_sf05.cpp"><code>tests/test_sf05.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/tests/test_sf05.cpp"><code>tests/test_sf05.cpp</code></a></td>
 <td>Legacy pointer commands, EEPROM scale, first-byte rule, restart before read, temperature by pointer, the two-pointer serial number and the SFM3000 whose 0x31AF is refused, oxygen refused on the SFM3200 and SFM4200 and nitrogen at the air scale where listed, getters cleared after a failed call, the error limit leading to <code>StateUnknown</code> and a caller's <code>HardReset()</code></td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/tests/test_sf04.cpp"><code>tests/test_sf04.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/tests/test_sf04.cpp"><code>tests/test_sf04.cpp</code></a></td>
 <td>SFM4100: trigger bytes, stretching read, one gas per address</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/tests/test_sfx.cpp"><code>tests/test_sfx.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/tests/test_sfx.cpp"><code>tests/test_sfx.cpp</code></a></td>
 <td>SFM6000D: every <code>[P]</code> fact has a test that flips it</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/tests/test_states.cpp"><code>tests/test_states.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/tests/test_states.cpp"><code>tests/test_states.cpp</code></a></td>
 <td>The state machine: every call in every state, <code>Busy</code>, <code>StateUnknown</code>, <code>Poll()</code></td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/tests/test_errors.cpp"><code>tests/test_errors.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/tests/test_errors.cpp"><code>tests/test_errors.cpp</code></a></td>
 <td>The base <code>Error</code> values are 0 to 9; every error value (16 and up) is returned by some call</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/tests/test_kconfig.cpp"><code>tests/test_kconfig.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/tests/test_kconfig.cpp"><code>tests/test_kconfig.cpp</code></a></td>
 <td><code>KconfigDefaults()</code> with and without <code>CONFIG_</code> values</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/tests/test_version.cpp"><code>tests/test_version.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/tests/test_version.cpp"><code>tests/test_version.cpp</code></a></td>
 <td>The version getters follow the generated header (also against a 9.8.7 probe)</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/tests/fuzz/fuzz_sfm_flow_meter.cpp"><code>tests/fuzz/</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/tests/fuzz/fuzz_sfm_flow_meter.cpp"><code>tests/fuzz/</code></a></td>
 <td>The fuzz target; CTest replays its corpus, see below</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/tests/compile_fail/not_a_port.cpp"><code>tests/compile_fail/</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/tests/compile_fail/not_a_port.cpp"><code>tests/compile_fail/</code></a></td>
 <td>Eight pieces of code that must not compile, each for its <code>EXPECT:</code> diagnostic: a class that is not a port, a hook without <code>noexcept</code>, a port without <code>DelayUs()</code> in a blocking call, an invalid <code>CheckedConfig</code>, an SFM4100 object without <code>ReadStretch()</code>, a <code>PowerCycle()</code> returning <code>void</code>, a bad family mask, an enumeration whose last-enumerator trait is missing</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/tests/docs/my_port.hpp"><code>tests/docs/</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/tests/docs/my_port.hpp"><code>tests/docs/</code></a></td>
 <td>Every C++ block of the documentation, compiled (target <code>sfm_flow_meter_doc_snippets</code>)</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/examples/host/README.md"><code>examples/host/</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/examples/host/README.md"><code>examples/host/</code></a></td>
 <td>The host example, built with the test flags and run (<code>sfm_flow_meter_host_example</code>)</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/tests/check_install.cmake"><code>tests/check_install.cmake</code></a></td>
-<td>Installs into a scratch prefix and builds <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/tests/install_consumer/CMakeLists.txt"><code>tests/install_consumer/</code></a> with <code>find_package(sfm_flow_meter)</code></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/tests/check_install.cmake"><code>tests/check_install.cmake</code></a></td>
+<td>Installs into a scratch prefix and builds <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/tests/install_consumer/CMakeLists.txt"><code>tests/install_consumer/</code></a> with <code>find_package(sfm_flow_meter)</code></td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/tests/check_doxygen.cmake"><code>tests/check_doxygen.cmake</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/tests/check_doxygen.cmake"><code>tests/check_doxygen.cmake</code></a></td>
 <td>Doxygen with <code>_config/Doxyfile</code> and warnings as errors, when <code>doxygen</code> is installed</td>
 </tr>
 </tbody>
 </table>
 <h3 id="the-model">The model<a class="headerlink" href="#the-model" title="Permanent link">&para;</a></h3>
-<p><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/tests/model_sfm.hpp"><code>tests/model_sfm.hpp</code></a> is a sensor written as a behaviour, not as a copy of the driver: a
+<p><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/tests/model_sfm.hpp"><code>tests/model_sfm.hpp</code></a> is a sensor written as a behaviour, not as a copy of the driver: a
 <code>Chip</code> that takes a transaction at the bus, decodes it as the datasheet describes, enforces the timing (the first
 sample after a start, the reset and wake times, the half millisecond of the SF05 restart), and keeps a log of every
 transaction. It can NACK reads between samples (<code>no_new_sample</code>, one result every N x 0.5 ms), counts empty writes and
 commands the datasheet forbids in the mode (a soft reset in sleep), and accepts a wake on any write that reaches its
 address. It keeps its own clock of the last frame it delivered (<code>last_served_us</code>) and can refuse the second serial
-pointer (<code>no_serial_low</code>). <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/tests/datasheet_expect.hpp"><code>tests/datasheet_expect.hpp</code></a> holds the expectations of
+pointer (<code>no_serial_low</code>). <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/tests/datasheet_expect.hpp"><code>tests/datasheet_expect.hpp</code></a> holds the expectations of
 each variant typed by hand from the documents (address, scale, offset, span, timing, product identifier), so the table
 in the driver is compared with a second copy and not with itself.</p>
 <p>The model is independent in the way that counts for a typo: it does not include the driver's register or type
@@ -1294,7 +1294,7 @@ serial, a sensor that ignores a stop, a sensor that is gone (<code>dead</code>),
 different from the configured one.</p>
 <h2 id="fuzz-tests">Fuzz tests<a class="headerlink" href="#fuzz-tests" title="Permanent link">&para;</a></h2>
 <p>Everything the driver reads comes from the sensor over the bus, so the data read is what a noisy cable, a wrong part or
-a broken sensor controls. <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/tests/fuzz/fuzz_sfm_flow_meter.cpp"><code>tests/fuzz/fuzz_sfm_flow_meter.cpp</code></a> lets libFuzzer
+a broken sensor controls. <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/tests/fuzz/fuzz_sfm_flow_meter.cpp"><code>tests/fuzz/fuzz_sfm_flow_meter.cpp</code></a> lets libFuzzer
 choose a part, a configuration and a sequence of calls; between the calls it changes the sensor: fails a transfer,
 flips a bit, sticks the line, reports another product identifier or status, resets the sensor under the driver,
 changes the scale it reports and advances the clock. After every call it checks 17 invariants and aborts, naming the
@@ -1327,14 +1327,14 @@ line, when one breaks:</p>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>./build-fuzz/tests/fuzz/fuzz_sfm_flow_meter<span class="w"> </span>-max_total_time<span class="o">=</span><span class="m">120</span><span class="w"> </span>tests/fuzz/corpus/fuzz_sfm_flow_meter
 </span></code></pre></div>
 <p>The same file also builds without libFuzzer as a replay, and CTest replays every input in
-<a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/tree/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/tests/fuzz/corpus/fuzz_sfm_flow_meter"><code>tests/fuzz/corpus/fuzz_sfm_flow_meter/</code></a> on GCC and Clang: the seeds
+<a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/tree/d7b75124f4e722b089f26d87acad611cb19e6e73/tests/fuzz/corpus/fuzz_sfm_flow_meter"><code>tests/fuzz/corpus/fuzz_sfm_flow_meter/</code></a> on GCC and Clang: the seeds
 (one or more per family), and every input that ever broke a promise (name it <code>regress-*</code>), so a fixed bug stays fixed.</p>
 <h2 id="documentation-snippets">Documentation snippets<a class="headerlink" href="#documentation-snippets" title="Permanent link">&para;</a></h2>
-<p>Every C++ block on this site is included from <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/tests/docs/my_port.hpp"><code>tests/docs/</code></a>, which the host build
+<p>Every C++ block on this site is included from <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/tests/docs/my_port.hpp"><code>tests/docs/</code></a>, which the host build
 compiles with the driver instantiated over the documented ports. A change to the API that breaks a page breaks the
 build first. The README's example is a generated copy of the same file; <code>kokeb-docs check</code> fails when it drifts.</p>
 <h2 id="ci-workflows">CI workflows<a class="headerlink" href="#ci-workflows" title="Permanent link">&para;</a></h2>
-<p>Everything runs from <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/.github/workflows/ci.yml"><code>ci.yml</code></a>, which calls one workflow file per check and ends in the
+<p>Everything runs from <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/.github/workflows/ci.yml"><code>ci.yml</code></a>, which calls one workflow file per check and ends in the
 <code>CI gate</code> job, the single required check (<code>CI gate / gate</code>).</p>
 <table>
 <thead>
@@ -1389,7 +1389,7 @@ Until that is done, the claim of this driver is "verified against a model".</p>
 <h2 id="quality-gates">Quality gates<a class="headerlink" href="#quality-gates" title="Permanent link">&para;</a></h2>
 <p>The <code>Host quality</code> job measures the library code, <code>inc/</code> and <code>src/</code> only (tests and examples are left out), and
 fails when a value is over the limits of this repository's assurance level, <code>high</code> (set in
-<a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/.kokeb/handbook.yml"><code>.kokeb/handbook.yml</code></a>, defined by the handbook's ADR-0020):</p>
+<a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/.kokeb/handbook.yml"><code>.kokeb/handbook.yml</code></a>, defined by the handbook's ADR-0020):</p>
 <table>
 <thead>
 <tr>
@@ -1462,10 +1462,10 @@ not the 100 % the <code>safety</code> level asks for.</p>
 </span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>cmake<span class="w"> </span>--build<span class="w"> </span>build-san<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ctest<span class="w"> </span>--test-dir<span class="w"> </span>build-san<span class="w"> </span>--output-on-failure
 </span></code></pre></div>
 <p>The fuzz gate runs locally as shown in <a href="#fuzz-tests">Fuzz tests</a>.</p>
-<p>clang-tidy 20 (<a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/_config/.clang-tidy"><code>_config/.clang-tidy</code></a>: bugprone, CERT, clang-analyzer,
+<p>clang-tidy 20 (<a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/_config/.clang-tidy"><code>_config/.clang-tidy</code></a>: bugprone, CERT, clang-analyzer,
 cppcoreguidelines, modernize, performance, portability and readability, each disabled check with its reason) and
 cppcheck (strict) run in the <code>C++ lint</code> and <code>Repository checks</code> jobs and fail on any finding.</p>
-<p>The <code>MISRA</code> job (<a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/.github/workflows/ci-misra.yml"><code>ci-misra.yml</code></a>) runs the shared <code>ru-misra</code> workflow of
+<p>The <code>MISRA</code> job (<a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/.github/workflows/ci-misra.yml"><code>ci-misra.yml</code></a>) runs the shared <code>ru-misra</code> workflow of
 ci-tools at level <code>high</code>: it traces a host build and the Cortex-M build (<code>sfm_flow_meter_optimised_build</code>) of every
 translation unit, checks them against MISRA C++:2023 and the handbook's C++20 profile (the CodeQL coding-standards
 and profile packs, plus the validated clang-tidy and cppcheck checks), and reports each finding against the

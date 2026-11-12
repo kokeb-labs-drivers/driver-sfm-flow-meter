@@ -1063,15 +1063,15 @@ optional pieces around it, and only <code>examples/&lt;platform&gt;/</code> hold
 <tbody>
 <tr>
 <td>Host (Linux, macOS, Windows)</td>
-<td>the port of the sensor model, <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/tests/model_sfm.hpp"><code>tests/model_sfm.hpp</code></a> (a simulated sensor)</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/examples/host/README.md"><code>examples/host/</code></a></td>
+<td>the port of the sensor model, <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/tests/model_sfm.hpp"><code>tests/model_sfm.hpp</code></a> (a simulated sensor)</td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/examples/host/README.md"><code>examples/host/</code></a></td>
 <td>Plain CMake</td>
 <td>yes, run as a test</td>
 </tr>
 <tr>
 <td>ESP32 (ESP-IDF)</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/examples/esp32/main/esp32_sfm_flow_meter_port.hpp"><code>examples/esp32/main/esp32_sfm_flow_meter_port.hpp</code></a>, every optional hook</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/examples/esp32/README.md"><code>examples/esp32/</code></a>, three apps</td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/examples/esp32/main/esp32_sfm_flow_meter_port.hpp"><code>examples/esp32/main/esp32_sfm_flow_meter_port.hpp</code></a>, every optional hook</td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/examples/esp32/README.md"><code>examples/esp32/</code></a>, three apps</td>
 <td>Root <code>CMakeLists.txt</code> under <code>ESP_PLATFORM</code> (component)</td>
 <td>compiled only; never run on a sensor</td>
 </tr>
@@ -1090,7 +1090,7 @@ repository as a component (a repository scaffolded without the ESP32 platform ad
 template when it needs it). Zephyr modules, Arduino library manifests and PlatformIO manifests are added only when a
 product needs them, and an example is added only together with a CI job that builds it.</p>
 <h2 id="add-a-platform">Add a platform<a class="headerlink" href="#add-a-platform" title="Permanent link">&para;</a></h2>
-<p>The <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/9331ff4849faf4f7dada94e5491fb978bfc7b9f8/.claude/skills/add-port/SKILL.md"><code>add-port</code> skill</a> has
+<p>The <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/d7b75124f4e722b089f26d87acad611cb19e6e73/.claude/skills/add-port/SKILL.md"><code>add-port</code> skill</a> has
 the details per MCU. In short:</p>
 <ol>
 <li>Create <code>examples/&lt;platform&gt;/</code> with the port (<code>&lt;platform&gt;_sfm_flow_meter_port.hpp</code>), a small example program and a
