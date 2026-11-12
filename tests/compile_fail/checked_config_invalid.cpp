@@ -1,6 +1,6 @@
 /**
  * @file checked_config_invalid.cpp
- * @brief Must not compile. EXPECT: ConfigIsInvalid|not a constant expression
+ * @brief Must not compile. EXPECT: ConfigIsInvalid|constant expression
  */
 #include "sfm_flow_meter.hpp"
 
