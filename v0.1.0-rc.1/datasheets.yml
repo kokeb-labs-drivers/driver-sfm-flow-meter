@@ -1,0 +1,514 @@
+---
+# The vendor documents this driver was written against (handbook ADR-0019), and where the driver relies on them.
+# Never commit a PDF: `sha256` identifies the exact file that was used, so a reader can confirm they hold the same
+# revision. `pdf` is a stable direct link when the vendor publishes one; the links below are the vendor's direct
+# download addresses (no login, no bot check). The digests were recomputed with `shasum -a 256` on the files used.
+#
+# The README card, docs/datasheet.md and the "Datasheet" box on each page are generated from this file by
+# tools/docs/generators/datasheet.py (`kokeb-docs gen`).
+#
+# `date` is the date as printed in the document; where the PDF carries none it is the date on the vendor page and
+# says so. Documents of the SFM6000 are preliminary (the vendor says so in the document).
+documents:
+  - id: sfm3000
+    vendor: Sensirion AG
+    title: "SFM3000 digital mass flow meter"
+    kind: Datasheet
+    number: "SFM3000"
+    revision: "2.2"
+    date: "July 2016"
+    url: https://sensirion.com/media/documents/BA2F2B48/616681DC/Sensirion_Mass_Flow_Meters_SFM3000_Datasheet.pdf
+    pdf: null
+    page_offset: 0
+    sha256: "2e29868908c3f5313c9d3381cbdc74e9dbdab35f81116d147f4da626110c4654"
+  - id: sfm3003
+    vendor: Sensirion AG
+    title: "SFM3003 digital mass flow meter"
+    kind: Datasheet
+    number: "SFM3003 D1"
+    revision: "1.1"
+    date: "June 2024"
+    url: https://sensirion.com/media/documents/E351AEF6/66BDAB43/GF_DS_SFM3003.pdf
+    pdf: null
+    page_offset: 0
+    sha256: "735ab7a5b8df25991788bb9e35b16fc77402096c8060f791c9db2983f6faac89"
+  - id: sfm3003cet
+    vendor: Sensirion AG
+    title: "SFM3003-300-CET digital mass flow meter"
+    kind: Datasheet
+    number: "SFM3003-300-CET"
+    revision: "1.0"
+    date: "April 2022"
+    url: https://sensirion.com/media/documents/879F57CF/62975EDE/Senirion_Datasheet_SFM3003-300-CET.pdf
+    pdf: null
+    page_offset: 0
+    sha256: "1202f25aa86bb544ecc5e49a245d3f1fefe299b167f0902cb5e72d5fc6676434"
+  - id: sfm3013
+    vendor: Sensirion AG
+    title: "SFM3013 digital mass flow meter"
+    kind: Datasheet
+    number: "SFM3013 D3"
+    revision: "1.1"
+    date: "June 2024"
+    url: https://sensirion.com/media/documents/1018F46C/66BDAB5A/GF_DS_SFM3013.pdf
+    pdf: null
+    page_offset: 0
+    sha256: "a0ee3acf1bbd22e8e9f988ae7a0f28099beeab80d2775f80ff60909e8724003b"
+  - id: sfm3019
+    vendor: Sensirion AG
+    title: "SFM3019 digital mass flow meter"
+    kind: Datasheet
+    number: "SFM3019 D1"
+    revision: "1.3"
+    date: "not printed (vendor page: 08/2024)"
+    url: https://sensirion.com/media/documents/527C8187/6AE9A71D/Sensirion_Datasheet_SFM3019_EN.pdf
+    pdf: null
+    page_offset: 0
+    sha256: "d9c1b2e92f113a3f75a1b3dc7a3b5f552b3963a748ee919191a209bc6214d510"
+  - id: sfm3020
+    vendor: Sensirion AG
+    title: "SFM3020 analog mass flow meter (reviewed, not supported)"
+    kind: Datasheet
+    number: "SFM3020"
+    revision: "1.2"
+    date: "not printed"
+    url: https://sensirion.com/media/documents/3CBC9FC5/6AE9A6F1/Sensirion_Datasheet_SFM3020_EN.pdf
+    pdf: null
+    page_offset: 0
+    sha256: "13d7ade4def1e7ff884b54784b97001cdc26c8f5402e25fbc3d5ecbb34077451"
+  - id: sfm3100
+    vendor: Sensirion AG
+    title: "SFM3100 analog mass flow meter (reviewed, not supported)"
+    kind: Datasheet
+    number: "SFM3100"
+    revision: "1.5"
+    date: "not printed (vendor page: 08/2026)"
+    url: https://sensirion.com/media/documents/27637785/6A71EB6F/GF_DS_SFM3100.pdf
+    pdf: null
+    page_offset: 0
+    sha256: "6a9b7f4e28e003419fe0d8c62fbad4017d1d57f1caaff87bd97916f7d0b8680f"
+  - id: sfm3119
+    vendor: Sensirion AG
+    title: "SFM3119 digital mass flow meter"
+    kind: Datasheet
+    number: "SFM3119 D1"
+    revision: "1.3"
+    date: "September 2023"
+    url: https://sensirion.com/media/documents/559B741F/651C2866/GF_DS_SFM3119_v1_3.pdf
+    pdf: null
+    page_offset: 0
+    sha256: "0ba4486614528477e0fd7b19ed872375eeeb2039a8ab29f734a57c24a1c2698d"
+  - id: sfm3200
+    vendor: Sensirion AG
+    title: "SFM3200 digital mass flow meter"
+    kind: Datasheet
+    number: "SFM3200"
+    revision: "1.1"
+    date: "May 2017"
+    url: https://sensirion.com/media/documents/70FC8320/62962251/GF_DS_SFM3200.pdf
+    pdf: https://sensirion.com/media/documents/70FC8320/62962251/GF_DS_SFM3200.pdf
+    page_offset: 0
+    sha256: "02bee98ec63a88656dfbb7a16c7e036ea1ea1025467a7b98c400703b78f67ca2"
+  - id: sfm3200aw
+    vendor: Sensirion AG
+    title: "SFM3200-AW digital mass flow meter"
+    kind: Datasheet
+    number: "SFM3200-AW"
+    revision: "1.1"
+    date: "March 2022"
+    url: https://sensirion.com/media/documents/CF8EB396/62D12B6B/Sensirion_Datasheet_SFM3200-AW.pdf
+    pdf: null
+    page_offset: 0
+    sha256: "de9cf028a1fe8a5caed50644aa5ed279c8b26cca447908afcb9450232e91aa4c"
+  - id: sfm3300
+    vendor: Sensirion AG
+    title: "SFM3300-D and SFM3300-AW digital mass flow meters"
+    kind: Datasheet
+    number: "SFM3300"
+    revision: "1.4"
+    date: "March 2022"
+    url: https://sensirion.com/media/documents/8ECF0D28/62D13110/Sensirion_Datasheet_SFM3300-AW_SFM3300-D.pdf
+    pdf: null
+    page_offset: 0
+    sha256: "f7c20973d659290345ac1ac725da5c46c57924b255d64d14754aaac3c8bbd1b8"
+  - id: sfm3304
+    vendor: Sensirion AG
+    title: "SFM3304-xxx-D digital mass flow meter"
+    kind: Datasheet
+    number: "SFM3304"
+    revision: "1.3"
+    date: "not printed (vendor page: 09/2026)"
+    url: https://sensirion.com/media/documents/8C3FC034/6AA3DD2E/GF_DS_SFM3304-xxx-D.pdf
+    pdf: https://sensirion.com/media/documents/8C3FC034/6AA3DD2E/GF_DS_SFM3304-xxx-D.pdf
+    page_offset: 0
+    sha256: "5cb6f4ac1951e6e64ee85e1202182bd998d9734bd185ccb97eced7cd4130818c"
+  - id: sfm33xx_transition
+    vendor: Sensirion AG
+    title: "Transition guide SFM3300-250-D to SFM3304-250-D"
+    kind: Application note
+    number: "SFM3300-SFM3304 transition"
+    revision: "1"
+    date: "not printed (vendor page: 10/2026)"
+    url: https://sensirion.com/media/documents/194FE050/6AE46AF4/Sensirion_application_note_transition_guide_GF_AN_SFM3300_SFM3304_EN.pdf
+    pdf: null
+    page_offset: 0
+    sha256: "79ed3307bd97b1426d759a4b1ab1950857f907c0455d68a0c638707371459a44"
+  - id: sfm3400
+    vendor: Sensirion AG
+    title: "SFM3400-AW and SFM3400-D digital mass flow meters"
+    kind: Datasheet
+    number: "SFM3400"
+    revision: "1.5"
+    date: "January 2024"
+    url: https://sensirion.com/media/documents/9EE7E5FF/659D365C/GF_DS_SFM3400AW_SFM3400D.pdf
+    pdf: null
+    page_offset: 0
+    sha256: "5213e5e768f4ebd93593241d346c091ca382196d2062b0300ea158ae85071d23"
+  - id: sfm3505
+    vendor: Sensirion AG
+    title: "SFM3505 digital mass flow meter"
+    kind: Datasheet
+    number: "SFM3505 D3"
+    revision: "1.0"
+    date: "October 2025"
+    url: https://sensirion.com/media/documents/03EE880B/68F8CF90/GF_DS_SFM3505.pdf
+    pdf: https://sensirion.com/media/documents/03EE880B/68F8CF90/GF_DS_SFM3505.pdf
+    page_offset: 0
+    sha256: "8d378b626e7ad4bf476d850ac3787132a3a97d6b3de8bc2d955ff08cd3ace867"
+  - id: sfm4100
+    vendor: Sensirion AG
+    title: "SFM4100 series digital mass flow meters"
+    kind: Datasheet
+    number: "SFM4100"
+    revision: "1.4"
+    date: "January 2024"
+    url: https://sensirion.com/media/documents/6A24D8A6/65A002E6/GF_DS_SFM4100.pdf
+    pdf: https://sensirion.com/media/documents/6A24D8A6/65A002E6/GF_DS_SFM4100.pdf
+    page_offset: 0
+    sha256: "88ec21b5ddc862a7367fd2c70a14601987d4f7785c2bf252eede4e954143db59"
+  - id: sfm4100_crc
+    vendor: Sensirion AG
+    title: "CRC calculation for the SFM4100"
+    kind: Application note
+    number: "SFM4100 CRC"
+    revision: "1.0"
+    date: "June 2009"
+    url: https://sensirion.com/media/documents/FA1A9B3B/6165B558/Sensirion_Mass_Flow_Meters_CRC_Calculation_V1_1.pdf
+    pdf: https://sensirion.com/media/documents/FA1A9B3B/6165B558/Sensirion_Mass_Flow_Meters_CRC_Calculation_V1_1.pdf
+    page_offset: 0
+    sha256: "cbc9c48f190ea7daffd5a9f048555767b5eb83e799438387654ec448c8147787"
+  - id: sfm4100_sample
+    vendor: Sensirion AG
+    title: "SFM4100 sample code"
+    kind: Application note
+    number: "SFM4100 sample code"
+    revision: "1.0"
+    date: "July 2009"
+    url: https://sensirion.com/media/documents/4E4E4F83/617C06E2/Sensirion_Mass_Flow_Meters_Software_SFM4100_Sample_Code.pdf
+    pdf: null
+    page_offset: 0
+    sha256: "ec8370b9b186167eb970a5004811e8ae3ab2c082caff03d16898bf1ea93b6e91"
+  - id: sfm4200
+    vendor: Sensirion AG
+    title: "SFM4200 digital mass flow meter"
+    kind: Datasheet
+    number: "SFM4200 D1"
+    revision: "1.2"
+    date: "August 2018"
+    url: https://sensirion.com/media/documents/7AA39BF4/65436B98/GF_DS_SFM4200-v1.2-D1.pdf
+    pdf: null
+    page_offset: 0
+    sha256: "4e72f7be81414f7971691ce595e01fa142d90a2a9fbfe2238caa65d43f884352"
+  - id: sfm4300
+    vendor: Sensirion AG
+    title: "SFM4300 series digital mass flow meters"
+    kind: Datasheet
+    number: "SFM4300 D1"
+    revision: "1.0"
+    date: "April 2022"
+    url: https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf
+    pdf: https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf
+    page_offset: 0
+    sha256: "51d3c45adeef518764a413d46624dffc5c6ce7388b3456c8998342c6f33684ec"
+  - id: sfm5300_2016
+    vendor: Sensirion AG
+    title: "SFC5300 and SFM5300 (2016; reviewed, not supported)"
+    kind: Datasheet
+    number: "SFM5300 (2016)"
+    revision: "not printed"
+    date: "2016"
+    url: https://sensirion.com/media/documents/58AAFA86/61668D0A/Sensirion_Mass_Flow_Meters_SFM5300_Datasheet.pdf
+    pdf: null
+    page_offset: 0
+    sha256: "73f8e01e632fc277fe20335117b6cc8e2694a61b0b2d2bd49a5a8c6a15e404ef"
+  - id: sfx53x0
+    vendor: Sensirion AG
+    title: "SFC5300/SFM5300 and SFC5330/SFM5330 (reviewed, not supported)"
+    kind: Datasheet
+    number: "SFx53x0"
+    revision: "05/2023"
+    date: "May 2023"
+    url: https://sensirion.com/media/documents/3B14FBDD/645220AD/GF_DS_SFC53x0_SFM53x0.pdf
+    pdf: null
+    page_offset: 0
+    sha256: "a74155724e53b55c6696cfbd187fc4c78137d5ad5a069e08bde1240cc28dfdc0"
+  - id: sfx5400
+    vendor: Sensirion AG
+    title: "SFC5400 and SFM5400 (reviewed, not supported)"
+    kind: Datasheet
+    number: "SFx5400"
+    revision: "05/2023"
+    date: "May 2023"
+    url: https://sensirion.com/media/documents/AF658E7B/645221C1/GF_DS_SFC5400_SFM5400.pdf
+    pdf: null
+    page_offset: 0
+    sha256: "b0072f8b78af49be3abca9d42ca5960be4676f4aeb64fada8c46c853bb3b4907"
+  - id: sfx5460
+    vendor: Sensirion AG
+    title: "SFC5460 and SFM5460 (reviewed, not supported)"
+    kind: Datasheet
+    number: "SFx5460"
+    revision: "05/2023"
+    date: "May 2023"
+    url: https://sensirion.com/media/documents/68F6FE26/64522277/GF_DS_SFC5460_SFM5460.pdf
+    pdf: null
+    page_offset: 0
+    sha256: "74e6d4a3568a2bc9fb3bfe5758f12fefb46e340c7108578fa1c2287d5a9b99c3"
+  - id: sfx5500
+    vendor: Sensirion AG
+    title: "SFC5500 and SFM5500 (reviewed, not supported)"
+    kind: Datasheet
+    number: "SFx5500"
+    revision: "02/2024"
+    date: "February 2024"
+    url: https://sensirion.com/media/documents/92E99F10/65CDCACE/GF_DS_SFC5500_SFM5500_003.pdf
+    pdf: null
+    page_offset: 0
+    sha256: "a41a5c4910e15b458642da87a3bfd1159b3bb89ee44f221a512ac88c87ac9c71"
+  - id: sfx5_shdlc
+    vendor: Sensirion AG
+    title: "SFC5xxx SHDLC interface reference (reviewed, not supported)"
+    kind: Reference manual
+    number: "SFC5xxx SHDLC"
+    revision: "1.9"
+    date: "October 2015"
+    url: https://sensirion.com/media/documents/B3F417D2/61F8E792/GF_AN_SFC5xxx_ShdlcInterfaceReference_V1_9_D1.pdf
+    pdf: null
+    page_offset: 0
+    sha256: "e32f664a72a8d9cb008fa820209ae5d966ab08ab18cc6fda23230a0379852f94"
+  - id: sfx6000d
+    vendor: Sensirion AG
+    title: "SFC6000D and SFM6000D digital mass flow meters"
+    kind: Datasheet
+    number: "SFx6000D D1"
+    revision: "1.1"
+    date: "May 2023"
+    url: https://sensirion.com/media/documents/442A3611/64958B2C/DS_SFC6000D_SFM6000D.pdf
+    pdf: null
+    page_offset: 0
+    sha256: "4e633254f7b26694059da5785d90946dfa9a424ae159f7206858998f9a54b870"
+  - id: sfx6000_i2c
+    vendor: Sensirion AG
+    title: "SFC6xxx/SFM6xxx I2C interface reference (preliminary)"
+    kind: Reference manual
+    number: "SFx6000 I2C"
+    revision: "1.1"
+    date: "not printed (vendor page: 07/2023)"
+    url: https://sensirion.com/media/documents/3D857436/65156AC0/GF_AN_SFC6xxx_I2C_InterfaceReference1.1.pdf
+    pdf: https://sensirion.com/media/documents/3D857436/65156AC0/GF_AN_SFC6xxx_I2C_InterfaceReference1.1.pdf
+    page_offset: 0
+    sha256: "6a6e9f48ec98cbeba48a5ba9a610e2d9d89d09b1faee55c23fb20c7b0defa051"
+  - id: sfx6000_shdlc
+    vendor: Sensirion AG
+    title: "SFC6xxx/SFM6xxx RS485 SHDLC guide (reviewed, not supported)"
+    kind: Reference manual
+    number: "SFx6000 SHDLC"
+    revision: "1.1"
+    date: "not printed"
+    url: https://sensirion.com/media/documents/88CA2961/65156AEC/GF_AN_SFX6000_SHDLCGuide1.1.pdf
+    pdf: null
+    page_offset: 0
+    sha256: "13d23c87e3cc79363bf7101ce0c4379485c499f94a3a11e12e0aa3bd18b8f286"
+  - id: sfm_an05_i2c
+    vendor: Sensirion AG
+    title: "SFM-05 I2C functional description for the SFM3x00 series"
+    kind: Application note
+    number: "SFM-05"
+    revision: "not printed (vendor page: 10/2026)"
+    date: "not printed"
+    url: https://sensirion.com/media/documents/BE7405C4/6AC34DFB/GF_AN_SFM-05_I2C_Functional_Description.pdf
+    pdf: https://sensirion.com/media/documents/BE7405C4/6AC34DFB/GF_AN_SFM-05_I2C_Functional_Description.pdf
+    page_offset: 0
+    sha256: "f45cd8d3d8ef50655dd70139b6020a0a85c1dc3c1a1aa09b446c4308e272730d"
+  - id: sfm_an04_crc
+    vendor: Sensirion AG
+    title: "SFM-04 CRC checksum"
+    kind: Application note
+    number: "SFM-04 D1"
+    revision: "not printed"
+    date: "not printed (vendor page: 01/2020)"
+    url: https://sensirion.com/media/documents/1E3CD1FF/6165AFE4/Sensirion_GF_AN_SFM-04_CRC_Checksum_D1.pdf
+    pdf: null
+    page_offset: 0
+    sha256: "066f8e4631cbdd8ef87dd1f14d4a0abb1effe42b85d050bc94a6f999afb0b557"
+  - id: sfm_eng_guide
+    vendor: Sensirion AG
+    title: "SFM-01 engineering guidelines for mass flow meters"
+    kind: Application note
+    number: "SFM-01"
+    revision: "not printed"
+    date: "not printed"
+    url: https://sensirion.com/media/documents/1DDDD810/61669D98/Sensirion_GF_AN_SFM-01_Engineering_Guidelines_For_Mass_Flow_Meters_D.pdf
+    pdf: null
+    page_offset: 0
+    sha256: "f3b68ecd39b3feeaf1e678183e1576334a117de4259d43b6938901c95267fb8d"
+
+# One row per thing the driver takes from a document: the datasheet's own section names and printed page
+# numbers, the driver API that implements it, and the docs pages that explain it (file names in docs/).
+# Pages are the printed page numbers of the SFM4300 (D1, v1.0) unless the row names another document; the SFM3xxx
+# datasheets repeat these sections. A fact only one part has is named in the row.
+topics:
+  - topic: I2C address and bus
+    doc: sfm4300
+    section: 4 Digital interface description; 4.1 I2C address
+    page: 9
+    driver: "`I2cInterface`, `I2cPort`, `Config::address`, `PartInfo::address`"
+    docs: [hardware, porting, architecture]
+  - topic: Command framing and read framing
+    doc: sfm4300
+    section: 4.2 I2C sequences
+    page: 9
+    driver: "`Write()`, `Read()`, `detail::ParseWords()`"
+    docs: [porting, architecture, contract]
+  - topic: CRC-8 of every word
+    doc: sfm4300
+    section: 4.4 Checksum calculation, Table 14
+    page: 15
+    driver: "`reg::Crc8()`, `Error::Crc`, `reg::CrcVectorsHold()`"
+    docs: [contract, testing, troubleshooting]
+  - topic: Start measurement, results and the NACK of a read without data
+    doc: sfm4300
+    section: 4.3.1 Start continuous measurement
+    page: 10
+    driver: "`StartMeasurement()`, `ReadSample()`, `Error::NoData`, `Error::DeviceReset`"
+    docs: [quickstart, api-guide, architecture, troubleshooting]
+  - topic: Status word
+    doc: sfm4300
+    section: 4.3.2 Read measurement results, Table 5
+    page: 11
+    driver: "`Sample::status`, `Error::StatusMismatch`"
+    docs: [api-guide, contract, troubleshooting]
+  - topic: Concentration update
+    doc: sfm4300
+    section: 4.3.3 Update concentration
+    page: 11
+    driver: "`UpdateConcentration()`, `Gas::AirO2`, `Sample::o2_permille`"
+    docs: [api-guide, configuration]
+  - topic: Stop measurement
+    doc: sfm4300
+    section: 4.3.4 Stop continuous measurement
+    page: 12
+    driver: "`Stop()`, `State::Measuring`, `State::StateUnknown`"
+    docs: [api-guide, architecture, contract]
+  - topic: Averaging
+    doc: sfm4300
+    section: 3.1 Measurement modes; 4.3.5 Configure averaging
+    page: 12
+    driver: "`SetAveraging()`, `Config::averaging`, `Sample::smoothed`"
+    docs: [api-guide, configuration]
+  - topic: Scale factor, offset and unit
+    doc: sfm4300
+    section: 4.3.6 Read scale factor, offset and flow unit; 4.5 Unit conversion
+    page: 13
+    driver: "`ReadScaling()`, `ScalingInfo`, `Sample::flow_ml_per_min`"
+    docs: [api-guide, configuration, contract]
+  - topic: Soft reset (general call)
+    doc: sfm4300
+    section: 4.3.7 Soft reset
+    page: 13
+    driver: "`SoftReset()`, `WriteGeneralCall()`, `Config::allow_general_call_reset`"
+    docs: [api-guide, contract, porting, hardware]
+  - topic: Sleep and wake-up
+    doc: sfm4300
+    section: 4.3.8 Entering and exiting sleep mode
+    page: 14
+    driver: "`Sleep()`, `WakeUp()`, `State::Asleep`"
+    docs: [api-guide, architecture]
+  - topic: Product identifier and serial number
+    doc: sfm4300
+    section: 4.3.9 Read product identifier, Table 13
+    page: 15
+    driver: "`BeginInitialize()`, `GetProductInfo()`, `Error::DeviceIdMismatch`"
+    docs: [quickstart, api-guide, configuration, troubleshooting]
+  - topic: IRQn and start-up behaviour
+    doc: sfm4300
+    section: 3.2 Sensor start-up and warm-up; 3.3 IRQn
+    page: 8
+    driver: "`Sample::settled`, `Config::require_settled`, `Error::DeviceReset`"
+    docs: [hardware, architecture, troubleshooting]
+  - topic: Timing (reset, first sample, wake-up, stop)
+    doc: sfm4300
+    section: 2.4 Timing specification
+    page: 5
+    driver: "`Config::timing`, `TimingPolicy`, `Wait`, `DelayUs()`"
+    docs: [hardware, porting, architecture]
+  - topic: Electrical specification and limits
+    doc: sfm4300
+    section: 2.3 Electrical specification; 2.7 Absolute maximum ratings
+    page: 5
+    driver: "-"
+    docs: [hardware]
+  - topic: Connector and pins
+    doc: sfm4300
+    section: 2.8 Electrical connection, Table 1
+    page: 6
+    driver: "-"
+    docs: [hardware]
+  - topic: Fluidics, fittings and outline
+    doc: sfm4300
+    section: 5 Fluidic specifications; 6 Package outline
+    page: 17
+    driver: "-"
+    docs: [hardware]
+  - topic: Gen2 start with a filter argument and its status layout
+    doc: sfm3304
+    section: Digital interface description (start 0x3603 with filter, status word)
+    page: 11
+    driver: "`Family::Sf06Gen2`, `Config::filter_enabled`, `Config::filter`"
+    docs: [api-guide, architecture]
+  - topic: Dual-gas frame of 24 bits
+    doc: sfm3505
+    section: Digital interface description (24-bit frame, commands)
+    page: 10
+    driver: "`Family::Sf06Dual`, `Sample::flow2_ml_per_min`, `Sample::has_flow2`"
+    docs: [api-guide, architecture, configuration]
+  - topic: Legacy command set with pointer registers (Sf05)
+    doc: sfm_an05_i2c
+    section: I2C functional description (commands, EEPROM, serial, CRC)
+    page: 4
+    driver: "`Family::Sf05`, `ProductInfo::serial`, `reg::kSf05Serial`"
+    docs: [api-guide, architecture, contract, troubleshooting]
+  - topic: Sf05 reset, restart and first read
+    doc: sfm3200
+    section: Digital interface (soft reset 80 ms, restart before read)
+    page: 5
+    driver: "`Config::restart_before_read`, `Config::consecutive_error_limit`"
+    docs: [architecture, configuration, hardware]
+  - topic: Sf04 trigger bytes and the hold-master read
+    doc: sfm4100
+    section: Digital interface (trigger, clock stretching, address per gas)
+    page: 4
+    driver: "`Family::Sf04`, `ReadStretch()`, `kClockStretch`"
+    docs: [porting, architecture, api-guide, hardware]
+  - topic: Sf04 CRC
+    doc: sfm4100_crc
+    section: CRC calculation
+    page: 2
+    driver: "`reg::Crc8()` with init 0x00"
+    docs: [contract, testing]
+  - topic: Sfx6000 frame, start codes and addresses (preliminary)
+    doc: sfx6000_i2c
+    section: I2C interface reference (preliminary)
+    page: 6
+    driver: "`Family::Sfx6000`, `Variant::SFM6000D_50`, `Capabilities::preliminary`"
+    docs: [api-guide, configuration, contract, troubleshooting]
