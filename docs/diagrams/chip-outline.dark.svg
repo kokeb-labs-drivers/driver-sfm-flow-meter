@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1010" height="853" viewBox="0 0 1010 853" role="img" aria-labelledby="chip-outline-title chip-outline-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
-<title id="chip-outline-title">SFM modules package, JST NSH 6-pin 1.0 mm connector</title>
-<desc id="chip-outline-desc">Outline of the SFM modules in JST NSH 6-pin 1.0 mm connector drawn to scale from above: body 42.5 x 26.0 mm, pitch 1.0 mm, 6 pins.</desc>
+<title id="chip-outline-title">SFM flow meter package, JST NSH 6-pin connector</title>
+<desc id="chip-outline-desc">Outline of the SFM flow meter in JST NSH 6-pin connector drawn to scale from above: body 42.5 x 26.0 mm, pitch 1.0 mm, 6 pins.</desc>
 <rect x="0.5" y="0.5" width="1009" height="852" rx="16" fill="#0E131A" stroke="#283241"/>
 <text x="32" y="44" font-size="12.5" font-weight="700" letter-spacing="1.2" fill="#F8D27A">HARDWARE</text>
-<text x="32" y="77.3" font-size="26" font-weight="700" fill="#E8EDF3">SFM modules package, JST NSH 6-pin 1.0 mm connector</text>
+<text x="32" y="77.3" font-size="26" font-weight="700" fill="#E8EDF3">SFM flow meter package, JST NSH 6-pin connector</text>
 <text x="32" y="103.8" font-size="15" fill="#9AA6B5">Package body from above, to scale, pin 1 marked; arrows give the datasheet's dimensions. The pads are centred on each</text>
 <text x="32" y="125.5" font-size="15" fill="#9AA6B5">side at the stated pitch: the land pattern is in the datasheet. Datasheet: 6 Package Outline, Figure 4, p. 18.</text>
 <rect x="32" y="141.6" width="946" height="1" fill="#252F3C"/>
@@ -30,13 +30,13 @@
 <path d="M139.7 424.6 L139.7 437.8" fill="none" stroke="#D2DAE4" stroke-width="1.2"/>
 <path d="M139.7 424.6 L142.7 429 L136.7 429 Z" fill="#D2DAE4"/>
 <path d="M139.7 437.8 L136.7 433.4 L142.7 433.4 Z" fill="#D2DAE4"/>
-<text x="357" y="449.6" font-size="20" font-weight="700" text-anchor="middle" fill="#E8EDF3">SFM modules</text>
-<text x="357" y="471.6" font-size="13" text-anchor="middle" fill="#9AA6B5">JST NSH 6-pin 1.0 mm connector</text>
+<text x="357" y="449.6" font-size="20" font-weight="700" text-anchor="middle" fill="#E8EDF3">SFM flow meter</text>
+<text x="357" y="471.6" font-size="13" text-anchor="middle" fill="#9AA6B5">JST NSH 6-pin connector</text>
 <text x="570.3" y="462.1" font-size="12.5" font-weight="600" fill="#D2DAE4">42.5 mm</text>
 <text x="357" y="787.5" font-size="12.5" font-weight="600" text-anchor="middle" fill="#D2DAE4">26.0 mm</text>
 <text x="129.7" y="435.7" font-size="12.5" font-weight="600" text-anchor="end" fill="#D2DAE4">pitch 1.0 mm</text>
 <text x="689.2" y="199.6" font-size="22" font-weight="700" fill="#E8EDF3">42.5 x 26.0 mm</text>
-<text x="689.2" y="227.6" font-size="13.5" fill="#9AA6B5">JST NSH 6-pin 1.0 mm connector, 6 pins</text>
+<text x="689.2" y="227.6" font-size="13.5" fill="#9AA6B5">JST NSH 6-pin connector, 6 pins</text>
 <text x="689.2" y="249.6" font-size="13.5" fill="#9AA6B5">Leads reach out of the body</text>
 <text x="689.2" y="271.6" font-size="13.5" fill="#9AA6B5">Pitch 1.0 mm</text>
 <text x="689.2" y="293.6" font-size="13.5" fill="#9AA6B5">7 other packages: Molex DuraClik</text>

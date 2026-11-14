@@ -1,5 +1,12 @@
 # SFM Flow Meter Driver
 
+<!-- generated: chip-summary -->
+The **SFM flow meter** is a family of digital gas mass flow sensors on I2C: each part reports the flow of its calibrated
+gases and gas mixtures and its own temperature as 16-bit words, and the reference SFM4300 does so for air, oxygen,
+nitrous oxide and carbon dioxide (Product Summary, [p.
+1](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=1)).
+<!-- /generated -->
+
 C++20 driver for the Sensirion SFM digital mass flow meters on I2C (SFM3000 to SFM6000D).
 
 [![CI](https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/actions/workflows/ci.yml)
@@ -9,75 +16,105 @@ C++20 driver for the Sensirion SFM digital mass flow meters on I2C (SFM3000 to S
 **Documentation: [`docs/`](docs/index.md)**, with the API reference built by Doxygen ([how](docs/api-reference.md)).
 The site at <https://kokeb-labs-drivers.github.io/driver-sfm-flow-meter/> opens when the repository is public.
 
-One driver for 32 variants of the Sensirion SFM family: the SFM4300, SFM3003 (with -CET), SFM3013, SFM3019 and SFM3119,
-the SFM3304, the SFM3505, the legacy SFM3000, SFM3200, SFM3300, SFM3400, SFM4200 and SFM4100, and the preliminary
-SFM6000D. It identifies the part, checks the sensor's scaling against the datasheet, starts a gas or a gas mixture,
-returns the flow in millilitres per minute with every word CRC-checked, and turns status words, NACKs and resets into
-errors you can act on. It runs on any MCU: you give it a small class that moves bytes on your I2C bus, and it does
-the rest.
-
 > [!WARNING]
 > Not a safety device, not verified on hardware. The vendor states that these sensors are not designed for
 > safety-critical use unless the datasheet says so. This driver is verified against a model of the sensor only, and
 > the SFM6000D protocol is preliminary. See [the contract](docs/contract.md#what-is-not-verified).
 
-<!-- figure: driver-layers -->
+<!-- figure: chip-hero -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/diagrams/driver-layers.dark.svg">
-  <img src="docs/diagrams/driver-layers.svg"
-    alt="Layer diagram: your application calls the SfmFlowMeter core, which sends register reads and writes
-    through the I2C port contract to the port class you write, which drives the chip; the core and the
-    contract are the same on every MCU.">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/diagrams/chip-hero.dark.svg">
+  <img src="docs/diagrams/chip-hero.svg"
+    alt="Overview of the SFM flow meter, a family of digital gas mass flow sensors on I2C: each part reports
+    the flow of its calibrated gases and gas mixtures and its own temperature as 16-bit words, and the
+    reference SFM4300 does so for air, oxygen, nitrous oxide and carbon dioxide. A MCU talks to it over
+    I2C; it reads back Gas flow, Sensor temperature. Headline figures: 20 or 50 slm SFM4300 flow range;
+    3.0 to 5.5 V SFM4300 supply; 1 MHz I2C clock at most; 2 kHz flow update rate, no averaging.">
 </picture>
 <!-- /figure -->
 
-## At a glance
+## What it does
 
-| | |
-| --- | --- |
-| **Sensors** | Sensirion SFM3000, SFM3200, SFM3300, SFM3400, SFM3003, SFM3013, SFM3019, SFM3119, SFM3304, SFM3505, SFM4100, SFM4200, SFM4300, SFM6000D (preliminary): 32 variants |
-| **Measures** | Gas mass flow and the temperature the sensor reports (its silicon; on the SFM3003-300-CET a gas temperature sensor in the flow channel), as signed integers in millilitres per minute and milli-degrees |
-| **Bus** | I2C, 100 kHz to 1 MHz by part; raw command words, 16-bit words each followed by a CRC-8 |
-| **Families** | SF06 (5 parts), SF06 gen 2, SF06 dual, SF05, SF04, SFx6000 |
-| **Driver** | Header-only C++20; no heap, exceptions, RTTI or virtual calls; every call returns `Result<T>`; calls that wait return the wait |
-| **Runs on** | Any MCU with I2C and a C++20 compiler; the host example runs on any PC ([Platforms](docs/platforms.md)) |
-| **Status** | 0.1.0, not yet verified on hardware: host-tested against a model of each variant |
-
-The hardware is described as modules with a connector. The reference module is the SFM4300 with its six-pin
-connector; the other connectors, the addresses, supply ranges and timings of every variant are on the
-[Hardware page](docs/hardware.md).
-
-<!-- figure: chip-pinout -->
+<!-- figure: chip-capabilities -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/diagrams/chip-pinout.dark.svg">
-  <img src="docs/diagrams/chip-pinout.svg"
-    alt="Pinout of the SFM modules in JST NSH 6-pin 1.0 mm connector, top view: 6 pins, each with its name,
-    its electrical type as a colour and the driver hook that uses it.">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/diagrams/chip-capabilities.dark.svg">
+  <img src="docs/diagrams/chip-capabilities.svg"
+    alt="Capability map of the SFM flow meter: Flow measurement (supported): Starts continuous measurement
+    and reads each CRC-checked sample as a flow in millilitres per minute; Gas and gas mixture
+    (supported): Picks the calibrated gas or an oxygen mixture, and changes the mixture without stopping
+    the sensor; Temperature (supported): Reads the sensor temperature from the sample where the part
+    sends it, or by a pointer sequence; Averaging (supported): Averages until the read, or over a fixed
+    number of the 2 kHz measurements; Scale factor and offset (supported): Reads the sensor's scale
+    factor, offset and unit and checks them against the datasheet table; Product identification
+    (supported): Reads the product identifier or serial number and matches it to one of the 32 variants;
+    Sleep and reset (supported): Stops the measurement, sleeps and wakes the sensor, and resets it by
+    command, reset pin or supply cycle; Status and fault checks (supported): Checks each sample's status
+    word and range, and reports a reset, a stale value or a CRC error; Result-ready line (not covered):
+    IRQn goes low when a reading is ready; the driver polls over I2C and leaves the pin open.">
 </picture>
 <!-- /figure -->
 
-<!-- figure: chip-outline -->
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/diagrams/chip-outline.dark.svg">
-  <img src="docs/diagrams/chip-outline.svg"
-    alt="Outline of the SFM modules in JST NSH 6-pin 1.0 mm connector drawn to scale from above: body 42.5 x
-    26.0 mm, pitch 1.0 mm, 6 pins.">
-</picture>
-<!-- /figure -->
+## Where it is used
+
+<!-- generated: chip-uses -->
+- Medical gas mixing, for example anesthesia and vaporizers
+- Industrial gas mixing, for example welding and gas purging
+
+Uses named by the datasheet (Product Summary, [p. 1](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=1)).
+<!-- /generated -->
+
+## Inside the module
 
 <!-- figure: chip-blocks -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/diagrams/chip-blocks.dark.svg">
   <img src="docs/diagrams/chip-blocks.svg"
-    alt="Block diagram of the SFM modules: its function blocks, how they connect and which package pins reach
-    each block.">
+    alt="Block diagram of the SFM flow meter: its function blocks, how they connect and which package pins
+    reach each block.">
+</picture>
+<!-- /figure -->
+
+## Pins and wiring
+
+<!-- figure: chip-pinout -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/diagrams/chip-pinout.dark.svg">
+  <img src="docs/diagrams/chip-pinout.svg"
+    alt="Pinout of the SFM flow meter in JST NSH 6-pin connector, top view: 6 pins, each with its name, its
+    electrical type as a colour and the driver hook that uses it.">
+</picture>
+<!-- /figure -->
+
+<!-- figure: chip-wiring-typical -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/diagrams/chip-wiring-typical.dark.svg">
+  <img src="docs/diagrams/chip-wiring-typical.svg"
+    alt="Wiring of the SFM flow meter for the Typical application: MCU I2C SDA to SDA (Write(), Read()); MCU
+    I2C SCL to SCL (Write(), Read()). Supplies, grounds and the support parts are listed under the
+    drawing.">
+</picture>
+<!-- /figure -->
+
+| MCU | Sensor | Notes |
+| --- | --- | --- |
+| I2C SDA | SDA | External pull-up to the bus voltage |
+| I2C SCL | SCL | External pull-up to the bus voltage |
+| 3.3 V or 5 V | VDD | By part: SFM3000, 3200, 3300, 3400, 4200 need 5 V; SFM4100 3.5 V to 9 V; SFM4300, SFM3xxx 3.3 V or 5 V |
+| GND | GND | |
+
+<!-- figure: chip-outline -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/diagrams/chip-outline.dark.svg">
+  <img src="docs/diagrams/chip-outline.svg"
+    alt="Outline of the SFM flow meter in JST NSH 6-pin connector drawn to scale from above: body 42.5 x 26.0
+    mm, pitch 1.0 mm, 6 pins.">
 </picture>
 <!-- /figure -->
 
 <!-- generated: chip-card -->
 | | | Datasheet |
 | --- | --- | --- |
-| **Package** | JST NSH 6-pin 1.0 mm connector | 2.8, [p. 6](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=6) |
+| **Package** | JST NSH 6-pin connector | 2.8, [p. 6](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=6) |
 | **Pins** | 6 | 2.8, [p. 6](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=6) |
 | **Body size** | 42.5 x 26.0 mm | 6, [p. 18](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=18) |
 | **Pin pitch** | 1.0 mm | 2.8, [p. 6](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=6) |
@@ -98,6 +135,113 @@ Also sold as:
 
 From [`docs/hardware.yml`](docs/hardware.yml); pins, circuits and the block diagram: [Hardware](docs/hardware.md).
 <!-- /generated -->
+
+## Quick start
+
+**1. Wire it** as in [Pins and wiring](#pins-and-wiring).
+
+**2. Write the port**: a class with `EnsureInitialized()` (bring the bus up), `Write()` and `Read()` (one I2C
+transaction each) and, for the blocking calls, `DelayUs()`; about 20 lines on most SDKs. [Porting](docs/porting.md) has
+the
+contract of every hook and a complete example.
+
+**3. Read the flow:**
+
+<!-- generated: quickstart-code -->
+```cpp
+#include "sfm_flow_meter.hpp"
+
+bool ReadOnce(MyPort& port) {
+  sfm::SfmFlowMeter<MyPort> meter(
+      port, sfm::PresetFor(sfm::Variant::SFM3003_300_CL)); // no bus traffic yet
+
+  if (!meter.EnsureInitialized()) { // wakes the sensor, checks the product identifier
+    return false;
+  }
+  if (!meter.StartMeasurement(sfm::Gas::Air)) { // reads and checks the scaling, then starts
+    return false;
+  }
+  if (!meter.AwaitPending()) { // the first sample is ready after the start wait
+    return false;
+  }
+  const sfm::Result<sfm::Sample> s = meter.ReadSample();
+  if (!s) {
+    return false; // s.error says why: NoData, Crc, DeviceReset, ...
+  }
+  app::Report(s.value.flow_ml_per_min, s.value.temperature_mdegc);
+  return meter.Stop().ok() && meter.AwaitPending().ok();
+}
+```
+<!-- /generated -->
+
+`EnsureInitialized()` is the only call that starts the sensor. Every other call returns `Error::NotInitialized` until
+it has succeeded, and no read ever starts the sensor on its own. A read that returns `Error::NoData` is not a fault:
+the sensor has no new sample yet.
+
+## Driver coverage
+
+<!-- generated: chip-coverage -->
+| Capability | What the chip does | Driver API | Registers | Status | Datasheet |
+| --- | --- | --- | --- | --- | --- |
+| [Flow measurement](docs/api-guide.md) | Starts continuous measurement and reads each CRC-checked sample as a flow in millilitres per minute | `StartMeasurement`, `ReadSample`, `Poll`, `AwaitPending`, `ReadRawReply` | `kCmdStartGas0`, `kCmdStartGas1` | Supported | 4.3.1, [p. 10](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=10) |
+| [Gas and gas mixture](docs/api-guide.md) | Picks the calibrated gas or an oxygen mixture, and changes the mixture without stopping the sensor | `StartMeasurement`, `UpdateConcentration` | `kCmdStartMixture0`, `kCmdUpdateConcentration`, `kCmdResultPointer` | Supported | 4.3.3, [p. 11](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=11) |
+| [Temperature](docs/api-guide.md) | Reads the sensor temperature from the sample where the part sends it, or by a pointer sequence | `ReadSample`, `ReadTemperature` | `kCmdSfxTemperature`, `kSf05Temperature` | Supported | 2.2, [p. 5](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=5) |
+| [Averaging](docs/api-guide.md) | Averages until the read, or over a fixed number of the 2 kHz measurements | `SetAveraging` | `kCmdAveraging` | Supported | 4.3.5, [p. 12](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=12) |
+| [Scale factor and offset](docs/api-guide.md) | Reads the sensor's scale factor, offset and unit and checks them against the datasheet table | `ReadScaling` | `kCmdReadScale` | Supported | 4.3.6, [p. 13](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=13) |
+| [Product identification](docs/api-guide.md) | Reads the product identifier or serial number and matches it to one of the 32 variants | `BeginInitialize`, `EnsureInitialized`, `GetProductInfo` | `kCmdProductId` | Supported | 4.3.9, [p. 14](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=14) |
+| [Sleep and reset](docs/api-guide.md) | Stops the measurement, sleeps and wakes the sensor, and resets it by command, reset pin or supply cycle | `Stop`, `Sleep`, `WakeUp`, `SoftReset`, `HardReset` | `kCmdStop`, `kCmdSleep`, `kGeneralCallReset` | Supported | 4.3.8, [p. 14](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=14) |
+| [Status and fault checks](docs/api-guide.md) | Checks each sample's status word and range, and reports a reset, a stale value or a CRC error | `ReadSample`, `ReadRawReply` | - | Supported | 4.3.2, [p. 11](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=11) |
+| [Result-ready line](docs/hardware.md) | IRQn goes low when a reading is ready; the driver polls over I2C and leaves the pin open | - | - | Not covered | 3.3, [p. 8](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=8) |
+
+**Supported**: the driver covers it and a host test checks it; **Not covered**: the chip has it and the driver leaves it
+alone.
+
+From [`docs/hardware.yml`](docs/hardware.yml); `kokeb-docs hardware --check` confirms that every API name is in
+`inc/sfm_flow_meter.hpp`, `inc/sfm_flow_meter_types.hpp` and every register in `inc/sfm_flow_meter_registers.hpp`.
+<!-- /generated -->
+
+One driver for 32 variants of the Sensirion SFM family: the SFM4300, SFM3003 (with -CET), SFM3013, SFM3019 and SFM3119,
+the SFM3304, the SFM3505, the legacy SFM3000, SFM3200, SFM3300, SFM3400, SFM4200 and SFM4100, and the preliminary
+SFM6000D. It identifies the part, checks the sensor's scaling against the datasheet, starts a gas or a gas mixture,
+returns the flow in millilitres per minute with every word CRC-checked, and turns status words, NACKs and resets into
+errors you can act on. It runs on any MCU: you give it a small class that moves bytes on your I2C bus, and it does the
+rest.
+
+| | |
+| --- | --- |
+| **Bus** | I2C, 100 kHz to 1 MHz by part; raw command words, 16-bit words each followed by a CRC-8 |
+| **Families** | SF06 (5 parts), SF06 gen 2, SF06 dual, SF05, SF04, SFx6000 |
+| **Driver** | Header-only C++20; no heap, exceptions, RTTI or virtual calls; every call returns `Result<T>`; calls that wait return the wait |
+| **Runs on** | Any MCU with I2C and a C++20 compiler; the host example runs on any PC ([Platforms](docs/platforms.md)) |
+| **Status** | 0.1.0, not yet verified on hardware: host-tested against a model of each variant |
+
+The hardware is described as modules with a connector. The reference module is the SFM4300 with its six-pin
+connector; the other connectors, the addresses, supply ranges and timings of every variant are on the
+[Hardware page](docs/hardware.md).
+
+- Identifies the part by its product identifier (or serial number) and refuses a different part.
+- Reads the sensor's scale factor, offset and unit before every start and compares them with the datasheet.
+- Starts a pure gas or an air and oxygen mixture, updates the mixture while measuring, sets the averaging, and
+  puts the sensor to sleep and wakes it.
+- Checks the CRC-8 of every word before it decodes anything, checks the status word, the range and the freshness of
+  every sample, and treats a stuck line as an error.
+- Notices a sensor that reset or disappeared, and reports the legacy parts' error limit as `StateUnknown` and
+  recovers them with `HardReset()`.
+- Returns `Result<T>` from every call: no exceptions, no heap, no RTTI, no virtual calls.
+
+## Documentation
+
+| Page | Read it when you want to |
+| --- | --- |
+| [Quickstart](docs/quickstart.md) | Go from a bare sensor to a flow on your MCU |
+| [Hardware](docs/hardware.md) | Connectors, addresses, supply, bus settings, timing, fittings per variant |
+| [Porting](docs/porting.md) | Write the port class for your MCU's SDK |
+| [API guide](docs/api-guide.md) | Use each call: start, measure, update a mixture, sleep, reset, handle errors |
+| [Configuration](docs/configuration.md) | Choose every setting, or start from a preset |
+| [Troubleshooting](docs/troubleshooting.md) | Find the cause of an error or a wrong reading |
+| [Contract](docs/contract.md) | Know what the driver promises, needs and returns, and what is not verified |
+| [Datasheet map](docs/datasheet.md) | Find the datasheet section behind each part of the driver |
+| [API reference](docs/api-reference.md) | Look up a class or member (Doxygen; built by CI and locally) |
 
 ## Datasheet
 
@@ -168,67 +312,6 @@ To run the whole test suite instead: `cmake -S . -B build -DSFM_FLOW_METER_BUILD
 ctest
 --test-dir build`.
 
-## Use it on your MCU
-
-**1. Wire it** ([Hardware](docs/hardware.md) has every connector, the supply of each part and the timing):
-
-| MCU | Sensor | Notes |
-| --- | --- | --- |
-| I2C SDA | SDA | External pull-up to the bus voltage |
-| I2C SCL | SCL | External pull-up to the bus voltage |
-| 3.3 V or 5 V | VDD | By part: SFM3000, 3200, 3300, 3400, 4200 need 5 V; SFM4100 3.5 V to 9 V; SFM4300, SFM3xxx 3.3 V or 5 V |
-| GND | GND | |
-
-**2. Write the port**: a class with `EnsureInitialized()` (bring the bus up), `Write()` and `Read()` (one I2C
-transaction each) and, for the blocking calls, `DelayUs()`; about 20 lines on most SDKs. [Porting](docs/porting.md) has
-the
-contract of every hook and a complete example.
-
-**3. Read the flow:**
-
-<!-- generated: quickstart-code -->
-```cpp
-#include "sfm_flow_meter.hpp"
-
-bool ReadOnce(MyPort& port) {
-  sfm::SfmFlowMeter<MyPort> meter(
-      port, sfm::PresetFor(sfm::Variant::SFM3003_300_CL)); // no bus traffic yet
-
-  if (!meter.EnsureInitialized()) { // wakes the sensor, checks the product identifier
-    return false;
-  }
-  if (!meter.StartMeasurement(sfm::Gas::Air)) { // reads and checks the scaling, then starts
-    return false;
-  }
-  if (!meter.AwaitPending()) { // the first sample is ready after the start wait
-    return false;
-  }
-  const sfm::Result<sfm::Sample> s = meter.ReadSample();
-  if (!s) {
-    return false; // s.error says why: NoData, Crc, DeviceReset, ...
-  }
-  app::Report(s.value.flow_ml_per_min, s.value.temperature_mdegc);
-  return meter.Stop().ok() && meter.AwaitPending().ok();
-}
-```
-<!-- /generated -->
-
-`EnsureInitialized()` is the only call that starts the sensor. Every other call returns `Error::NotInitialized` until
-it has succeeded, and no read ever starts the sensor on its own. A read that returns `Error::NoData` is not a fault:
-the sensor has no new sample yet.
-
-## What it does
-
-- Identifies the part by its product identifier (or serial number) and refuses a different part.
-- Reads the sensor's scale factor, offset and unit before every start and compares them with the datasheet.
-- Starts a pure gas or an air and oxygen mixture, updates the mixture while measuring, sets the averaging, and
-  puts the sensor to sleep and wakes it.
-- Checks the CRC-8 of every word before it decodes anything, checks the status word, the range and the freshness of
-  every sample, and treats a stuck line as an error.
-- Notices a sensor that reset or disappeared, and reports the legacy parts' error limit as `StateUnknown` and
-  recovers them with `HardReset()`.
-- Returns `Result<T>` from every call: no exceptions, no heap, no RTTI, no virtual calls.
-
 ## Add it to your project
 
 Pick the row that matches your build; each is a few steps, and [Installation](docs/installation.md) has the
@@ -287,20 +370,6 @@ details.
    ```
 
 The target is `sfm_flow_meter::sfm_flow_meter` every way, so switching later changes nothing else.
-
-## Documentation
-
-| Page | Read it when you want to |
-| --- | --- |
-| [Quickstart](docs/quickstart.md) | Go from a bare sensor to a flow on your MCU |
-| [Hardware](docs/hardware.md) | Connectors, addresses, supply, bus settings, timing, fittings per variant |
-| [Porting](docs/porting.md) | Write the port class for your MCU's SDK |
-| [API guide](docs/api-guide.md) | Use each call: start, measure, update a mixture, sleep, reset, handle errors |
-| [Configuration](docs/configuration.md) | Choose every setting, or start from a preset |
-| [Troubleshooting](docs/troubleshooting.md) | Find the cause of an error or a wrong reading |
-| [Contract](docs/contract.md) | Know what the driver promises, needs and returns, and what is not verified |
-| [Datasheet map](docs/datasheet.md) | Find the datasheet section behind each part of the driver |
-| [API reference](docs/api-reference.md) | Look up a class or member (Doxygen; built by CI and locally) |
 
 ## Tests and quality
 

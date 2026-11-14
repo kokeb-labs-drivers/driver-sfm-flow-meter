@@ -9,7 +9,7 @@
 # the order the datasheet gives. Every pin and figure cites the SFM4300 datasheet (document `sfm4300`, version 1.0,
 # D1, April 2022) unless it says otherwise. A fact no document states is marked `unverified` with the reason.
 schema: 1
-chip: SFM modules
+chip: "SFM flow meter"
 
 refs:
   connector: {doc: sfm4300, section: "2.8 Pin Assignment, Table 1", page: 6}
@@ -29,9 +29,19 @@ refs:
   mlp: {doc: sfx6000d, section: "Pin assignment", page: 8}
   pad: {doc: sfm3304, section: "Pin assignment (6-pad interface)", page: 5}
   hdr8: {doc: sfm4100, section: "6.5 Pin assignments", page: 7}
+  cover: {doc: sfm4300, section: "Product Summary", page: 1}
+  flow: {doc: sfm4300, section: "2.1 Flow Specification", page: 3}
+  temperature: {doc: sfm4300, section: "2.2 Temperature Specification", page: 5}
+  averaging: {doc: sfm4300, section: "4.3.5 Configuration of Averaging", page: 12}
+  start: {doc: sfm4300, section: "4.3.1 Start Continuous Measurement", page: 10}
+  status: {doc: sfm4300, section: "4.3.2 Status Word", page: 11}
+  concentration: {doc: sfm4300, section: "4.3.3 Update Concentration", page: 11}
+  scale: {doc: sfm4300, section: "4.3.6 Read Scale Factor, Offset, and Flow Unit", page: 13}
+  sleep: {doc: sfm4300, section: "4.3.8 Entering and Exiting Sleep Mode", page: 14}
+  product: {doc: sfm4300, section: "4.3.9 Read Product Identifier", page: 14}
 
 package:
-  type: "JST NSH 6-pin 1.0 mm connector"
+  type: "JST NSH 6-pin connector"
   layout: dual
   pins: 6
   sides: {left: [1, 2, 3, 4, 5, 6]}
@@ -58,6 +68,70 @@ package:
 
 supply:
   - {name: VDD, min_v: 3.0, max_v: 5.5, ref: electrical}
+
+# The chip-first README: what the sensor is and does, where it is used, how the driver covers each function. The
+# reference module is the SFM4300; the driver covers the other variants of the family. `kokeb-docs figures` draws
+# chip-hero and chip-capabilities from it, `kokeb-docs gen` the README's chip-summary, chip-uses and chip-coverage
+# regions. The bus is I2C with command words of one or two 16-bit words, not a fixed frame, so there is no `frames`
+# entry.
+overview:
+  summary: >-
+    a family of digital gas mass flow sensors on I2C: each part reports the flow of its calibrated gases and gas
+    mixtures and its own temperature as 16-bit words, and the reference SFM4300 does so for air, oxygen, nitrous
+    oxide and carbon dioxide
+  category: Digital gas mass flow meter
+  ref: cover
+  applications:
+    - Medical gas mixing, for example anesthesia and vaporizers
+    - Industrial gas mixing, for example welding and gas purging
+  specs:
+    - {value: "20 or 50 slm", label: "SFM4300 flow range", ref: flow}
+    - {value: "3.0 to 5.5 V", label: "SFM4300 supply", ref: electrical}
+    - {value: "1 MHz", label: "I2C clock at most", ref: electrical}
+    - {value: "2 kHz", label: "flow update rate, no averaging", ref: electrical}
+  system:
+    host: MCU
+    bus: I2C
+    senses:
+      - {label: Gas flow, detail: "air, O2, N2O, CO2 and mixtures", ref: flow}
+      - {label: Sensor temperature, detail: "of the silicon, not of the gas", ref: temperature}
+
+# Headers the capability `api` and `registers` names are checked against.
+driver:
+  api: [inc/sfm_flow_meter.hpp, inc/sfm_flow_meter_types.hpp]
+  registers: [inc/sfm_flow_meter_registers.hpp]
+
+capabilities:
+  - {id: flow, title: Flow measurement, icon: flow, status: supported, ref: start, docs: api-guide.md,
+     what: "Starts continuous measurement and reads each CRC-checked sample as a flow in millilitres per minute",
+     api: [StartMeasurement, ReadSample, Poll, AwaitPending, ReadRawReply],
+     registers: [kCmdStartGas0, kCmdStartGas1]}
+  - {id: mixture, title: Gas and gas mixture, icon: tag, status: supported, ref: concentration, docs: api-guide.md,
+     what: "Picks the calibrated gas or an oxygen mixture, and changes the mixture without stopping the sensor",
+     api: [StartMeasurement, UpdateConcentration],
+     registers: [kCmdStartMixture0, kCmdUpdateConcentration, kCmdResultPointer]}
+  - {id: temperature, title: Temperature, icon: temperature, status: supported, ref: temperature,
+     docs: api-guide.md,
+     what: "Reads the sensor temperature from the sample where the part sends it, or by a pointer sequence",
+     api: [ReadSample, ReadTemperature],
+     registers: [kCmdSfxTemperature, kSf05Temperature]}
+  - {id: averaging, title: Averaging, icon: gauge, status: supported, ref: averaging, docs: api-guide.md,
+     what: "Averages until the read, or over a fixed number of the 2 kHz measurements",
+     api: [SetAveraging], registers: [kCmdAveraging]}
+  - {id: scaling, title: Scale factor and offset, icon: settings, status: supported, ref: scale, docs: api-guide.md,
+     what: "Reads the sensor's scale factor, offset and unit and checks them against the datasheet table",
+     api: [ReadScaling], registers: [kCmdReadScale]}
+  - {id: identify, title: Product identification, icon: key, status: supported, ref: product, docs: api-guide.md,
+     what: "Reads the product identifier or serial number and matches it to one of the 32 variants",
+     api: [BeginInitialize, EnsureInitialized, GetProductInfo], registers: [kCmdProductId]}
+  - {id: power, title: Sleep and reset, icon: sleep, status: supported, ref: sleep, docs: api-guide.md,
+     what: "Stops the measurement, sleeps and wakes the sensor, and resets it by command, reset pin or supply cycle",
+     api: [Stop, Sleep, WakeUp, SoftReset, HardReset], registers: [kCmdStop, kCmdSleep, kGeneralCallReset]}
+  - {id: status, title: Status and fault checks, icon: check, status: supported, ref: status, docs: api-guide.md,
+     what: "Checks each sample's status word and range, and reports a reset, a stale value or a CRC error",
+     api: [ReadSample, ReadRawReply]}
+  - {id: irqn, title: Result-ready line, icon: alert, status: not-covered, ref: irqn, docs: hardware.md,
+     what: "IRQn goes low when a reading is ready; the driver polls over I2C and leaves the pin open"}
 
 hooks:
   - {id: bus, call: "Write(), Read()", kind: i2c, source: inc/sfm_flow_meter_i2c_interface.hpp, symbol: Write}

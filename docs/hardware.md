@@ -31,13 +31,13 @@ SFM4300 as the reference and the other connectors are tabulated.
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="diagrams/chip-pinout.dark.svg">
   <img src="diagrams/chip-pinout.svg"
-    alt="Pinout of the SFM modules in JST NSH 6-pin 1.0 mm connector, top view: 6 pins, each with its name,
-    its electrical type as a colour and the driver hook that uses it.">
+    alt="Pinout of the SFM flow meter in JST NSH 6-pin connector, top view: 6 pins, each with its name, its
+    electrical type as a colour and the driver hook that uses it.">
 </picture>
 <!-- /figure -->
 
 <!-- generated: chip-pins -->
-JST NSH 6-pin 1.0 mm connector, 6 pins (2.8 Pin Assignment, Table 1, [p. 6](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=6)).
+JST NSH 6-pin connector, 6 pins (2.8 Pin Assignment, Table 1, [p. 6](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=6)).
 
 | Pin | Name | Type (domain) | Function | Driver hook | If unused | Datasheet |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -55,8 +55,8 @@ Source of this table and of the chip figures: [`docs/hardware.yml`](hardware.yml
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="diagrams/chip-blocks.dark.svg">
   <img src="diagrams/chip-blocks.svg"
-    alt="Block diagram of the SFM modules: its function blocks, how they connect and which package pins reach
-    each block.">
+    alt="Block diagram of the SFM flow meter: its function blocks, how they connect and which package pins
+    reach each block.">
 </picture>
 <!-- /figure -->
 
@@ -64,8 +64,8 @@ Source of this table and of the chip figures: [`docs/hardware.yml`](hardware.yml
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="diagrams/chip-circuit-typical.dark.svg">
   <img src="diagrams/chip-circuit-typical.svg"
-    alt="Schematic of the SFM modules typical application: the chip with U2 MCU, R1 resistor Rp, R2 resistor
-    Rp; the MCU wires carry the port hooks Write(), Read().">
+    alt="Schematic of the SFM flow meter typical application: the chip with U2 MCU, R1 resistor Rp, R2
+    resistor Rp; the MCU wires carry the port hooks Write(), Read().">
 </picture>
 <!-- /figure -->
 
@@ -73,7 +73,7 @@ Source of this table and of the chip figures: [`docs/hardware.yml`](hardware.yml
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="diagrams/chip-circuit-address.dark.svg">
   <img src="diagrams/chip-circuit-address.svg"
-    alt="Schematic of the SFM modules address selection: the chip with R3 resistor 2.7 kΩ.">
+    alt="Schematic of the SFM flow meter address selection: the chip with R3 resistor 2.7 kΩ.">
 </picture>
 <!-- /figure -->
 

@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1002" viewBox="0 0 1200 1002" role="img" aria-labelledby="chip-capabilities-title chip-capabilities-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<title id="chip-capabilities-title">What the SFM flow meter does</title>
+<desc id="chip-capabilities-desc">Capability map of the SFM flow meter: Flow measurement (supported): Starts continuous measurement and reads each CRC-checked sample as a flow in millilitres per minute; Gas and gas mixture (supported): Picks the calibrated gas or an oxygen mixture, and changes the mixture without stopping the sensor; Temperature (supported): Reads the sensor temperature from the sample where the part sends it, or by a pointer sequence; Averaging (supported): Averages until the read, or over a fixed number of the 2 kHz measurements; Scale factor and offset (supported): Reads the sensor's scale factor, offset and unit and checks them against the datasheet table; Product identification (supported): Reads the product identifier or serial number and matches it to one of the 32 variants; Sleep and reset (supported): Stops the measurement, sleeps and wakes the sensor, and resets it by command, reset pin or supply cycle; Status and fault checks (supported): Checks each sample's status word and range, and reports a reset, a stale value or a CRC error; Result-ready line (not covered): IRQn goes low when a reading is ready; the driver polls over I2C and leaves the pin open.</desc>
+<rect x="0.5" y="0.5" width="1199" height="1001" rx="16" fill="#FFFFFF" stroke="#E2E7EE"/>
+<text x="32" y="46.8" font-size="16" font-weight="700" letter-spacing="1.2" fill="#7A360E">CAPABILITIES</text>
+<text x="32" y="85.6" font-size="32" font-weight="700" fill="#0E1726">What the SFM flow meter does</text>
+<text x="32" y="115.4" font-size="18" fill="#566070">One card per function of the chip, with how this driver covers it and the registers behind it.</text>
+<rect x="32" y="131.4" width="1136" height="1" fill="#E2E7EE"/>
+<rect x="32" y="149.4" width="365.3" height="283.9" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="417.3" y="149.4" width="365.3" height="283.9" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="802.7" y="149.4" width="365.3" height="283.9" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="32" y="453.3" width="365.3" height="215.9" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="417.3" y="453.3" width="365.3" height="215.9" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="802.7" y="453.3" width="365.3" height="215.9" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="32" y="689.3" width="365.3" height="249.9" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="417.3" y="689.3" width="365.3" height="249.9" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="802.7" y="689.3" width="365.3" height="249.9" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<circle cx="78" cy="195.4" r="28" fill="#FBEFE6" stroke="#E9C3A6" stroke-width="1.2"/>
+<path d="M65 188.2 L88.1 188.2" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M84.5 184.5 L88.1 188.2 L84.5 191.8" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M67.9 195.4 L91 195.4" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M87.4 191.8 L91 195.4 L87.4 199" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M65 202.6 L88.1 202.6" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M84.5 199 L88.1 202.6 L84.5 206.2" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="120" y="201.4" font-size="20" font-weight="700" fill="#0E1726">Flow measurement</text>
+<text x="50" y="249.8" font-size="17" fill="#2B3442">Starts continuous measurement and</text>
+<text x="50" y="274.5" font-size="17" fill="#2B3442">reads each CRC-checked sample as a</text>
+<text x="50" y="299.1" font-size="17" fill="#2B3442">flow in millilitres per minute</text>
+<rect x="50" y="317.7" width="103.4" height="26" rx="13" fill="#14532D"/>
+<text x="58" y="335.8" font-size="16" font-weight="700" fill="#FFFFFF">Supported</text>
+<rect x="161.4" y="317.7" width="148.3" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="169.4" y="335.8" font-size="16" font-weight="700" fill="#334155">kCmdStartGas0</text>
+<rect x="50" y="351.7" width="144.2" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="58" y="369.8" font-size="16" font-weight="700" fill="#334155">kCmdStartGas1</text>
+<circle cx="463.3" cy="195.4" r="28" fill="#FBEFE6" stroke="#E9C3A6" stroke-width="1.2"/>
+<path d="M451.8 183.8 L463.3 183.8 L474.9 195.4 L463.3 207 L451.8 195.4 Z" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="458.3" cy="190.3" r="2.3" fill="#9A4A17"/>
+<text x="505.3" y="201.4" font-size="20" font-weight="700" fill="#0E1726">Gas and gas mixture</text>
+<text x="435.3" y="249.8" font-size="17" fill="#2B3442">Picks the calibrated gas or an oxygen</text>
+<text x="435.3" y="274.5" font-size="17" fill="#2B3442">mixture, and changes the mixture</text>
+<text x="435.3" y="299.1" font-size="17" fill="#2B3442">without stopping the sensor</text>
+<rect x="435.3" y="317.7" width="103.4" height="26" rx="13" fill="#14532D"/>
+<text x="443.3" y="335.8" font-size="16" font-weight="700" fill="#FFFFFF">Supported</text>
+<rect x="546.7" y="317.7" width="180.3" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="554.7" y="335.8" font-size="16" font-weight="700" fill="#334155">kCmdStartMixture0</text>
+<rect x="435.3" y="351.7" width="243.4" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="443.3" y="369.8" font-size="16" font-weight="700" fill="#334155">kCmdUpdateConcentration</text>
+<rect x="435.3" y="385.7" width="176.4" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="443.3" y="403.8" font-size="16" font-weight="700" fill="#334155">kCmdResultPointer</text>
+<circle cx="848.7" cy="195.4" r="28" fill="#FBEFE6" stroke="#E9C3A6" stroke-width="1.2"/>
+<path d="M845.8 199.7 L845.8 185.3 L851.6 185.3 L851.6 199.7" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="848.7" cy="203.4" r="5.1" fill="none" stroke="#9A4A17" stroke-width="2.5"/>
+<path d="M855.2 189.6 L858.8 189.6" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M855.2 194 L858.8 194" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="890.7" y="201.4" font-size="20" font-weight="700" fill="#0E1726">Temperature</text>
+<text x="820.7" y="249.8" font-size="17" fill="#2B3442">Reads the sensor temperature from</text>
+<text x="820.7" y="274.5" font-size="17" fill="#2B3442">the sample where the part sends it, or</text>
+<text x="820.7" y="299.1" font-size="17" fill="#2B3442">by a pointer sequence</text>
+<rect x="820.7" y="317.7" width="103.4" height="26" rx="13" fill="#14532D"/>
+<text x="828.7" y="335.8" font-size="16" font-weight="700" fill="#FFFFFF">Supported</text>
+<rect x="932" y="317.7" width="200.5" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="940" y="335.8" font-size="16" font-weight="700" fill="#334155">kCmdSfxTemperature</text>
+<rect x="820.7" y="351.7" width="173.9" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="828.7" y="369.8" font-size="16" font-weight="700" fill="#334155">kSf05Temperature</text>
+<circle cx="78" cy="499.3" r="28" fill="#FBEFE6" stroke="#E9C3A6" stroke-width="1.2"/>
+<path d="M66.4 505.1 A11.6 11.6 0 0 1 89.6 505.1" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M78 505.1 L84.5 496.5" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="78" cy="505.1" r="2.6" fill="#9A4A17"/>
+<path d="M65 510.2 L91 510.2" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="120" y="505.3" font-size="20" font-weight="700" fill="#0E1726">Averaging</text>
+<text x="50" y="553.8" font-size="17" fill="#2B3442">Averages until the read, or over a</text>
+<text x="50" y="578.4" font-size="17" fill="#2B3442">fixed number of the 2 kHz</text>
+<text x="50" y="603.1" font-size="17" fill="#2B3442">measurements</text>
+<rect x="50" y="621.6" width="103.4" height="26" rx="13" fill="#14532D"/>
+<text x="58" y="639.8" font-size="16" font-weight="700" fill="#FFFFFF">Supported</text>
+<rect x="161.4" y="621.6" width="150.8" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="169.4" y="639.8" font-size="16" font-weight="700" fill="#334155">kCmdAveraging</text>
+<circle cx="463.3" cy="499.3" r="28" fill="#FBEFE6" stroke="#E9C3A6" stroke-width="1.2"/>
+<path d="M451.8 492.1 L474.9 492.1" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="459" cy="492.1" r="3.2" fill="none" stroke="#9A4A17" stroke-width="2.5"/>
+<path d="M451.8 499.3 L474.9 499.3" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="467.7" cy="499.3" r="3.2" fill="none" stroke="#9A4A17" stroke-width="2.5"/>
+<path d="M451.8 506.6 L474.9 506.6" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="456.8" cy="506.6" r="3.2" fill="none" stroke="#9A4A17" stroke-width="2.5"/>
+<text x="505.3" y="505.3" font-size="20" font-weight="700" fill="#0E1726">Scale factor and offset</text>
+<text x="435.3" y="553.8" font-size="17" fill="#2B3442">Reads the sensor's scale factor, offset</text>
+<text x="435.3" y="578.4" font-size="17" fill="#2B3442">and unit and checks them against the</text>
+<text x="435.3" y="603.1" font-size="17" fill="#2B3442">datasheet table</text>
+<rect x="435.3" y="621.6" width="103.4" height="26" rx="13" fill="#14532D"/>
+<text x="443.3" y="639.8" font-size="16" font-weight="700" fill="#FFFFFF">Supported</text>
+<rect x="546.7" y="621.6" width="152" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="554.7" y="639.8" font-size="16" font-weight="700" fill="#334155">kCmdReadScale</text>
+<circle cx="848.7" cy="499.3" r="28" fill="#FBEFE6" stroke="#E9C3A6" stroke-width="1.2"/>
+<circle cx="842.9" cy="499.3" r="5.8" fill="none" stroke="#9A4A17" stroke-width="2.5"/>
+<path d="M848.7 499.3 L861.7 499.3" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M856.6 499.3 L856.6 503.7" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M861 499.3 L861 504.4" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="890.7" y="505.3" font-size="20" font-weight="700" fill="#0E1726">Product identification</text>
+<text x="820.7" y="553.8" font-size="17" fill="#2B3442">Reads the product identifier or serial</text>
+<text x="820.7" y="578.4" font-size="17" fill="#2B3442">number and matches it to one of the</text>
+<text x="820.7" y="603.1" font-size="17" fill="#2B3442">32 variants</text>
+<rect x="820.7" y="621.6" width="103.4" height="26" rx="13" fill="#14532D"/>
+<text x="828.7" y="639.8" font-size="16" font-weight="700" fill="#FFFFFF">Supported</text>
+<rect x="932" y="621.6" width="145.7" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="940" y="639.8" font-size="16" font-weight="700" fill="#334155">kCmdProductId</text>
+<circle cx="78" cy="735.3" r="28" fill="#FBEFE6" stroke="#E9C3A6" stroke-width="1.2"/>
+<path d="M80.9 723.7 A11.6 11.6 0 0 0 80.9 746.9" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M80.9 746.9 A9.4 9.4 0 0 1 80.9 723.7" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="120" y="741.3" font-size="20" font-weight="700" fill="#0E1726">Sleep and reset</text>
+<text x="50" y="789.8" font-size="17" fill="#2B3442">Stops the measurement, sleeps and</text>
+<text x="50" y="814.4" font-size="17" fill="#2B3442">wakes the sensor, and resets it by</text>
+<text x="50" y="839" font-size="17" fill="#2B3442">command, reset pin or supply cycle</text>
+<rect x="50" y="857.6" width="103.4" height="26" rx="13" fill="#14532D"/>
+<text x="58" y="875.7" font-size="16" font-weight="700" fill="#FFFFFF">Supported</text>
+<rect x="161.4" y="857.6" width="103" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="169.4" y="875.7" font-size="16" font-weight="700" fill="#334155">kCmdStop</text>
+<rect x="50" y="891.6" width="111.2" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="58" y="909.7" font-size="16" font-weight="700" fill="#334155">kCmdSleep</text>
+<rect x="169.2" y="891.6" width="169.3" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="177.2" y="909.7" font-size="16" font-weight="700" fill="#334155">kGeneralCallReset</text>
+<circle cx="463.3" cy="735.3" r="28" fill="#FBEFE6" stroke="#E9C3A6" stroke-width="1.2"/>
+<circle cx="463.3" cy="735.3" r="13" fill="none" stroke="#9A4A17" stroke-width="2.5"/>
+<path d="M456.8 736 L461.2 740.4 L469.8 731" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="505.3" y="741.3" font-size="20" font-weight="700" fill="#0E1726">Status and fault checks</text>
+<text x="435.3" y="789.8" font-size="17" fill="#2B3442">Checks each sample's status word</text>
+<text x="435.3" y="814.4" font-size="17" fill="#2B3442">and range, and reports a reset, a stale</text>
+<text x="435.3" y="839" font-size="17" fill="#2B3442">value or a CRC error</text>
+<rect x="435.3" y="857.6" width="103.4" height="26" rx="13" fill="#14532D"/>
+<text x="443.3" y="875.7" font-size="16" font-weight="700" fill="#FFFFFF">Supported</text>
+<circle cx="848.7" cy="735.3" r="28" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1.2"/>
+<path d="M848.7 723 L862.4 746.9 L834.9 746.9 Z" fill="none" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M848.7 731.7 L848.7 738.2" fill="none" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="848.7" cy="742.5" r="2" fill="#64748B"/>
+<text x="890.7" y="741.3" font-size="20" font-weight="700" fill="#0E1726">Result-ready line</text>
+<text x="820.7" y="789.8" font-size="17" fill="#2B3442">IRQn goes low when a reading is</text>
+<text x="820.7" y="814.4" font-size="17" fill="#2B3442">ready; the driver polls over I2C and</text>
+<text x="820.7" y="839" font-size="17" fill="#2B3442">leaves the pin open</text>
+<rect x="820.7" y="857.6" width="117.9" height="26" rx="13" fill="#334155"/>
+<text x="828.7" y="875.7" font-size="16" font-weight="700" fill="#FFFFFF">Not covered</text>
+<rect x="32" y="951.6" width="14" height="14" rx="4" fill="#EAF7EF" stroke="#15803D" stroke-width="1.4"/>
+<text x="54" y="966.2" font-size="16" fill="#566070">Supported: the driver covers it and a host test checks it</text>
+<rect x="522.3" y="951.6" width="14" height="14" rx="4" fill="#F1F4F8" stroke="#64748B" stroke-width="1.4"/>
+<text x="544.3" y="966.2" font-size="16" fill="#566070">Not covered: the chip has it and the driver leaves it alone</text>
+</svg>
