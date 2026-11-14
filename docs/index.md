@@ -18,17 +18,17 @@ SFM6000D. One API, 32 variants, on any MCU.</p>
 [Source on GitHub](https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter){ .md-button }
 </div>
 
-!!! warning "Not a safety device"
-    The vendor states that these sensors are not designed for safety-critical or life-supporting use unless the
-    datasheet says so. This driver is verified against a model of the chip, not against hardware, and carries no
-    medical or safety claim. See [Contract](contract.md#what-is-not-verified).
-
 <!-- generated: chip-summary -->
 The **SFM flow meter** is a family of digital gas mass flow sensors on I2C: each part reports the flow of its calibrated
 gases and gas mixtures and its own temperature as 16-bit words, and the reference SFM4300 does so for air, oxygen,
 nitrous oxide and carbon dioxide (Product Summary, [p.
 1](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=1)).
 <!-- /generated -->
+
+!!! warning "Not a safety device"
+    The vendor states that these sensors are not designed for safety-critical or life-supporting use unless the
+    datasheet says so. This driver is verified against a model of the chip, not against hardware, and carries no
+    medical or safety claim. See [Contract](contract.md#what-is-not-verified).
 
 <!-- figure: chip-hero -->
 <picture>
@@ -69,7 +69,8 @@ nitrous oxide and carbon dioxide (Product Summary, [p.
 - Medical gas mixing, for example anesthesia and vaporizers
 - Industrial gas mixing, for example welding and gas purging
 
-Uses named by the datasheet (Product Summary, [p. 1](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=1)).
+Uses named by the datasheet (Product Summary, [p.
+1](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=1)).
 <!-- /generated -->
 
 ## Inside the module

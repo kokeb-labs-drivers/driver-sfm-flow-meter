@@ -60,7 +60,8 @@ The site at <https://kokeb-labs-drivers.github.io/driver-sfm-flow-meter/> opens 
 - Medical gas mixing, for example anesthesia and vaporizers
 - Industrial gas mixing, for example welding and gas purging
 
-Uses named by the datasheet (Product Summary, [p. 1](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=1)).
+Uses named by the datasheet (Product Summary, [p.
+1](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=1)).
 <!-- /generated -->
 
 ## Inside the module
