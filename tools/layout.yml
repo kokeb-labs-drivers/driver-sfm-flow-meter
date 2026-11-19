@@ -1,0 +1,3 @@
+header_only:
+  sfm_flow_meter_parts: constants and inline or constexpr functions only, nothing to compile separately
+  sfm_flow_meter_protocols: constants and inline or constexpr functions only, nothing to compile separately
