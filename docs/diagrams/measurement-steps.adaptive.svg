@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="684" height="843" viewBox="0 0 684 843" role="img" aria-labelledby="measurement-steps-title measurement-steps-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" class="fk">
+<title id="measurement-steps-title">Start, wait and read one measurement</title>
+<desc id="measurement-steps-desc">One measurement with the SFM executor: StartMeasurement reads the scale factors and starts the sensor, your code sleeps the returned wait and polls, and ReadSample then reads nine bytes, checks each CRC and returns a sample.</desc>
+<style>
+.fk{--fk-amber-soft:#F1CF93;--fk-amber-text:#8A3C0B;--fk-amber-tint:#FFF5E3;--fk-canvas:#FFFFFF;--fk-frame:#E2E7EE;--fk-green-strong:#15803D;--fk-green-text:#14532D;--fk-green-tint:#EAF7EF;--fk-hair:#E2E7EE;--fk-ink:#0E1726;--fk-line:#738093;--fk-magenta-strong:#A21CAF;--fk-magenta-text:#86198F;--fk-magenta-tint:#FDF0FF;--fk-muted:#566070;--fk-rail:#7C8798;--fk-teal-strong:#0B7A72;--fk-teal-text:#0B5F59;--fk-teal-tint:#E6F6F4;}
+@media (prefers-color-scheme:dark){.fk{--fk-amber-soft:#6A5220;--fk-amber-text:#FDE68A;--fk-amber-tint:#2C2310;--fk-canvas:#0E131A;--fk-frame:#283241;--fk-green-strong:#4ADE80;--fk-green-text:#BBF7D0;--fk-green-tint:#11281A;--fk-hair:#252F3C;--fk-ink:#E8EDF3;--fk-line:#6C7889;--fk-magenta-strong:#F0ABFC;--fk-magenta-text:#F5D0FE;--fk-magenta-tint:#2E1533;--fk-muted:#9AA6B5;--fk-rail:#6C7889;--fk-teal-strong:#2BB3A3;--fk-teal-text:#A7F3E6;--fk-teal-tint:#0F2A28;}}
+:root[data-theme="dark"] .fk,[data-md-color-scheme="slate"] .fk{--fk-amber-soft:#6A5220;--fk-amber-text:#FDE68A;--fk-amber-tint:#2C2310;--fk-canvas:#0E131A;--fk-frame:#283241;--fk-green-strong:#4ADE80;--fk-green-text:#BBF7D0;--fk-green-tint:#11281A;--fk-hair:#252F3C;--fk-ink:#E8EDF3;--fk-line:#6C7889;--fk-magenta-strong:#F0ABFC;--fk-magenta-text:#F5D0FE;--fk-magenta-tint:#2E1533;--fk-muted:#9AA6B5;--fk-rail:#6C7889;--fk-teal-strong:#2BB3A3;--fk-teal-text:#A7F3E6;--fk-teal-tint:#0F2A28;}
+:root[data-theme="light"] .fk,[data-md-color-scheme="default"] .fk{--fk-amber-soft:#F1CF93;--fk-amber-text:#8A3C0B;--fk-amber-tint:#FFF5E3;--fk-canvas:#FFFFFF;--fk-frame:#E2E7EE;--fk-green-strong:#15803D;--fk-green-text:#14532D;--fk-green-tint:#EAF7EF;--fk-hair:#E2E7EE;--fk-ink:#0E1726;--fk-line:#738093;--fk-magenta-strong:#A21CAF;--fk-magenta-text:#86198F;--fk-magenta-tint:#FDF0FF;--fk-muted:#566070;--fk-rail:#7C8798;--fk-teal-strong:#0B7A72;--fk-teal-text:#0B5F59;--fk-teal-tint:#E6F6F4;}
+.fk-f-amber-soft{fill:var(--fk-amber-soft)}.fk-s-amber-soft{stroke:var(--fk-amber-soft)}
+.fk-f-amber-text{fill:var(--fk-amber-text)}.fk-s-amber-text{stroke:var(--fk-amber-text)}
+.fk-f-amber-tint{fill:var(--fk-amber-tint)}.fk-s-amber-tint{stroke:var(--fk-amber-tint)}
+.fk-f-canvas{fill:var(--fk-canvas)}.fk-s-canvas{stroke:var(--fk-canvas)}
+.fk-f-frame{fill:var(--fk-frame)}.fk-s-frame{stroke:var(--fk-frame)}
+.fk-f-green-strong{fill:var(--fk-green-strong)}.fk-s-green-strong{stroke:var(--fk-green-strong)}
+.fk-f-green-text{fill:var(--fk-green-text)}.fk-s-green-text{stroke:var(--fk-green-text)}
+.fk-f-green-tint{fill:var(--fk-green-tint)}.fk-s-green-tint{stroke:var(--fk-green-tint)}
+.fk-f-hair{fill:var(--fk-hair)}.fk-s-hair{stroke:var(--fk-hair)}
+.fk-f-ink{fill:var(--fk-ink)}.fk-s-ink{stroke:var(--fk-ink)}
+.fk-f-line{fill:var(--fk-line)}.fk-s-line{stroke:var(--fk-line)}
+.fk-f-magenta-strong{fill:var(--fk-magenta-strong)}.fk-s-magenta-strong{stroke:var(--fk-magenta-strong)}
+.fk-f-magenta-text{fill:var(--fk-magenta-text)}.fk-s-magenta-text{stroke:var(--fk-magenta-text)}
+.fk-f-magenta-tint{fill:var(--fk-magenta-tint)}.fk-s-magenta-tint{stroke:var(--fk-magenta-tint)}
+.fk-f-muted{fill:var(--fk-muted)}.fk-s-muted{stroke:var(--fk-muted)}
+.fk-f-rail{fill:var(--fk-rail)}.fk-s-rail{stroke:var(--fk-rail)}
+.fk-f-teal-strong{fill:var(--fk-teal-strong)}.fk-s-teal-strong{stroke:var(--fk-teal-strong)}
+.fk-f-teal-text{fill:var(--fk-teal-text)}.fk-s-teal-text{stroke:var(--fk-teal-text)}
+.fk-f-teal-tint{fill:var(--fk-teal-tint)}.fk-s-teal-tint{stroke:var(--fk-teal-tint)}
+@media (forced-colors:active){.fk text{fill:CanvasText}.fk rect,.fk circle{fill:Canvas;stroke:CanvasText}.fk path{stroke:CanvasText}.fk marker path{fill:CanvasText;stroke:none}}
+</style>
+<defs><marker id="measurement-steps-arrow-rail" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="fk-f-rail"/></marker></defs>
+<rect x="0.5" y="0.5" width="683" height="842" rx="16" class="fk-f-canvas fk-s-frame"/>
+<text x="32" y="54.8" font-size="26" font-weight="700" class="fk-f-ink">Start, wait and read one measurement</text>
+<rect x="32" y="70.8" width="620" height="1" class="fk-f-hair"/>
+<path d="M104.6 144.8 L104.6 846.8" fill="none" stroke-width="1.2" stroke-dasharray="5 5" class="fk-s-line"/>
+<path d="M311.2 144.8 L311.2 846.8" fill="none" stroke-width="1.2" stroke-dasharray="5 5" class="fk-s-line"/>
+<path d="M579.4 144.8 L579.4 846.8" fill="none" stroke-width="1.2" stroke-dasharray="5 5" class="fk-s-line"/>
+<path d="M108.6 180.8 L307.2 180.8" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#measurement-steps-arrow-rail)" class="fk-s-rail"/>
+<path d="M315.2 224.8 L575.4 224.8" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#measurement-steps-arrow-rail)" class="fk-s-rail"/>
+<path d="M575.4 268.8 L315.2 268.8" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#measurement-steps-arrow-rail)" class="fk-s-rail"/>
+<path d="M315.2 312.8 L575.4 312.8" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#measurement-steps-arrow-rail)" class="fk-s-rail"/>
+<path d="M575.4 356.8 L315.2 356.8" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#measurement-steps-arrow-rail)" class="fk-s-rail"/>
+<path d="M315.2 452.8 L575.4 452.8" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#measurement-steps-arrow-rail)" class="fk-s-rail"/>
+<path d="M307.2 496.8 L108.6 496.8" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#measurement-steps-arrow-rail)" class="fk-s-rail"/>
+<path d="M108.6 532.8 L130.6 532.8 Q138.6 532.8 138.6 540.8 L138.6 540.8 Q138.6 548.8 130.6 548.8 L108.6 548.8" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#measurement-steps-arrow-rail)" class="fk-s-rail"/>
+<path d="M108.6 584.8 L307.2 584.8" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#measurement-steps-arrow-rail)" class="fk-s-rail"/>
+<path d="M307.2 628.8 L108.6 628.8" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#measurement-steps-arrow-rail)" class="fk-s-rail"/>
+<path d="M108.6 672.8 L307.2 672.8" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#measurement-steps-arrow-rail)" class="fk-s-rail"/>
+<path d="M315.2 716.8 L575.4 716.8" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#measurement-steps-arrow-rail)" class="fk-s-rail"/>
+<path d="M307.2 812.8 L108.6 812.8" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#measurement-steps-arrow-rail)" class="fk-s-rail"/>
+<rect x="39.6" y="88.8" width="130" height="52" rx="10" stroke-width="1.4" class="fk-f-magenta-tint fk-s-magenta-strong"/>
+<rect x="39.6" y="96.8" width="4" height="36" rx="2" class="fk-f-magenta-strong"/>
+<rect x="206.1" y="88.8" width="210.1" height="52" rx="10" stroke-width="1.4" class="fk-f-green-tint fk-s-green-strong"/>
+<rect x="206.1" y="96.8" width="4" height="36" rx="2" class="fk-f-green-strong"/>
+<rect x="514.4" y="88.8" width="130" height="52" rx="10" stroke-width="1.4" class="fk-f-teal-tint fk-s-teal-strong"/>
+<rect x="514.4" y="96.8" width="4" height="36" rx="2" class="fk-f-teal-strong"/>
+<rect x="241.2" y="384.8" width="408.2" height="41" rx="10" stroke-width="1" class="fk-f-amber-tint fk-s-amber-soft"/>
+<rect x="241.2" y="744.8" width="408.2" height="41" rx="10" stroke-width="1" class="fk-f-amber-tint fk-s-amber-soft"/>
+<text x="107.6" y="119.3" font-size="15" font-weight="700" text-anchor="middle" class="fk-f-magenta-text">Your code</text>
+<text x="314.2" y="119.3" font-size="15" font-weight="700" text-anchor="middle" class="fk-f-green-text">SfmFlowMeter&lt;Port&gt;</text>
+<text x="582.4" y="119.3" font-size="15" font-weight="700" text-anchor="middle" class="fk-f-teal-text">Your port</text>
+<rect x="132.1" y="156.8" width="151.5" height="20" rx="10" class="fk-f-canvas"/>
+<text x="207.9" y="171.1" font-size="12" font-weight="500" text-anchor="middle" class="fk-f-muted">StartMeasurement(Air)</text>
+<rect x="353.7" y="200.8" width="183.3" height="20" rx="10" class="fk-f-canvas"/>
+<text x="445.3" y="215.1" font-size="12" font-weight="500" text-anchor="middle" class="fk-f-muted">Write(read-scale command)</text>
+<rect x="427.1" y="244.8" width="36.4" height="20" rx="10" class="fk-f-canvas"/>
+<text x="445.3" y="259.1" font-size="12" font-weight="500" text-anchor="middle" class="fk-f-muted">true</text>
+<rect x="319.2" y="288.8" width="252.2" height="20" rx="10" class="fk-f-canvas"/>
+<text x="445.3" y="303.1" font-size="12" font-weight="500" text-anchor="middle" class="fk-f-muted">Read(9 bytes: scale, offset, unit + CRC)</text>
+<rect x="427.1" y="332.8" width="36.4" height="20" rx="10" class="fk-f-canvas"/>
+<text x="445.3" y="347.1" font-size="12" font-weight="500" text-anchor="middle" class="fk-f-muted">true</text>
+<text x="255.2" y="409.9" font-size="13" class="fk-f-amber-text">CRC, compare with the table</text>
+<rect x="372.6" y="428.8" width="145.5" height="20" rx="10" class="fk-f-canvas"/>
+<text x="445.3" y="443.1" font-size="12" font-weight="500" text-anchor="middle" class="fk-f-muted">Write(start command)</text>
+<rect x="137.8" y="472.8" width="140.1" height="20" rx="10" class="fk-f-canvas"/>
+<text x="207.9" y="487.1" font-size="12" font-weight="500" text-anchor="middle" class="fk-f-muted">Result&lt;Wait&gt;{12 ms}</text>
+<rect x="142.6" y="530.8" width="82.9" height="20" rx="10" class="fk-f-canvas"/>
+<text x="184" y="545.1" font-size="12" font-weight="500" text-anchor="middle" class="fk-f-muted">sleep 12 ms</text>
+<rect x="186.1" y="560.8" width="43.6" height="20" rx="10" class="fk-f-canvas"/>
+<text x="207.9" y="575.1" font-size="12" font-weight="500" text-anchor="middle" class="fk-f-muted">Poll()</text>
+<rect x="112.6" y="604.8" width="190.6" height="20" rx="10" class="fk-f-canvas"/>
+<text x="207.9" y="619.1" font-size="12" font-weight="500" text-anchor="middle" class="fk-f-muted">Result&lt;Wait&gt;{0} (measuring)</text>
+<rect x="159.1" y="648.8" width="97.5" height="20" rx="10" class="fk-f-canvas"/>
+<text x="207.9" y="663.1" font-size="12" font-weight="500" text-anchor="middle" class="fk-f-muted">ReadSample()</text>
+<rect x="396.6" y="692.8" width="97.4" height="20" rx="10" class="fk-f-canvas"/>
+<text x="445.3" y="707.1" font-size="12" font-weight="500" text-anchor="middle" class="fk-f-muted">Read(9 bytes)</text>
+<text x="255.2" y="769.8" font-size="13" class="fk-f-amber-text">CRC per word, status check, scale</text>
+<rect x="151.9" y="788.8" width="112" height="20" rx="10" class="fk-f-canvas"/>
+<text x="207.9" y="803.1" font-size="12" font-weight="500" text-anchor="middle" class="fk-f-muted">Result&lt;Sample&gt;</text>
+</svg>

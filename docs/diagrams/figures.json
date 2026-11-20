@@ -70,5 +70,39 @@
       "inc/sfm_flow_meter.hpp:public calls",
       "inc/sfm_flow_meter_i2c_interface.hpp:I2cInterface"
     ]
+  },
+  "driver-states": {
+    "title": "Driver states",
+    "alt": "State machine of the SFM driver with the states Uninitialized, Idle, Measuring, Asleep and StateUnknown, and the calls that move it between them.",
+    "description": "Five states. The driver starts Uninitialized and EnsureInitialized moves it to Idle. In Idle, StartMeasurement leads to Measuring and Sleep leads to Asleep; WakeUp returns from Asleep to Idle. Stop and a DeviceReset that stays silent past the bound return Measuring to Idle. SoftReset, HardReset and Deinitialize return Idle to Uninitialized, and SoftReset or HardReset do the same from Measuring. A failed command in Idle or Measuring leaves the driver in StateUnknown, and EnsureInitialized returns it to Idle.",
+    "profile": "detail",
+    "width": 728,
+    "source": "docs/model/driver-states.state.yml",
+    "sources": [
+      "docs/model/driver-states.state.yml"
+    ],
+    "kind": "state",
+    "palette": 2,
+    "print": "landscape",
+    "adaptive": true,
+    "twin": false,
+    "font": ""
+  },
+  "measurement-steps": {
+    "title": "Start, wait and read one measurement",
+    "alt": "One measurement with the SFM executor: StartMeasurement reads the scale factors and starts the sensor, your code sleeps the returned wait and polls, and ReadSample then reads nine bytes, checks each CRC and returns a sample.",
+    "description": "Participants, left to right: Your code, SfmFlowMeter<Port> and Your port. The steps run from top to bottom. Your code sends StartMeasurement(Air) to SfmFlowMeter<Port>. SfmFlowMeter<Port> sends Write(read-scale command) to Your port. Your port returns true to SfmFlowMeter<Port>. SfmFlowMeter<Port> sends Read(9 bytes: scale, offset, unit + CRC) to Your port. Your port returns true to SfmFlowMeter<Port>. A note over SfmFlowMeter<Port> says: CRC, compare with the table. SfmFlowMeter<Port> sends Write(start command) to Your port. SfmFlowMeter<Port> returns Result<Wait>{12 ms} to Your code. Your code does sleep 12 ms itself. Your code sends Poll() to SfmFlowMeter<Port>. SfmFlowMeter<Port> returns Result<Wait>{0} (measuring) to Your code. Your code sends ReadSample() to SfmFlowMeter<Port>. SfmFlowMeter<Port> sends Read(9 bytes) to Your port. A note over SfmFlowMeter<Port> says: CRC per word, status check, scale. SfmFlowMeter<Port> returns Result<Sample> to Your code.",
+    "profile": "detail",
+    "width": 684,
+    "source": "docs/model/measurement-steps.seq.yml",
+    "sources": [
+      "docs/model/measurement-steps.seq.yml"
+    ],
+    "kind": "seq",
+    "palette": 2,
+    "print": "landscape",
+    "adaptive": true,
+    "twin": false,
+    "font": ""
   }
 }

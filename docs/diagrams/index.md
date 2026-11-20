@@ -113,3 +113,38 @@ Drawn from:
 
 - `public calls` in [`inc/sfm_flow_meter.hpp`](../../inc/sfm_flow_meter.hpp)
 - `I2cInterface` in [`inc/sfm_flow_meter_i2c_interface.hpp`](../../inc/sfm_flow_meter_i2c_interface.hpp)
+
+## Driver states
+
+<!-- figure: driver-states -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="driver-states.dark.svg">
+  <img src="driver-states.svg"
+    alt="State machine of the SFM driver with the states Uninitialized, Idle, Measuring, Asleep and
+    StateUnknown, and the calls that move it between them.">
+</picture>
+<!-- /figure -->
+
+Hardware description: [`docs/model/driver-states.state.yml`](../model/driver-states.state.yml)
+
+Drawn from:
+
+- [`docs/model/driver-states.state.yml`](../model/driver-states.state.yml)
+
+## Start, wait and read one measurement
+
+<!-- figure: measurement-steps -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="measurement-steps.dark.svg">
+  <img src="measurement-steps.svg"
+    alt="One measurement with the SFM executor: StartMeasurement reads the scale factors and starts the
+    sensor, your code sleeps the returned wait and polls, and ReadSample then reads nine bytes, checks
+    each CRC and returns a sample.">
+</picture>
+<!-- /figure -->
+
+Hardware description: [`docs/model/measurement-steps.seq.yml`](../model/measurement-steps.seq.yml)
+
+Drawn from:
+
+- [`docs/model/measurement-steps.seq.yml`](../model/measurement-steps.seq.yml)

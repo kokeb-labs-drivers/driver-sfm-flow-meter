@@ -1,0 +1,121 @@
+{
+ "direction": "TB",
+ "edges": [
+  {
+   "from": "@start0",
+   "to": "Uninitialized",
+   "via": []
+  },
+  {
+   "from": "Uninitialized",
+   "to": "Idle",
+   "via": []
+  },
+  {
+   "from": "Idle",
+   "to": "Measuring",
+   "via": []
+  },
+  {
+   "from": "Measuring",
+   "to": "Idle",
+   "via": []
+  },
+  {
+   "from": "Idle",
+   "to": "Asleep",
+   "via": []
+  },
+  {
+   "from": "Asleep",
+   "to": "Idle",
+   "via": []
+  },
+  {
+   "from": "Idle",
+   "to": "Uninitialized",
+   "via": []
+  },
+  {
+   "from": "Measuring",
+   "to": "Uninitialized",
+   "via": [
+    [
+     178,
+     470
+    ]
+   ]
+  },
+  {
+   "from": "Idle",
+   "to": "StateUnknown",
+   "via": [
+    [
+     356,
+     720
+    ]
+   ]
+  },
+  {
+   "from": "Measuring",
+   "to": "StateUnknown",
+   "via": []
+  },
+  {
+   "from": "StateUnknown",
+   "to": "Idle",
+   "via": [
+    [
+     412,
+     720
+    ]
+   ]
+  }
+ ],
+ "engine": "graphviz dot 13.1.0 (recorded for the reader; render never reads it)",
+ "figkit_layout": 1,
+ "id": "driver-states",
+ "input": "f0e4752d162517ee56b8de9a07045ea93bc96ce49098579e0c1b0e072d452096",
+ "nodes": {
+  "@start0": [
+   270,
+   0,
+   22,
+   22
+  ],
+  "Asleep": [
+   206,
+   720,
+   150,
+   52
+  ],
+  "Idle": [
+   206,
+   470,
+   150,
+   52
+  ],
+  "Measuring": [
+   0,
+   720,
+   150,
+   52
+  ],
+  "StateUnknown": [
+   390,
+   970,
+   157,
+   52
+  ],
+  "Uninitialized": [
+   206,
+   220,
+   150,
+   52
+  ]
+ },
+ "size": [
+  548,
+  1022
+ ]
+}
