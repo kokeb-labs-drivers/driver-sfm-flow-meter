@@ -1,0 +1,35 @@
+---
+# Model of the figure 'driver-states'. Edit this file; `kokeb-docs figures` draws it. Never edit the SVGs.
+kind: state
+id: driver-states
+title: "Driver states"
+alt: >-
+  State machine of the SFM driver with the states Uninitialized, Idle, Measuring, Asleep and StateUnknown, and the
+  calls that move it between them.
+reads: >-
+  Five states. The driver starts Uninitialized and EnsureInitialized moves it to Idle. In Idle, StartMeasurement
+  leads to Measuring and Sleep leads to Asleep; WakeUp returns from Asleep to Idle. Stop and a DeviceReset that stays
+  silent past the bound return Measuring to Idle. SoftReset, HardReset and Deinitialize return Idle to
+  Uninitialized, and SoftReset or HardReset do the same from Measuring. A failed command in Idle or Measuring leaves
+  the driver in StateUnknown, and EnsureInitialized returns it to Idle.
+print: landscape
+sources:
+  - docs/model/driver-states.state.yml
+states:
+  - {id: Uninitialized, tone: slate}
+  - {id: Idle, tone: blue}
+  - {id: Measuring, tone: green}
+  - {id: Asleep, tone: violet}
+  - {id: StateUnknown, tone: rose}
+transitions:
+  - {from: "[*]", to: Uninitialized}
+  - {from: Uninitialized, to: Idle, label: EnsureInitialized}
+  - {from: Idle, to: Measuring, label: StartMeasurement}
+  - {from: Measuring, to: Idle, label: "Stop or DeviceReset"}
+  - {from: Idle, to: Asleep, label: Sleep}
+  - {from: Asleep, to: Idle, label: WakeUp}
+  - {from: Idle, to: Uninitialized, label: "SoftReset, HardReset, Deinitialize"}
+  - {from: Measuring, to: Uninitialized, label: "SoftReset, HardReset"}
+  - {from: Idle, to: StateUnknown, label: failed command, dashed: true, tone: rose}
+  - {from: Measuring, to: StateUnknown, label: failed command, dashed: true, tone: rose}
+  - {from: StateUnknown, to: Idle, label: EnsureInitialized}

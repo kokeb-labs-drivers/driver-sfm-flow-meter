@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="684" height="843" viewBox="0 0 684 843" role="img" aria-labelledby="measurement-steps-title measurement-steps-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<title id="measurement-steps-title">Start, wait and read one measurement</title>
+<desc id="measurement-steps-desc">One measurement with the SFM executor: StartMeasurement reads the scale factors and starts the sensor, your code sleeps the returned wait and polls, and ReadSample then reads nine bytes, checks each CRC and returns a sample.</desc>
+<defs><marker id="measurement-steps-arrow-rail" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#6C7889"/></marker></defs>
+<rect x="0.5" y="0.5" width="683" height="842" rx="16" fill="#0E131A" stroke="#283241"/>
+<text x="32" y="54.8" font-size="26" font-weight="700" fill="#E8EDF3">Start, wait and read one measurement</text>
+<rect x="32" y="70.8" width="620" height="1" fill="#252F3C"/>
+<path d="M104.6 144.8 L104.6 846.8" fill="none" stroke="#6C7889" stroke-width="1.2" stroke-dasharray="5 5"/>
+<path d="M311.2 144.8 L311.2 846.8" fill="none" stroke="#6C7889" stroke-width="1.2" stroke-dasharray="5 5"/>
+<path d="M579.4 144.8 L579.4 846.8" fill="none" stroke="#6C7889" stroke-width="1.2" stroke-dasharray="5 5"/>
+<path d="M108.6 180.8 L307.2 180.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#measurement-steps-arrow-rail)"/>
+<path d="M315.2 224.8 L575.4 224.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#measurement-steps-arrow-rail)"/>
+<path d="M575.4 268.8 L315.2 268.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#measurement-steps-arrow-rail)"/>
+<path d="M315.2 312.8 L575.4 312.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#measurement-steps-arrow-rail)"/>
+<path d="M575.4 356.8 L315.2 356.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#measurement-steps-arrow-rail)"/>
+<path d="M315.2 452.8 L575.4 452.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#measurement-steps-arrow-rail)"/>
+<path d="M307.2 496.8 L108.6 496.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#measurement-steps-arrow-rail)"/>
+<path d="M108.6 532.8 L130.6 532.8 Q138.6 532.8 138.6 540.8 L138.6 540.8 Q138.6 548.8 130.6 548.8 L108.6 548.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#measurement-steps-arrow-rail)"/>
+<path d="M108.6 584.8 L307.2 584.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#measurement-steps-arrow-rail)"/>
+<path d="M307.2 628.8 L108.6 628.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#measurement-steps-arrow-rail)"/>
+<path d="M108.6 672.8 L307.2 672.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#measurement-steps-arrow-rail)"/>
+<path d="M315.2 716.8 L575.4 716.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#measurement-steps-arrow-rail)"/>
+<path d="M307.2 812.8 L108.6 812.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#measurement-steps-arrow-rail)"/>
+<rect x="39.6" y="88.8" width="130" height="52" rx="10" fill="#2E1533" stroke="#F0ABFC" stroke-width="1.4"/>
+<rect x="39.6" y="96.8" width="4" height="36" rx="2" fill="#F0ABFC"/>
+<rect x="206.1" y="88.8" width="210.1" height="52" rx="10" fill="#11281A" stroke="#4ADE80" stroke-width="1.4"/>
+<rect x="206.1" y="96.8" width="4" height="36" rx="2" fill="#4ADE80"/>
+<rect x="514.4" y="88.8" width="130" height="52" rx="10" fill="#0F2A28" stroke="#2BB3A3" stroke-width="1.4"/>
+<rect x="514.4" y="96.8" width="4" height="36" rx="2" fill="#2BB3A3"/>
+<rect x="241.2" y="384.8" width="408.2" height="41" rx="10" fill="#2C2310" stroke="#6A5220" stroke-width="1"/>
+<rect x="241.2" y="744.8" width="408.2" height="41" rx="10" fill="#2C2310" stroke="#6A5220" stroke-width="1"/>
+<text x="107.6" y="119.3" font-size="15" font-weight="700" text-anchor="middle" fill="#F5D0FE">Your code</text>
+<text x="314.2" y="119.3" font-size="15" font-weight="700" text-anchor="middle" fill="#BBF7D0">SfmFlowMeter&lt;Port&gt;</text>
+<text x="582.4" y="119.3" font-size="15" font-weight="700" text-anchor="middle" fill="#A7F3E6">Your port</text>
+<rect x="132.1" y="156.8" width="151.5" height="20" rx="10" fill="#0E131A"/>
+<text x="207.9" y="171.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">StartMeasurement(Air)</text>
+<rect x="353.7" y="200.8" width="183.3" height="20" rx="10" fill="#0E131A"/>
+<text x="445.3" y="215.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">Write(read-scale command)</text>
+<rect x="427.1" y="244.8" width="36.4" height="20" rx="10" fill="#0E131A"/>
+<text x="445.3" y="259.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">true</text>
+<rect x="319.2" y="288.8" width="252.2" height="20" rx="10" fill="#0E131A"/>
+<text x="445.3" y="303.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">Read(9 bytes: scale, offset, unit + CRC)</text>
+<rect x="427.1" y="332.8" width="36.4" height="20" rx="10" fill="#0E131A"/>
+<text x="445.3" y="347.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">true</text>
+<text x="255.2" y="409.9" font-size="13" fill="#FDE68A">CRC, compare with the table</text>
+<rect x="372.6" y="428.8" width="145.5" height="20" rx="10" fill="#0E131A"/>
+<text x="445.3" y="443.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">Write(start command)</text>
+<rect x="137.8" y="472.8" width="140.1" height="20" rx="10" fill="#0E131A"/>
+<text x="207.9" y="487.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">Result&lt;Wait&gt;{12 ms}</text>
+<rect x="142.6" y="530.8" width="82.9" height="20" rx="10" fill="#0E131A"/>
+<text x="184" y="545.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">sleep 12 ms</text>
+<rect x="186.1" y="560.8" width="43.6" height="20" rx="10" fill="#0E131A"/>
+<text x="207.9" y="575.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">Poll()</text>
+<rect x="112.6" y="604.8" width="190.6" height="20" rx="10" fill="#0E131A"/>
+<text x="207.9" y="619.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">Result&lt;Wait&gt;{0} (measuring)</text>
+<rect x="159.1" y="648.8" width="97.5" height="20" rx="10" fill="#0E131A"/>
+<text x="207.9" y="663.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">ReadSample()</text>
+<rect x="396.6" y="692.8" width="97.4" height="20" rx="10" fill="#0E131A"/>
+<text x="445.3" y="707.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">Read(9 bytes)</text>
+<text x="255.2" y="769.8" font-size="13" fill="#FDE68A">CRC per word, status check, scale</text>
+<rect x="151.9" y="788.8" width="112" height="20" rx="10" fill="#0E131A"/>
+<text x="207.9" y="803.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">Result&lt;Sample&gt;</text>
+</svg>

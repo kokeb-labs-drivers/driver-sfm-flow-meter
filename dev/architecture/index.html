@@ -1106,7 +1106,7 @@ short plan of bus steps, and the state machine that keeps the driver's picture o
 <details class="kb-figure-desc">
 <summary>Figure description and sources</summary>
 <p>Top to bottom, each arrow is a call. Your application calls one object, whose public calls are listed from the umbrella header in inc/. The core turns each call into register reads and writes and hands them to the port contract (the CRTP base in inc/*_interface.hpp), which forwards them, at compile time, to the hooks of the port class you write; your port moves the bytes on the bus. The notes on the right say which layers stay the same on every MCU and which one you write. A library without a port contract has only the first two layers.</p>
-<p>Drawn from: <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/a90fbef87d3b23dfa550972d7f09046adbef6f65/inc/sfm_flow_meter.hpp"><code>inc/sfm_flow_meter.hpp</code></a> <code>public calls</code>; <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/a90fbef87d3b23dfa550972d7f09046adbef6f65/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a> <code>I2cInterface</code>; figure module <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/a90fbef87d3b23dfa550972d7f09046adbef6f65/docs/diagrams/figures/driver-layers.py"><code>docs/diagrams/figures/driver-layers.py</code></a>.</p>
+<p>Drawn from: <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter.hpp"><code>inc/sfm_flow_meter.hpp</code></a> <code>public calls</code>; <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a> <code>I2cInterface</code>; figure module <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/docs/diagrams/figures/driver-layers.py"><code>docs/diagrams/figures/driver-layers.py</code></a>.</p>
 </details>
 <h2 id="layers">Layers<a class="headerlink" href="#layers" title="Permanent link">&para;</a></h2>
 <table>
@@ -1120,27 +1120,27 @@ short plan of bus steps, and the state machine that keeps the driver's picture o
 <tbody>
 <tr>
 <td>Core</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/a90fbef87d3b23dfa550972d7f09046adbef6f65/inc/sfm_flow_meter.hpp"><code>inc/sfm_flow_meter.hpp</code></a>, <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/a90fbef87d3b23dfa550972d7f09046adbef6f65/src/sfm_flow_meter.ipp"><code>src/sfm_flow_meter.ipp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter.hpp"><code>inc/sfm_flow_meter.hpp</code></a>, <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/src/sfm_flow_meter.ipp"><code>src/sfm_flow_meter.ipp</code></a></td>
 <td>The public calls, the state machine, the executor, decoding checks</td>
 </tr>
 <tr>
 <td>Protocols</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/a90fbef87d3b23dfa550972d7f09046adbef6f65/inc/sfm_flow_meter_protocols.hpp"><code>inc/sfm_flow_meter_protocols.hpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter_protocols.hpp"><code>inc/sfm_flow_meter_protocols.hpp</code></a></td>
 <td>Per-family plans and decoders: pure functions of the part row and the request</td>
 </tr>
 <tr>
 <td>Parts</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/a90fbef87d3b23dfa550972d7f09046adbef6f65/inc/sfm_flow_meter_parts.hpp"><code>inc/sfm_flow_meter_parts.hpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter_parts.hpp"><code>inc/sfm_flow_meter_parts.hpp</code></a></td>
 <td>The table of 32 <code>PartInfo</code> rows, <code>PresetFor()</code>, <code>Validate()</code>, <code>CheckedConfig</code></td>
 </tr>
 <tr>
 <td>Types and codes</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/a90fbef87d3b23dfa550972d7f09046adbef6f65/inc/sfm_flow_meter_types.hpp"><code>inc/sfm_flow_meter_types.hpp</code></a>, <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/a90fbef87d3b23dfa550972d7f09046adbef6f65/inc/sfm_flow_meter_registers.hpp"><code>inc/sfm_flow_meter_registers.hpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter_types.hpp"><code>inc/sfm_flow_meter_types.hpp</code></a>, <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter_registers.hpp"><code>inc/sfm_flow_meter_registers.hpp</code></a></td>
 <td><code>Error</code>, <code>Result&lt;T&gt;</code>, <code>Config</code>, <code>Sample</code>; command and pointer codes, CRC-8</td>
 </tr>
 <tr>
 <td>Port contract</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/a90fbef87d3b23dfa550972d7f09046adbef6f65/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a></td>
 <td>The CRTP base, the <code>I2cPort</code> concept, the bus requirements</td>
 </tr>
 <tr>
@@ -1150,7 +1150,7 @@ short plan of bus steps, and the state machine that keeps the driver's picture o
 </tr>
 <tr>
 <td>Kconfig layer</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/a90fbef87d3b23dfa550972d7f09046adbef6f65/inc/sfm_flow_meter_kconfig.hpp"><code>inc/sfm_flow_meter_kconfig.hpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter_kconfig.hpp"><code>inc/sfm_flow_meter_kconfig.hpp</code></a></td>
 <td>Optional: a <code>Config</code> from ESP-IDF menuconfig</td>
 </tr>
 </tbody>
@@ -1221,39 +1221,27 @@ steps, and the executor runs it. The step kinds are <code>Write</code>, <code>Po
 <li>Every read is a multiple of three bytes. <code>ParseWords()</code> checks the CRC of each word before any value is decoded or
   stored, and one bad word discards the whole transfer.</li>
 </ul>
-<pre class="mermaid"><code>sequenceDiagram
-    participant App as Your code
-    participant Core as SfmFlowMeter&lt;Port&gt;
-    participant Port as Your port
-    App-&gt;&gt;Core: StartMeasurement(Air)
-    Core-&gt;&gt;Port: Write(read-scale command)
-    Port--&gt;&gt;Core: true
-    Core-&gt;&gt;Port: Read(9 bytes: scale, offset, unit + CRC)
-    Port--&gt;&gt;Core: true
-    Note over Core: CRC, compare with the table
-    Core-&gt;&gt;Port: Write(start command)
-    Core--&gt;&gt;App: Result&lt;Wait&gt;{12 ms}
-    App-&gt;&gt;App: sleep 12 ms
-    App-&gt;&gt;Core: Poll()
-    Core--&gt;&gt;App: Result&lt;Wait&gt;{0} (measuring)
-    App-&gt;&gt;Core: ReadSample()
-    Core-&gt;&gt;Port: Read(9 bytes)
-    Note over Core: CRC per word, status check, scale
-    Core--&gt;&gt;App: Result&lt;Sample&gt;</code></pre>
+<figure class="kb-figure">
+<img src="../diagrams/measurement-steps.svg#only-light" alt="One measurement with the SFM executor: StartMeasurement reads the scale factors and starts the sensor, your code sleeps the returned wait and polls, and ReadSample then reads nine bytes, checks each CRC and returns a sample." width="684" height="843" loading="lazy"><img src="../diagrams/measurement-steps.dark.svg#only-dark" alt="One measurement with the SFM executor: StartMeasurement reads the scale factors and starts the sensor, your code sleeps the returned wait and polls, and ReadSample then reads nine bytes, checks each CRC and returns a sample." width="684" height="843" loading="lazy">
+<figcaption>Start, wait and read one measurement</figcaption>
+</figure>
+
+<details class="kb-figure-desc">
+<summary>Figure description and sources</summary>
+<p>Participants, left to right: Your code, SfmFlowMeter<Port> and Your port. The steps run from top to bottom. Your code sends StartMeasurement(Air) to SfmFlowMeter<Port>. SfmFlowMeter<Port> sends Write(read-scale command) to Your port. Your port returns true to SfmFlowMeter<Port>. SfmFlowMeter<Port> sends Read(9 bytes: scale, offset, unit + CRC) to Your port. Your port returns true to SfmFlowMeter<Port>. A note over SfmFlowMeter<Port> says: CRC, compare with the table. SfmFlowMeter<Port> sends Write(start command) to Your port. SfmFlowMeter<Port> returns Result<Wait>{12 ms} to Your code. Your code does sleep 12 ms itself. Your code sends Poll() to SfmFlowMeter<Port>. SfmFlowMeter<Port> returns Result<Wait>{0} (measuring) to Your code. Your code sends ReadSample() to SfmFlowMeter<Port>. SfmFlowMeter<Port> sends Read(9 bytes) to Your port. A note over SfmFlowMeter<Port> says: CRC per word, status check, scale. SfmFlowMeter<Port> returns Result<Sample> to Your code.</p>
+<p>Drawn from: <a href="../model/measurement-steps.seq.yml"><code>docs/model/measurement-steps.seq.yml</code></a>.</p>
+</details>
 <h2 id="state-machine">State machine<a class="headerlink" href="#state-machine" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>stateDiagram-v2
-    [*] --&gt; Uninitialized
-    Uninitialized --&gt; Idle: EnsureInitialized
-    Idle --&gt; Measuring: StartMeasurement
-    Measuring --&gt; Idle: Stop
-    Idle --&gt; Asleep: Sleep
-    Asleep --&gt; Idle: WakeUp
-    Measuring --&gt; Idle: DeviceReset (silent past the bound)
-    Idle --&gt; Uninitialized: SoftReset, HardReset, Deinitialize
-    Measuring --&gt; Uninitialized: SoftReset, HardReset
-    Idle --&gt; StateUnknown: failed command
-    Measuring --&gt; StateUnknown: failed command
-    StateUnknown --&gt; Idle: EnsureInitialized</code></pre>
+<figure class="kb-figure">
+<img src="../diagrams/driver-states.svg#only-light" alt="State machine of the SFM driver with the states Uninitialized, Idle, Measuring, Asleep and StateUnknown, and the calls that move it between them." width="728" height="1141" loading="lazy"><img src="../diagrams/driver-states.dark.svg#only-dark" alt="State machine of the SFM driver with the states Uninitialized, Idle, Measuring, Asleep and StateUnknown, and the calls that move it between them." width="728" height="1141" loading="lazy">
+<figcaption>Driver states</figcaption>
+</figure>
+
+<details class="kb-figure-desc">
+<summary>Figure description and sources</summary>
+<p>Five states. The driver starts Uninitialized and EnsureInitialized moves it to Idle. In Idle, StartMeasurement leads to Measuring and Sleep leads to Asleep; WakeUp returns from Asleep to Idle. Stop and a DeviceReset that stays silent past the bound return Measuring to Idle. SoftReset, HardReset and Deinitialize return Idle to Uninitialized, and SoftReset or HardReset do the same from Measuring. A failed command in Idle or Measuring leaves the driver in StateUnknown, and EnsureInitialized returns it to Idle.</p>
+<p>Drawn from: <a href="../model/driver-states.state.yml"><code>docs/model/driver-states.state.yml</code></a>.</p>
+</details>
 <table>
 <thead>
 <tr>
@@ -1336,27 +1324,27 @@ no continuous mode and no <code>NoData</code>.</p>
 <tbody>
 <tr>
 <td>The public API</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/a90fbef87d3b23dfa550972d7f09046adbef6f65/inc/sfm_flow_meter.hpp"><code>inc/sfm_flow_meter.hpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter.hpp"><code>inc/sfm_flow_meter.hpp</code></a></td>
 </tr>
 <tr>
 <td>How a call is implemented</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/a90fbef87d3b23dfa550972d7f09046adbef6f65/src/sfm_flow_meter.ipp"><code>src/sfm_flow_meter.ipp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/src/sfm_flow_meter.ipp"><code>src/sfm_flow_meter.ipp</code></a></td>
 </tr>
 <tr>
 <td>The sequences of each family</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/a90fbef87d3b23dfa550972d7f09046adbef6f65/inc/sfm_flow_meter_protocols.hpp"><code>inc/sfm_flow_meter_protocols.hpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter_protocols.hpp"><code>inc/sfm_flow_meter_protocols.hpp</code></a></td>
 </tr>
 <tr>
 <td>The parts</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/a90fbef87d3b23dfa550972d7f09046adbef6f65/inc/sfm_flow_meter_parts.hpp"><code>inc/sfm_flow_meter_parts.hpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter_parts.hpp"><code>inc/sfm_flow_meter_parts.hpp</code></a></td>
 </tr>
 <tr>
 <td>Command codes and the CRC</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/a90fbef87d3b23dfa550972d7f09046adbef6f65/inc/sfm_flow_meter_registers.hpp"><code>inc/sfm_flow_meter_registers.hpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter_registers.hpp"><code>inc/sfm_flow_meter_registers.hpp</code></a></td>
 </tr>
 <tr>
 <td>The port contract</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/a90fbef87d3b23dfa550972d7f09046adbef6f65/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a></td>
 </tr>
 </tbody>
 </table>
