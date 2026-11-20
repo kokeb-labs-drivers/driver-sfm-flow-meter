@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="728" height="1141" viewBox="0 0 728 1141" role="img" aria-labelledby="driver-states-title driver-states-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<title id="driver-states-title">Driver states</title>
+<desc id="driver-states-desc">State machine of the SFM driver with the states Uninitialized, Idle, Measuring, Asleep and StateUnknown, and the calls that move it between them.</desc>
+<defs><marker id="driver-states-arrow-rail" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#6C7889"/></marker><marker id="driver-states-arrow-rose-strong" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#FB7185"/></marker></defs>
+<rect x="0.5" y="0.5" width="727" height="1140" rx="16" fill="#0E131A" stroke="#283241"/>
+<text x="32" y="54.8" font-size="26" font-weight="700" fill="#E8EDF3">Driver states</text>
+<rect x="32" y="70.8" width="664" height="1" fill="#252F3C"/>
+<path d="M371 114.8 L371 304.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#driver-states-arrow-rail)"/>
+<path d="M371 364.8 L371 428.4 Q371 436.4 363 436.4 L318 436.4 Q310 436.4 310 444.4 L310 554.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#driver-states-arrow-rail)"/>
+<path d="M310 614.8 L310 681.8 Q310 689.8 302 689.8 L173 689.8 Q165 689.8 165 697.8 L165 804.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#driver-states-arrow-rail)"/>
+<path d="M226 804.8 L226 668.3 Q226 660.3 234 660.3 L326.4 660.3 Q334.4 660.3 334.4 652.3 L334.4 614.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#driver-states-arrow-rail)"/>
+<path d="M358.8 614.8 L358.8 711.3 Q358.8 719.3 350.8 719.3 L318 719.3 Q310 719.3 310 727.3 L310 804.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#driver-states-arrow-rail)"/>
+<path d="M432 804.8 L432 786.3 Q432 778.3 424 778.3 L391.2 778.3 Q383.2 778.3 383.2 770.3 L383.2 614.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#driver-states-arrow-rail)"/>
+<path d="M432 554.8 L432 364.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#driver-states-arrow-rail)"/>
+<path d="M104 804.8 L104 638.8 Q104 630.8 112 630.8 L260 630.8 Q268 630.8 268 622.8 L268 394.9 Q268 386.9 276 386.9 L302 386.9 Q310 386.9 310 378.9 L310 364.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#driver-states-arrow-rail)"/>
+<path d="M407.6 614.8 L407.6 740.8 Q407.6 748.8 415.6 748.8 L448 748.8 Q456 748.8 456 756.8 L456 951.8 Q456 959.8 464 959.8 L550.5 959.8 Q558.5 959.8 558.5 967.8 L558.5 1054.8" fill="none" stroke="#FB7185" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#driver-states-arrow-rose-strong)"/>
+<path d="M165 864.8 L165 902.3 Q165 910.3 173 910.3 L486 910.3 Q494 910.3 494 918.3 L494 1054.8" fill="none" stroke="#FB7185" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#driver-states-arrow-rose-strong)"/>
+<path d="M623 1054.8 L623 1017.3 Q623 1009.3 615 1009.3 L510 1009.3 Q502 1009.3 502 1001.3 L502 806.3 Q502 798.3 494 798.3 L440 798.3 Q432 798.3 432 790.3 L432 614.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#driver-states-arrow-rail)"/>
+<rect x="296" y="308.8" width="150" height="52" rx="10" fill="#1B232E" stroke="#94A3B8" stroke-width="1.4"/>
+<rect x="296" y="316.8" width="4" height="36" rx="2" fill="#94A3B8"/>
+<rect x="296" y="558.8" width="150" height="52" rx="10" fill="#13233A" stroke="#60A5FA" stroke-width="1.4"/>
+<rect x="296" y="566.8" width="4" height="36" rx="2" fill="#60A5FA"/>
+<rect x="90" y="808.8" width="150" height="52" rx="10" fill="#11281A" stroke="#4ADE80" stroke-width="1.4"/>
+<rect x="90" y="816.8" width="4" height="36" rx="2" fill="#4ADE80"/>
+<rect x="296" y="808.8" width="150" height="52" rx="10" fill="#221A3A" stroke="#A78BFA" stroke-width="1.4"/>
+<rect x="296" y="816.8" width="4" height="36" rx="2" fill="#A78BFA"/>
+<rect x="480" y="1058.8" width="157" height="52" rx="10" fill="#321820" stroke="#FB7185" stroke-width="1.4"/>
+<rect x="480" y="1066.8" width="4" height="36" rx="2" fill="#FB7185"/>
+<circle cx="371" cy="99.8" r="11" fill="#D2DAE4"/>
+<text x="374" y="339.3" font-size="15" font-weight="700" text-anchor="middle" fill="#E2E8F0">Uninitialized</text>
+<text x="374" y="589.3" font-size="15" font-weight="700" text-anchor="middle" fill="#BFDBFE">Idle</text>
+<text x="168" y="839.3" font-size="15" font-weight="700" text-anchor="middle" fill="#BBF7D0">Measuring</text>
+<text x="374" y="839.3" font-size="15" font-weight="700" text-anchor="middle" fill="#DDD6FE">Asleep</text>
+<text x="561.5" y="1089.3" font-size="15" font-weight="700" text-anchor="middle" fill="#FECDD3">StateUnknown</text>
+<rect x="378.9" y="426.4" width="112.2" height="20" rx="10" fill="#0E131A"/>
+<text x="435" y="440.7" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">EnsureInitialized</text>
+<rect x="175" y="679.8" width="125" height="20" rx="10" fill="#0E131A"/>
+<text x="237.5" y="694.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">StartMeasurement</text>
+<rect x="212.3" y="650.3" width="135.8" height="20" rx="10" fill="#0E131A"/>
+<text x="280.2" y="664.6" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">Stop or DeviceReset</text>
+<rect x="311.3" y="709.3" width="46.2" height="20" rx="10" fill="#0E131A"/>
+<text x="334.4" y="723.6" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">Sleep</text>
+<rect x="375.7" y="768.3" width="63.8" height="20" rx="10" fill="#0E131A"/>
+<text x="407.6" y="782.6" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">WakeUp</text>
+<rect x="439.9" y="499.3" width="216.2" height="20" rx="10" fill="#0E131A"/>
+<text x="548" y="513.6" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">SoftReset, HardReset, Deinitialize</text>
+<rect x="114.7" y="620.8" width="142.5" height="20" rx="10" fill="#0E131A"/>
+<text x="186" y="635.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">SoftReset, HardReset</text>
+<rect x="464.2" y="738.8" width="109.5" height="20" rx="10" fill="#0E131A"/>
+<text x="519" y="753.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">failed command</text>
+<rect x="274.7" y="900.3" width="109.5" height="20" rx="10" fill="#0E131A"/>
+<text x="329.5" y="914.6" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">failed command</text>
+<rect x="506.4" y="999.3" width="112.2" height="20" rx="10" fill="#0E131A"/>
+<text x="562.5" y="1013.6" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">EnsureInitialized</text>
+</svg>

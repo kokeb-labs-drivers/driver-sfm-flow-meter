@@ -82,45 +82,26 @@ steps, and the executor runs it. The step kinds are `Write`, `Poll`, `Read`, `Re
 - Every read is a multiple of three bytes. `ParseWords()` checks the CRC of each word before any value is decoded or
   stored, and one bad word discards the whole transfer.
 
-```mermaid
-sequenceDiagram
-    participant App as Your code
-    participant Core as SfmFlowMeter<Port>
-    participant Port as Your port
-    App->>Core: StartMeasurement(Air)
-    Core->>Port: Write(read-scale command)
-    Port-->>Core: true
-    Core->>Port: Read(9 bytes: scale, offset, unit + CRC)
-    Port-->>Core: true
-    Note over Core: CRC, compare with the table
-    Core->>Port: Write(start command)
-    Core-->>App: Result<Wait>{12 ms}
-    App->>App: sleep 12 ms
-    App->>Core: Poll()
-    Core-->>App: Result<Wait>{0} (measuring)
-    App->>Core: ReadSample()
-    Core->>Port: Read(9 bytes)
-    Note over Core: CRC per word, status check, scale
-    Core-->>App: Result<Sample>
-```
+<!-- figure: measurement-steps -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="diagrams/measurement-steps.dark.svg">
+  <img src="diagrams/measurement-steps.svg"
+    alt="One measurement with the SFM executor: StartMeasurement reads the scale factors and starts the
+    sensor, your code sleeps the returned wait and polls, and ReadSample then reads nine bytes, checks
+    each CRC and returns a sample.">
+</picture>
+<!-- /figure -->
 
 ## State machine
 
-```mermaid
-stateDiagram-v2
-    [*] --> Uninitialized
-    Uninitialized --> Idle: EnsureInitialized
-    Idle --> Measuring: StartMeasurement
-    Measuring --> Idle: Stop
-    Idle --> Asleep: Sleep
-    Asleep --> Idle: WakeUp
-    Measuring --> Idle: DeviceReset (silent past the bound)
-    Idle --> Uninitialized: SoftReset, HardReset, Deinitialize
-    Measuring --> Uninitialized: SoftReset, HardReset
-    Idle --> StateUnknown: failed command
-    Measuring --> StateUnknown: failed command
-    StateUnknown --> Idle: EnsureInitialized
-```
+<!-- figure: driver-states -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="diagrams/driver-states.dark.svg">
+  <img src="diagrams/driver-states.svg"
+    alt="State machine of the SFM driver with the states Uninitialized, Idle, Measuring, Asleep and
+    StateUnknown, and the calls that move it between them.">
+</picture>
+<!-- /figure -->
 
 | State | Calls that send traffic | Refused (nothing sent) |
 | --- | --- | --- |
