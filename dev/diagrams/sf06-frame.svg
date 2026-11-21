@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="664" viewBox="0 0 640 664" role="img" aria-labelledby="sf06-frame-title sf06-frame-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<title id="sf06-frame-title">Command and read sequences</title>
+<desc id="sf06-frame-desc">The two I2C sequences of the SFM4300: a write of a 16-bit command with a 16-bit argument and its CRC byte, and a read of 16-bit words, each followed by a CRC byte the sensor sends.</desc>
+<rect x="0.5" y="0.5" width="639" height="663" rx="16" fill="#FFFFFF" stroke="#E2E7EE"/>
+<text x="32" y="44.4" font-size="13" font-weight="700" letter-spacing="1.2" fill="#7A360E">ON THE BUS</text>
+<text x="32" y="76.2" font-size="24" font-weight="700" fill="#0E1726">Command and read sequences</text>
+<text x="32" y="102.7" font-size="15" fill="#566070">Datasheet: 4.2 I2C Sequences, Figures 2 and 3, p. 9; 4.4 Checksum</text>
+<text x="32" y="124.5" font-size="15" fill="#566070">Calculation, Table 14, p. 15.</text>
+<rect x="32" y="140.4" width="576" height="1" fill="#E2E7EE"/>
+<path d="M93.7 162.4 L93.7 246.4" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M136.1 162.4 L136.1 246.4" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M178.4 162.4 L178.4 246.4" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M220.8 162.4 L220.8 246.4" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M263.1 162.4 L263.1 246.4" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M305.5 162.4 L305.5 246.4" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M347.9 162.4 L347.9 246.4" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M390.2 162.4 L390.2 246.4" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M432.6 162.4 L432.6 246.4" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M474.9 162.4 L474.9 246.4" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M517.3 162.4 L517.3 246.4" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M559.6 162.4 L559.6 246.4" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M602 162.4 L602 246.4" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M32 292.5 L608 292.5" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M32 365.4 L608 365.4" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M32 438.2 L608 438.2" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M32 511.1 L608 511.1" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M432.6 215.4 L474.9 215.4" fill="none" stroke="#2B3442" stroke-width="1.6"/>
+<path d="M432.6 241.4 L474.9 241.4" fill="none" stroke="#2B3442" stroke-width="1.6"/>
+<path d="M559.6 215.4 L602 215.4" fill="none" stroke="#2B3442" stroke-width="2"/>
+<path d="M93.7 180.4 L98.7 167.4 L173.4 167.4 L178.4 180.4 L173.4 193.4 L98.7 193.4 Z" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M178.4 180.4 L183.4 167.4 L258.1 167.4 L263.1 180.4 L258.1 193.4 L183.4 193.4 Z" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M263.1 180.4 L268.1 167.4 L342.9 167.4 L347.9 180.4 L342.9 193.4 L268.1 193.4 Z" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M347.9 180.4 L352.9 167.4 L427.6 167.4 L432.6 180.4 L427.6 193.4 L352.9 193.4 Z" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M432.6 180.4 L437.6 167.4 L512.3 167.4 L517.3 180.4 L512.3 193.4 L437.6 193.4 Z" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M517.3 180.4 L522.3 167.4 L597 167.4 L602 180.4 L597 193.4 L522.3 193.4 Z" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M93.7 228.4 L98.7 215.4 L173.4 215.4 L178.4 228.4 L173.4 241.4 L98.7 241.4 Z" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M178.4 228.4 L183.4 215.4 L258.1 215.4 L263.1 228.4 L258.1 241.4 L183.4 241.4 Z" fill="#E6F6F4" stroke="#0B7A72" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M263.1 228.4 L268.1 215.4 L342.9 215.4 L347.9 228.4 L342.9 241.4 L268.1 241.4 Z" fill="#E6F6F4" stroke="#0B7A72" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M347.9 228.4 L352.9 215.4 L427.6 215.4 L432.6 228.4 L427.6 241.4 L352.9 241.4 Z" fill="#E6F6F4" stroke="#0B7A72" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M474.9 228.4 L479.9 215.4 L554.6 215.4 L559.6 228.4 L554.6 241.4 L479.9 241.4 Z" fill="#E6F6F4" stroke="#0B7A72" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="32" y="525.1" width="576" height="108.6" rx="10" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="32" y="185.8" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0E1726">Write</text>
+<text x="136.1" y="185.5" font-size="14" font-weight="600" text-anchor="middle" fill="#1E429F">Adr + W</text>
+<text x="220.8" y="185.5" font-size="14" font-weight="600" text-anchor="middle" fill="#1E429F">Cmd MSB</text>
+<text x="305.5" y="185.5" font-size="14" font-weight="600" text-anchor="middle" fill="#1E429F">Cmd LSB</text>
+<text x="390.2" y="185.5" font-size="14" font-weight="600" text-anchor="middle" fill="#1E429F">Arg MSB</text>
+<text x="474.9" y="185.5" font-size="14" font-weight="600" text-anchor="middle" fill="#1E429F">Arg LSB</text>
+<text x="559.6" y="185.5" font-size="14" font-weight="600" text-anchor="middle" fill="#1E429F">CRC</text>
+<text x="32" y="233.8" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0E1726">Read</text>
+<text x="136.1" y="233.5" font-size="14" font-weight="600" text-anchor="middle" fill="#1E429F">Adr + R</text>
+<text x="220.8" y="233.5" font-size="14" font-weight="600" text-anchor="middle" fill="#0B5F59">Data MSB</text>
+<text x="305.5" y="233.5" font-size="14" font-weight="600" text-anchor="middle" fill="#0B5F59">Data LSB</text>
+<text x="390.2" y="233.5" font-size="14" font-weight="600" text-anchor="middle" fill="#0B5F59">CRC</text>
+<text x="517.3" y="233.5" font-size="14" font-weight="600" text-anchor="middle" fill="#0B5F59">CRC</text>
+<rect x="449.7" y="211.4" width="8" height="34" rx="0" fill="#FFFFFF"/>
+<path d="M446.7 244.4 L452.7 212.4" fill="none" stroke="#2B3442" stroke-width="1.4"/>
+<path d="M454.7 244.4 L460.7 212.4" fill="none" stroke="#2B3442" stroke-width="1.4"/>
+<text x="32" y="276.9" font-size="17" font-weight="700" fill="#0E1726">Values</text>
+<text x="32" y="313.3" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0E1726">command</text>
+<text x="608" y="313.3" font-size="15" font-weight="700" text-anchor="end" fill="#0E1726">typ 16 bit</text>
+<text x="32" y="333.5" font-size="15" fill="#2B3442">Command length</text>
+<text x="32" y="353.7" font-size="14" fill="#566070">Datasheet 4.2 I2C Sequences, Figures 2 and 3, p. 9</text>
+<text x="32" y="386.1" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0E1726">word</text>
+<text x="608" y="386.1" font-size="15" font-weight="700" text-anchor="end" fill="#0E1726">typ 16 bit</text>
+<text x="32" y="406.4" font-size="15" fill="#2B3442">Argument or data word, each followed by its CRC</text>
+<text x="32" y="426.5" font-size="14" fill="#566070">Datasheet 4.2 I2C Sequences, Figures 2 and 3, p. 9</text>
+<text x="32" y="459" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0E1726">CRC</text>
+<text x="608" y="459" font-size="15" font-weight="700" text-anchor="end" fill="#0E1726">typ 8 bit</text>
+<text x="32" y="479.2" font-size="15" fill="#2B3442">CRC-8 over the two bytes before it, polynomial 0x31, init 0xFF</text>
+<text x="32" y="499.4" font-size="14" fill="#566070">Datasheet 4.4 Checksum Calculation, Table 14, p. 15</text>
+<text x="46" y="553.5" font-size="17" font-weight="700" fill="#334155">Notes</text>
+<text x="46" y="574" font-size="15" fill="#334155">Each transfer runs from START to STOP and every byte is</text>
+<text x="46" y="595.7" font-size="15" fill="#334155">acknowledged. The host may end a read with NACK and STOP after any</text>
+<text x="46" y="617.5" font-size="15" fill="#334155">CRC byte. CRC(0xBEEF) = 0x92 checks an implementation.</text>
+</svg>

@@ -102,72 +102,6 @@
   <meta property="og:description" content="C++20 driver for the Sensirion SFM family of I2C mass flow meters (SFM3000 to SFM6000D).">
   <meta property="og:url" content="https://kokeb-labs-drivers.github.io/driver-sfm-flow-meter/latest/diagrams/">
   <meta name="twitter:card" content="summary">
-  <script>
-(function () {
-  if (typeof mermaid != "undefined" && !(mermaid instanceof Element)) return;
-  var SRC = "https://unpkg.com/mermaid@11.17.2/dist/mermaid.min.js",
-      SRI = "sha384-EOXBFmc3gx5mb+vn0vPvvGqACToJD24hhacX5Yx+8NUUQrHIle/Qi5Bg9o3zKwW2", config = {}, real, loading;
-  var waiting = [], io = null, ahead = false, ENGAGE = ["scroll", "keydown", "pointerdown", "touchstart"];
-  var stub = {
-    initialize: function (c) { config = c || {}; if (real) real.initialize(config); },
-    render: function (id, text) {
-      var el = null, pres = document.querySelectorAll("pre.mermaid:not([data-kb-mermaid])");
-      for (var i = 0; i < pres.length && !el; i++) if (pres[i].textContent === text) el = pres[i];
-      if (el) el.setAttribute("data-kb-mermaid", "");
-      return near(el).then(load).then(function (m) { return m.render(id, text); });
-    }
-  };
-  function load() {
-    return loading || (loading = new Promise(function (resolve, reject) {
-      var s = document.createElement("script");
-      s.src = SRC;
-      s.integrity = SRI;
-      s.crossOrigin = "anonymous";
-      s.onload = function () {
-        real = window.mermaid;
-        window.mermaid = stub;
-        real.initialize(config);
-        resolve(real);
-      };
-      s.onerror = function () { loading = null; reject(new Error("Mermaid did not load")); };
-      document.head.appendChild(s);
-    }));
-  }
-  // One observer for the diagrams still waiting: on the screen only until the reader engages, then a screen ahead.
-  function watch() {
-    if (io) io.disconnect();
-    io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) release(function (w) { return w.el === e.target; });
-      });
-    }, { rootMargin: ahead ? "100% 0px" : "0px" });
-    waiting.forEach(function (w) { io.observe(w.el); });
-  }
-  function release(which) {
-    waiting = waiting.filter(function (w) {
-      if (!which(w)) return true;
-      io.unobserve(w.el);
-      w.go();
-      return false;
-    });
-  }
-  function near(el) {
-    if (real || !el || !("IntersectionObserver" in window)) return Promise.resolve();
-    return new Promise(function (resolve) {
-      waiting.push({ el: el, go: resolve });
-      if (io) io.observe(el); else watch();
-    });
-  }
-  function engaged() {
-    ENGAGE.forEach(function (t) { window.removeEventListener(t, engaged, true); });
-    ahead = true;
-    if (io) watch();
-  }
-  ENGAGE.forEach(function (t) { window.addEventListener(t, engaged, { capture: true, passive: true }); });
-  window.addEventListener("beforeprint", function () { if (io) release(function () { return true; }); });
-  window.mermaid = stub;
-})();
-</script>
 
   </head>
   
@@ -505,6 +439,8 @@
   
     
     
+      
+        
       
         
       
@@ -942,10 +878,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#inside-the-sfm-modules" class="md-nav__link">
+  <a href="#inside-the-sfm-flow-meter" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Inside the SFM modules
+        Inside the SFM flow meter
       
     </span>
   </a>
@@ -953,10 +889,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sfm-modules-address-selection" class="md-nav__link">
+  <a href="#what-the-sfm-flow-meter-does" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SFM modules: Address selection
+        What the SFM flow meter does
       
     </span>
   </a>
@@ -964,10 +900,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sfm-modules-typical-application" class="md-nav__link">
+  <a href="#sfm-flow-meter-address-selection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SFM modules: Typical application
+        SFM flow meter: Address selection
       
     </span>
   </a>
@@ -975,10 +911,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sfm-modules-package-jst-nsh-6-pin-10-mm-connector" class="md-nav__link">
+  <a href="#sfm-flow-meter-typical-application" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SFM modules package, JST NSH 6-pin 1.0 mm connector
+        SFM flow meter: Typical application
       
     </span>
   </a>
@@ -986,10 +922,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sfm-modules-pinout-jst-nsh-6-pin-10-mm-connector" class="md-nav__link">
+  <a href="#sfm-flow-meter" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SFM modules pinout, JST NSH 6-pin 1.0 mm connector
+        SFM flow meter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sfm-flow-meter-package-jst-nsh-6-pin-connector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SFM flow meter package, JST NSH 6-pin connector
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sfm-flow-meter-pinout-jst-nsh-6-pin-connector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SFM flow meter pinout, JST NSH 6-pin connector
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wiring-typical-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wiring: Typical application
       
     </span>
   </a>
@@ -1019,10 +988,43 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#i2c-address-byte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I2C address byte
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#several-sfm4300-on-one-i2c-bus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Several SFM4300 on one I2C bus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#start-wait-and-read-one-measurement" class="md-nav__link">
     <span class="md-ellipsis">
       
         Start, wait and read one measurement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-and-read-sequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command and read sequences
       
     </span>
   </a>
@@ -1060,90 +1062,141 @@
 <p>Every figure on this site is drawn by a Python module from facts extracted from the code, so it is rebuilt,
 not redrawn, when the code changes. CI runs <code>kokeb-docs figures --check</code> and fails when a
 committed figure no longer matches the code. Each figure below lists the files it is drawn from.</p>
-<h2 id="inside-the-sfm-modules">Inside the SFM modules<a class="headerlink" href="#inside-the-sfm-modules" title="Permanent link">&para;</a></h2>
+<h2 id="inside-the-sfm-flow-meter">Inside the SFM flow meter<a class="headerlink" href="#inside-the-sfm-flow-meter" title="Permanent link">&para;</a></h2>
 <figure class="kb-figure">
-<img src="chip-blocks.svg#only-light" alt="Block diagram of the SFM modules: its function blocks, how they connect and which package pins reach each block." width="1200" height="547"><img src="chip-blocks.dark.svg#only-dark" alt="Block diagram of the SFM modules: its function blocks, how they connect and which package pins reach each block." width="1200" height="547">
-<figcaption>Inside the SFM modules</figcaption>
+<img src="chip-blocks.svg#only-light" alt="Block diagram of the SFM flow meter: its function blocks, how they connect and which package pins reach each block." width="1200" height="547"><img src="chip-blocks.dark.svg#only-dark" alt="Block diagram of the SFM flow meter: its function blocks, how they connect and which package pins reach each block." width="1200" height="547">
+<figcaption>Inside the SFM flow meter</figcaption>
 </figure>
 
 <details class="kb-figure-desc">
 <summary>Figure description and sources</summary>
-<p>The SFM modules's function blocks inside its outline. Arrows between blocks carry signals or data in the direction they point (both ways where they have two heads). The package pins stand on the left and right edges with their numbers, each wired to the block it reaches.</p>
-<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a>.</p>
+<p>The SFM flow meter's function blocks inside its outline. Arrows between blocks carry signals or data in the direction they point (both ways where they have two heads). The package pins stand on the left and right edges with their numbers, each wired to the block it reaches.</p>
+<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/c3be7b0aca75a54f321b0cb76bb2e32600fd74a2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a>.</p>
 </details>
 <p>Hardware description: <a href="../hardware.yml"><code>docs/hardware.yml</code></a></p>
 <p>Drawn from:</p>
 <ul>
 <li><a href="../hardware.yml"><code>docs/hardware.yml</code></a></li>
-<li><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a></li>
+<li><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/c3be7b0aca75a54f321b0cb76bb2e32600fd74a2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a></li>
 </ul>
-<h2 id="sfm-modules-address-selection">SFM modules: Address selection<a class="headerlink" href="#sfm-modules-address-selection" title="Permanent link">&para;</a></h2>
+<h2 id="what-the-sfm-flow-meter-does">What the SFM flow meter does<a class="headerlink" href="#what-the-sfm-flow-meter-does" title="Permanent link">&para;</a></h2>
 <figure class="kb-figure">
-<img src="chip-circuit-address.svg#only-light" alt="Schematic of the SFM modules address selection: the chip with R3 resistor 2.7 kΩ." width="760" height="435" loading="lazy"><img src="chip-circuit-address.dark.svg#only-dark" alt="Schematic of the SFM modules address selection: the chip with R3 resistor 2.7 kΩ." width="760" height="435" loading="lazy">
-<figcaption>SFM modules: Address selection</figcaption>
+<img src="chip-capabilities.svg#only-light" alt="Capability map of the SFM flow meter: Flow measurement (supported): Starts continuous measurement and reads each CRC-checked sample as a flow in millilitres per minute; Gas and gas mixture (supported): Picks the calibrated gas or an oxygen mixture, and changes the mixture without stopping the sensor; Temperature (supported): Reads the sensor temperature from the sample where the part sends it, or by a pointer sequence; Averaging (supported): Averages until the read, or over a fixed number of the 2 kHz measurements; Scale factor and offset (supported): Reads the sensor&#x27;s scale factor, offset and unit and checks them against the datasheet table; Product identification (supported): Reads the product identifier or serial number and matches it to one of the 32 variants; Sleep and reset (supported): Stops the measurement, sleeps and wakes the sensor, and resets it by command, reset pin or supply cycle; Status and fault checks (supported): Checks each sample&#x27;s status word and range, and reports a reset, a stale value or a CRC error; Result-ready line (not covered): IRQn goes low when a reading is ready; the driver polls over I2C and leaves the pin open." width="1200" height="1002" loading="lazy"><img src="chip-capabilities.dark.svg#only-dark" alt="Capability map of the SFM flow meter: Flow measurement (supported): Starts continuous measurement and reads each CRC-checked sample as a flow in millilitres per minute; Gas and gas mixture (supported): Picks the calibrated gas or an oxygen mixture, and changes the mixture without stopping the sensor; Temperature (supported): Reads the sensor temperature from the sample where the part sends it, or by a pointer sequence; Averaging (supported): Averages until the read, or over a fixed number of the 2 kHz measurements; Scale factor and offset (supported): Reads the sensor&#x27;s scale factor, offset and unit and checks them against the datasheet table; Product identification (supported): Reads the product identifier or serial number and matches it to one of the 32 variants; Sleep and reset (supported): Stops the measurement, sleeps and wakes the sensor, and resets it by command, reset pin or supply cycle; Status and fault checks (supported): Checks each sample&#x27;s status word and range, and reports a reset, a stale value or a CRC error; Result-ready line (not covered): IRQn goes low when a reading is ready; the driver polls over I2C and leaves the pin open." width="1200" height="1002" loading="lazy">
+<figcaption>What the SFM flow meter does</figcaption>
+</figure>
+
+<details class="kb-figure-desc">
+<summary>Figure description and sources</summary>
+<p>Each card is one function of the SFM flow meter: an icon, its name and what it does for the application. The filled pill says how this driver covers it (legend below); the outlined pills are the chip registers behind it. The coverage table in the README gives the driver calls and the datasheet section of each card.</p>
+<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/c3be7b0aca75a54f321b0cb76bb2e32600fd74a2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a>.</p>
+</details>
+<p>Hardware description: <a href="../hardware.yml"><code>docs/hardware.yml</code></a></p>
+<p>Drawn from:</p>
+<ul>
+<li><a href="../hardware.yml"><code>docs/hardware.yml</code></a></li>
+<li><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/c3be7b0aca75a54f321b0cb76bb2e32600fd74a2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a></li>
+</ul>
+<h2 id="sfm-flow-meter-address-selection">SFM flow meter: Address selection<a class="headerlink" href="#sfm-flow-meter-address-selection" title="Permanent link">&para;</a></h2>
+<figure class="kb-figure">
+<img src="chip-circuit-address.svg#only-light" alt="Schematic of the SFM flow meter address selection: the chip with R3 resistor 2.7 kΩ." width="760" height="435" loading="lazy"><img src="chip-circuit-address.dark.svg#only-dark" alt="Schematic of the SFM flow meter address selection: the chip with R3 resistor 2.7 kΩ." width="760" height="435" loading="lazy">
+<figcaption>SFM flow meter: Address selection</figcaption>
 </figure>
 
 <details class="kb-figure-desc">
 <summary>Figure description and sources</summary>
 <p>A schematic. The MCU is on the left, each of its pins level with the chip pin it connects to; above each wire is the hook of the driver's port that drives or reads it. Supply pins point up to their supply and decoupling, ground pins down. Pins on the right carry the loads and the pins tied to a supply or ground; a cross marks a pin left open. A dot is a junction; wires that cross without a dot are not connected.</p>
-<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a>.</p>
+<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/c3be7b0aca75a54f321b0cb76bb2e32600fd74a2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a>.</p>
 </details>
 <p>Hardware description: <a href="../hardware.yml"><code>docs/hardware.yml</code></a></p>
 <p>Drawn from:</p>
 <ul>
 <li><a href="../hardware.yml"><code>docs/hardware.yml</code></a></li>
-<li><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a></li>
+<li><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/c3be7b0aca75a54f321b0cb76bb2e32600fd74a2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a></li>
 </ul>
-<h2 id="sfm-modules-typical-application">SFM modules: Typical application<a class="headerlink" href="#sfm-modules-typical-application" title="Permanent link">&para;</a></h2>
+<h2 id="sfm-flow-meter-typical-application">SFM flow meter: Typical application<a class="headerlink" href="#sfm-flow-meter-typical-application" title="Permanent link">&para;</a></h2>
 <figure class="kb-figure">
-<img src="chip-circuit-typical.svg#only-light" alt="Schematic of the SFM modules typical application: the chip with U2 MCU, R1 resistor Rp, R2 resistor Rp; the MCU wires carry the port hooks Write(), Read()." width="856" height="483" loading="lazy"><img src="chip-circuit-typical.dark.svg#only-dark" alt="Schematic of the SFM modules typical application: the chip with U2 MCU, R1 resistor Rp, R2 resistor Rp; the MCU wires carry the port hooks Write(), Read()." width="856" height="483" loading="lazy">
-<figcaption>SFM modules: Typical application</figcaption>
+<img src="chip-circuit-typical.svg#only-light" alt="Schematic of the SFM flow meter typical application: the chip with U2 MCU, R1 resistor Rp, R2 resistor Rp; the MCU wires carry the port hooks Write(), Read()." width="872" height="483" loading="lazy"><img src="chip-circuit-typical.dark.svg#only-dark" alt="Schematic of the SFM flow meter typical application: the chip with U2 MCU, R1 resistor Rp, R2 resistor Rp; the MCU wires carry the port hooks Write(), Read()." width="872" height="483" loading="lazy">
+<figcaption>SFM flow meter: Typical application</figcaption>
 </figure>
 
 <details class="kb-figure-desc">
 <summary>Figure description and sources</summary>
 <p>A schematic. The MCU is on the left, each of its pins level with the chip pin it connects to; above each wire is the hook of the driver's port that drives or reads it. Supply pins point up to their supply and decoupling, ground pins down. Pins on the right carry the loads and the pins tied to a supply or ground; a cross marks a pin left open. A dot is a junction; wires that cross without a dot are not connected.</p>
-<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a>.</p>
+<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/c3be7b0aca75a54f321b0cb76bb2e32600fd74a2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a>.</p>
 </details>
 <p>Hardware description: <a href="../hardware.yml"><code>docs/hardware.yml</code></a></p>
 <p>Drawn from:</p>
 <ul>
 <li><a href="../hardware.yml"><code>docs/hardware.yml</code></a></li>
-<li><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a></li>
+<li><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/c3be7b0aca75a54f321b0cb76bb2e32600fd74a2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a></li>
 </ul>
-<h2 id="sfm-modules-package-jst-nsh-6-pin-10-mm-connector">SFM modules package, JST NSH 6-pin 1.0 mm connector<a class="headerlink" href="#sfm-modules-package-jst-nsh-6-pin-10-mm-connector" title="Permanent link">&para;</a></h2>
+<h2 id="sfm-flow-meter">SFM flow meter<a class="headerlink" href="#sfm-flow-meter" title="Permanent link">&para;</a></h2>
 <figure class="kb-figure">
-<img src="chip-outline.svg#only-light" alt="Outline of the SFM modules in JST NSH 6-pin 1.0 mm connector drawn to scale from above: body 42.5 x 26.0 mm, pitch 1.0 mm, 6 pins." width="1010" height="853" loading="lazy"><img src="chip-outline.dark.svg#only-dark" alt="Outline of the SFM modules in JST NSH 6-pin 1.0 mm connector drawn to scale from above: body 42.5 x 26.0 mm, pitch 1.0 mm, 6 pins." width="1010" height="853" loading="lazy">
-<figcaption>SFM modules package, JST NSH 6-pin 1.0 mm connector</figcaption>
+<img src="chip-hero.svg#only-light" alt="Overview of the SFM flow meter, a family of digital gas mass flow sensors on I2C: each part reports the flow of its calibrated gases and gas mixtures and its own temperature as 16-bit words, and the reference SFM4300 does so for air, oxygen, nitrous oxide and carbon dioxide. A MCU talks to it over I2C; it reads back Gas flow, Sensor temperature. Headline figures: 20 or 50 slm SFM4300 flow range; 3.0 to 5.5 V SFM4300 supply; 1 MHz I2C clock at most; 2 kHz flow update rate, no averaging." width="1200" height="819" loading="lazy"><img src="chip-hero.dark.svg#only-dark" alt="Overview of the SFM flow meter, a family of digital gas mass flow sensors on I2C: each part reports the flow of its calibrated gases and gas mixtures and its own temperature as 16-bit words, and the reference SFM4300 does so for air, oxygen, nitrous oxide and carbon dioxide. A MCU talks to it over I2C; it reads back Gas flow, Sensor temperature. Headline figures: 20 or 50 slm SFM4300 flow range; 3.0 to 5.5 V SFM4300 supply; 1 MHz I2C clock at most; 2 kHz flow update rate, no averaging." width="1200" height="819" loading="lazy">
+<figcaption>SFM flow meter</figcaption>
 </figure>
 
 <details class="kb-figure-desc">
 <summary>Figure description and sources</summary>
-<p>The SFM modules package seen from the top and, when the height is known, from the side, drawn to scale: 42.5 x 26.0 mm. The arrows carry the datasheet's dimensions, the dot marks pin 1 and the pads are numbered counter-clockwise from it, coloured by the pin's electrical type (legend below). Pads sit centred on each side at the stated pitch; the datasheet's land pattern is the reference for a board.</p>
-<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a>.</p>
+<p>The SFM flow meter in the middle, drawn as its JST NSH 6-pin connector package. On the left the MCU that runs the driver, joined to it by I2C. Below it, what the chip reads back. The tiles at the bottom are the headline numbers, each with the datasheet section and page it comes from.</p>
+<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/c3be7b0aca75a54f321b0cb76bb2e32600fd74a2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a>.</p>
 </details>
 <p>Hardware description: <a href="../hardware.yml"><code>docs/hardware.yml</code></a></p>
 <p>Drawn from:</p>
 <ul>
 <li><a href="../hardware.yml"><code>docs/hardware.yml</code></a></li>
-<li><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a></li>
+<li><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/c3be7b0aca75a54f321b0cb76bb2e32600fd74a2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a></li>
 </ul>
-<h2 id="sfm-modules-pinout-jst-nsh-6-pin-10-mm-connector">SFM modules pinout, JST NSH 6-pin 1.0 mm connector<a class="headerlink" href="#sfm-modules-pinout-jst-nsh-6-pin-10-mm-connector" title="Permanent link">&para;</a></h2>
+<h2 id="sfm-flow-meter-package-jst-nsh-6-pin-connector">SFM flow meter package, JST NSH 6-pin connector<a class="headerlink" href="#sfm-flow-meter-package-jst-nsh-6-pin-connector" title="Permanent link">&para;</a></h2>
 <figure class="kb-figure">
-<img src="chip-pinout.svg#only-light" alt="Pinout of the SFM modules in JST NSH 6-pin 1.0 mm connector, top view: 6 pins, each with its name, its electrical type as a colour and the driver hook that uses it." width="817" height="489" loading="lazy"><img src="chip-pinout.dark.svg#only-dark" alt="Pinout of the SFM modules in JST NSH 6-pin 1.0 mm connector, top view: 6 pins, each with its name, its electrical type as a colour and the driver hook that uses it." width="817" height="489" loading="lazy">
-<figcaption>SFM modules pinout, JST NSH 6-pin 1.0 mm connector</figcaption>
+<img src="chip-outline.svg#only-light" alt="Outline of the SFM flow meter in JST NSH 6-pin connector drawn to scale from above: body 42.5 x 26.0 mm, pitch 1.0 mm, 6 pins." width="1010" height="853" loading="lazy"><img src="chip-outline.dark.svg#only-dark" alt="Outline of the SFM flow meter in JST NSH 6-pin connector drawn to scale from above: body 42.5 x 26.0 mm, pitch 1.0 mm, 6 pins." width="1010" height="853" loading="lazy">
+<figcaption>SFM flow meter package, JST NSH 6-pin connector</figcaption>
 </figure>
 
 <details class="kb-figure-desc">
 <summary>Figure description and sources</summary>
-<p>The SFM modules seen from the top, in its JST NSH 6-pin 1.0 mm connector package. Pin 1 is marked by the dot; the numbers run counter-clockwise from it. Each pad is coloured by the pin's electrical type (legend below). Next to it is the pin's name and, in mono, the hook of the driver's port that drives or reads it; a pin without a hook is not used by the driver.</p>
-<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a>.</p>
+<p>The SFM flow meter package seen from the top and, when the height is known, from the side, drawn to scale: 42.5 x 26.0 mm. The arrows carry the datasheet's dimensions, the dot marks pin 1 and the pads are numbered counter-clockwise from it, coloured by the pin's electrical type (legend below). Pads sit centred on each side at the stated pitch; the datasheet's land pattern is the reference for a board.</p>
+<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/c3be7b0aca75a54f321b0cb76bb2e32600fd74a2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a>.</p>
 </details>
 <p>Hardware description: <a href="../hardware.yml"><code>docs/hardware.yml</code></a></p>
 <p>Drawn from:</p>
 <ul>
 <li><a href="../hardware.yml"><code>docs/hardware.yml</code></a></li>
-<li><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a></li>
+<li><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/c3be7b0aca75a54f321b0cb76bb2e32600fd74a2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a></li>
+</ul>
+<h2 id="sfm-flow-meter-pinout-jst-nsh-6-pin-connector">SFM flow meter pinout, JST NSH 6-pin connector<a class="headerlink" href="#sfm-flow-meter-pinout-jst-nsh-6-pin-connector" title="Permanent link">&para;</a></h2>
+<figure class="kb-figure">
+<img src="chip-pinout.svg#only-light" alt="Pinout of the SFM flow meter in JST NSH 6-pin connector, top view: 6 pins, each with its name, its electrical type as a colour and the driver hook that uses it." width="817" height="489" loading="lazy"><img src="chip-pinout.dark.svg#only-dark" alt="Pinout of the SFM flow meter in JST NSH 6-pin connector, top view: 6 pins, each with its name, its electrical type as a colour and the driver hook that uses it." width="817" height="489" loading="lazy">
+<figcaption>SFM flow meter pinout, JST NSH 6-pin connector</figcaption>
+</figure>
+
+<details class="kb-figure-desc">
+<summary>Figure description and sources</summary>
+<p>The SFM flow meter seen from the top, in its JST NSH 6-pin connector package. Pin 1 is marked by the dot; the numbers run counter-clockwise from it. Each pad is coloured by the pin's electrical type (legend below). Next to it is the pin's name and, in mono, the hook of the driver's port that drives or reads it; a pin without a hook is not used by the driver.</p>
+<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/c3be7b0aca75a54f321b0cb76bb2e32600fd74a2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a>.</p>
+</details>
+<p>Hardware description: <a href="../hardware.yml"><code>docs/hardware.yml</code></a></p>
+<p>Drawn from:</p>
+<ul>
+<li><a href="../hardware.yml"><code>docs/hardware.yml</code></a></li>
+<li><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/c3be7b0aca75a54f321b0cb76bb2e32600fd74a2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a></li>
+</ul>
+<h2 id="wiring-typical-application">Wiring: Typical application<a class="headerlink" href="#wiring-typical-application" title="Permanent link">&para;</a></h2>
+<figure class="kb-figure">
+<img src="chip-wiring-typical.svg#only-light" alt="Wiring of the SFM flow meter for the Typical application: MCU I2C SDA to SDA (Write(), Read()); MCU I2C SCL to SCL (Write(), Read()). Supplies, grounds and the support parts are listed under the drawing." width="1200" height="719" loading="lazy"><img src="chip-wiring-typical.dark.svg#only-dark" alt="Wiring of the SFM flow meter for the Typical application: MCU I2C SDA to SDA (Write(), Read()); MCU I2C SCL to SCL (Write(), Read()). Supplies, grounds and the support parts are listed under the drawing." width="1200" height="719" loading="lazy">
+<figcaption>Wiring: Typical application</figcaption>
+</figure>
+
+<details class="kb-figure-desc">
+<summary>Figure description and sources</summary>
+<p>The MCU on the left, the SFM flow meter in the middle. Each wire to the chip is coloured by the chip pin's electrical type and carries the net name and the chip pin number above it and, under it, the driver hooks that use it (and any part on the net). The boxes underneath list the supplies, the support parts and the pins this circuit leaves unconnected.</p>
+<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/c3be7b0aca75a54f321b0cb76bb2e32600fd74a2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a>.</p>
+</details>
+<p>Hardware description: <a href="../hardware.yml"><code>docs/hardware.yml</code></a></p>
+<p>Drawn from:</p>
+<ul>
+<li><a href="../hardware.yml"><code>docs/hardware.yml</code></a></li>
+<li><a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/c3be7b0aca75a54f321b0cb76bb2e32600fd74a2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a></li>
 </ul>
 <h2 id="the-layers-one-of-them-yours">The layers, one of them yours<a class="headerlink" href="#the-layers-one-of-them-yours" title="Permanent link">&para;</a></h2>
 <figure class="kb-figure">
@@ -1154,13 +1207,13 @@ committed figure no longer matches the code. Each figure below lists the files i
 <details class="kb-figure-desc">
 <summary>Figure description and sources</summary>
 <p>Top to bottom, each arrow is a call. Your application calls one object, whose public calls are listed from the umbrella header in inc/. The core turns each call into register reads and writes and hands them to the port contract (the CRTP base in inc/*_interface.hpp), which forwards them, at compile time, to the hooks of the port class you write; your port moves the bytes on the bus. The notes on the right say which layers stay the same on every MCU and which one you write. A library without a port contract has only the first two layers.</p>
-<p>Drawn from: <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter.hpp"><code>inc/sfm_flow_meter.hpp</code></a> <code>public calls</code>; <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a> <code>I2cInterface</code>; figure module <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/docs/diagrams/figures/driver-layers.py"><code>docs/diagrams/figures/driver-layers.py</code></a>.</p>
+<p>Drawn from: <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/c3be7b0aca75a54f321b0cb76bb2e32600fd74a2/inc/sfm_flow_meter.hpp"><code>inc/sfm_flow_meter.hpp</code></a> <code>public calls</code>; <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/c3be7b0aca75a54f321b0cb76bb2e32600fd74a2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a> <code>I2cInterface</code>; figure module <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/c3be7b0aca75a54f321b0cb76bb2e32600fd74a2/docs/diagrams/figures/driver-layers.py"><code>docs/diagrams/figures/driver-layers.py</code></a>.</p>
 </details>
-<p>Figure module: <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/docs/diagrams/figures/driver-layers.py"><code>docs/diagrams/figures/driver-layers.py</code></a></p>
+<p>Figure module: <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/c3be7b0aca75a54f321b0cb76bb2e32600fd74a2/docs/diagrams/figures/driver-layers.py"><code>docs/diagrams/figures/driver-layers.py</code></a></p>
 <p>Drawn from:</p>
 <ul>
-<li><code>public calls</code> in <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter.hpp"><code>inc/sfm_flow_meter.hpp</code></a></li>
-<li><code>I2cInterface</code> in <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/5da9573d09c22a4402b21eb2ef2f31de85a6dad2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a></li>
+<li><code>public calls</code> in <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/c3be7b0aca75a54f321b0cb76bb2e32600fd74a2/inc/sfm_flow_meter.hpp"><code>inc/sfm_flow_meter.hpp</code></a></li>
+<li><code>I2cInterface</code> in <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/c3be7b0aca75a54f321b0cb76bb2e32600fd74a2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a></li>
 </ul>
 <h2 id="driver-states">Driver states<a class="headerlink" href="#driver-states" title="Permanent link">&para;</a></h2>
 <figure class="kb-figure">
@@ -1178,6 +1231,38 @@ committed figure no longer matches the code. Each figure below lists the files i
 <ul>
 <li><a href="../model/driver-states.state.yml"><code>docs/model/driver-states.state.yml</code></a></li>
 </ul>
+<h2 id="i2c-address-byte">I2C address byte<a class="headerlink" href="#i2c-address-byte" title="Permanent link">&para;</a></h2>
+<figure class="kb-figure">
+<img src="i2c-timing.svg#only-light" alt="I2C address byte of the SFM4300: the start condition, the 7-bit default address 0x2A with the write bit and the acknowledge, with the typical and maximum clock the data sheet gives." width="640" height="535" loading="lazy"><img src="i2c-timing.dark.svg#only-dark" alt="I2C address byte of the SFM4300: the start condition, the 7-bit default address 0x2A with the write bit and the acknowledge, with the typical and maximum clock the data sheet gives." width="640" height="535" loading="lazy">
+<figcaption>I2C address byte</figcaption>
+</figure>
+
+<details class="kb-figure-desc">
+<summary>Figure description and sources</summary>
+<p>The two lanes are SCL and SDA, left to right in time. SDA falls while SCL is high (the start), the seven address bits and the write bit follow, each stable while SCL is high, then the sensor pulls SDA low for the acknowledge. The table gives the clock frequency of the timing specification.</p>
+<p>Drawn from: <a href="../model/i2c-timing.timing.yml"><code>docs/model/i2c-timing.timing.yml</code></a>.</p>
+</details>
+<p>Hardware description: <a href="../model/i2c-timing.timing.yml"><code>docs/model/i2c-timing.timing.yml</code></a></p>
+<p>Drawn from:</p>
+<ul>
+<li><a href="../model/i2c-timing.timing.yml"><code>docs/model/i2c-timing.timing.yml</code></a></li>
+</ul>
+<h2 id="several-sfm4300-on-one-i2c-bus">Several SFM4300 on one I2C bus<a class="headerlink" href="#several-sfm4300-on-one-i2c-bus" title="Permanent link">&para;</a></h2>
+<figure class="kb-figure">
+<img src="i2c-topology.svg#only-light" alt="An I2C bus on which an MCU and up to four SFM4300 flow meters share SCL and SDA, each at the address a resistor from its ADDR pin to GND selects, with one pull-up resistor per line." width="640" height="734" loading="lazy"><img src="i2c-topology.dark.svg#only-dark" alt="An I2C bus on which an MCU and up to four SFM4300 flow meters share SCL and SDA, each at the address a resistor from its ADDR pin to GND selects, with one pull-up resistor per line." width="640" height="734" loading="lazy">
+<figcaption>Several SFM4300 on one I2C bus</figcaption>
+</figure>
+
+<details class="kb-figure-desc">
+<summary>Figure description and sources</summary>
+<p>The MCU on top and the SFM4300 flow meters under it connect to the rails SCL and SDA on the right; the dashed card stands for the meters in between. The first SFM4300 answers at 0x2A with ADDR open and the last at 0x2D with 5.6 kΩ to GND, and one pull-up per line ties the bus to the bus voltage.</p>
+<p>Drawn from: <a href="../model/i2c-topology.topology.yml"><code>docs/model/i2c-topology.topology.yml</code></a>.</p>
+</details>
+<p>Hardware description: <a href="../model/i2c-topology.topology.yml"><code>docs/model/i2c-topology.topology.yml</code></a></p>
+<p>Drawn from:</p>
+<ul>
+<li><a href="../model/i2c-topology.topology.yml"><code>docs/model/i2c-topology.topology.yml</code></a></li>
+</ul>
 <h2 id="start-wait-and-read-one-measurement">Start, wait and read one measurement<a class="headerlink" href="#start-wait-and-read-one-measurement" title="Permanent link">&para;</a></h2>
 <figure class="kb-figure">
 <img src="measurement-steps.svg#only-light" alt="One measurement with the SFM executor: StartMeasurement reads the scale factors and starts the sensor, your code sleeps the returned wait and polls, and ReadSample then reads nine bytes, checks each CRC and returns a sample." width="684" height="843" loading="lazy"><img src="measurement-steps.dark.svg#only-dark" alt="One measurement with the SFM executor: StartMeasurement reads the scale factors and starts the sensor, your code sleeps the returned wait and polls, and ReadSample then reads nine bytes, checks each CRC and returns a sample." width="684" height="843" loading="lazy">
@@ -1193,6 +1278,22 @@ committed figure no longer matches the code. Each figure below lists the files i
 <p>Drawn from:</p>
 <ul>
 <li><a href="../model/measurement-steps.seq.yml"><code>docs/model/measurement-steps.seq.yml</code></a></li>
+</ul>
+<h2 id="command-and-read-sequences">Command and read sequences<a class="headerlink" href="#command-and-read-sequences" title="Permanent link">&para;</a></h2>
+<figure class="kb-figure">
+<img src="sf06-frame.svg#only-light" alt="The two I2C sequences of the SFM4300: a write of a 16-bit command with a 16-bit argument and its CRC byte, and a read of 16-bit words, each followed by a CRC byte the sensor sends." width="640" height="664" loading="lazy"><img src="sf06-frame.dark.svg#only-dark" alt="The two I2C sequences of the SFM4300: a write of a 16-bit command with a 16-bit argument and its CRC byte, and a read of 16-bit words, each followed by a CRC byte the sensor sends." width="640" height="664" loading="lazy">
+<figcaption>Command and read sequences</figcaption>
+</figure>
+
+<details class="kb-figure-desc">
+<summary>Figure description and sources</summary>
+<p>The two lanes are Write and Read, each one I2C transfer from START to STOP. Write carries the address with the write bit, the command MSB and LSB, the argument MSB and LSB and the CRC of the argument. Read carries the address with the read bit, then the sensor sends each word as its MSB, its LSB and a CRC, up to the last CRC, which the host answers with NACK before STOP; the words in between are left out.</p>
+<p>Drawn from: <a href="../model/sf06-frame.timing.yml"><code>docs/model/sf06-frame.timing.yml</code></a>.</p>
+</details>
+<p>Hardware description: <a href="../model/sf06-frame.timing.yml"><code>docs/model/sf06-frame.timing.yml</code></a></p>
+<p>Drawn from:</p>
+<ul>
+<li><a href="../model/sf06-frame.timing.yml"><code>docs/model/sf06-frame.timing.yml</code></a></li>
 </ul>
 
 

@@ -100,72 +100,6 @@
   <meta property="og:description" content="C++20 driver for the Sensirion SFM family of I2C mass flow meters (SFM3000 to SFM6000D).">
   <meta property="og:url" content="https://kokeb-labs-drivers.github.io/driver-sfm-flow-meter/latest/">
   <meta name="twitter:card" content="summary">
-  <script>
-(function () {
-  if (typeof mermaid != "undefined" && !(mermaid instanceof Element)) return;
-  var SRC = "https://unpkg.com/mermaid@11.17.2/dist/mermaid.min.js",
-      SRI = "sha384-EOXBFmc3gx5mb+vn0vPvvGqACToJD24hhacX5Yx+8NUUQrHIle/Qi5Bg9o3zKwW2", config = {}, real, loading;
-  var waiting = [], io = null, ahead = false, ENGAGE = ["scroll", "keydown", "pointerdown", "touchstart"];
-  var stub = {
-    initialize: function (c) { config = c || {}; if (real) real.initialize(config); },
-    render: function (id, text) {
-      var el = null, pres = document.querySelectorAll("pre.mermaid:not([data-kb-mermaid])");
-      for (var i = 0; i < pres.length && !el; i++) if (pres[i].textContent === text) el = pres[i];
-      if (el) el.setAttribute("data-kb-mermaid", "");
-      return near(el).then(load).then(function (m) { return m.render(id, text); });
-    }
-  };
-  function load() {
-    return loading || (loading = new Promise(function (resolve, reject) {
-      var s = document.createElement("script");
-      s.src = SRC;
-      s.integrity = SRI;
-      s.crossOrigin = "anonymous";
-      s.onload = function () {
-        real = window.mermaid;
-        window.mermaid = stub;
-        real.initialize(config);
-        resolve(real);
-      };
-      s.onerror = function () { loading = null; reject(new Error("Mermaid did not load")); };
-      document.head.appendChild(s);
-    }));
-  }
-  // One observer for the diagrams still waiting: on the screen only until the reader engages, then a screen ahead.
-  function watch() {
-    if (io) io.disconnect();
-    io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) release(function (w) { return w.el === e.target; });
-      });
-    }, { rootMargin: ahead ? "100% 0px" : "0px" });
-    waiting.forEach(function (w) { io.observe(w.el); });
-  }
-  function release(which) {
-    waiting = waiting.filter(function (w) {
-      if (!which(w)) return true;
-      io.unobserve(w.el);
-      w.go();
-      return false;
-    });
-  }
-  function near(el) {
-    if (real || !el || !("IntersectionObserver" in window)) return Promise.resolve();
-    return new Promise(function (resolve) {
-      waiting.push({ el: el, go: resolve });
-      if (io) io.observe(el); else watch();
-    });
-  }
-  function engaged() {
-    ENGAGE.forEach(function (t) { window.removeEventListener(t, engaged, true); });
-    ahead = true;
-    if (io) watch();
-  }
-  ENGAGE.forEach(function (t) { window.addEventListener(t, engaged, { capture: true, passive: true }); });
-  window.addEventListener("beforeprint", function () { if (io) release(function () { return true; }); });
-  window.mermaid = stub;
-})();
-</script>
 
   </head>
   
@@ -537,10 +471,65 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-you-get" class="md-nav__link">
+  <a href="#what-it-does" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What you get
+        What it does
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-it-is-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where it is used
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inside-the-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inside the module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pins-and-wiring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pins and wiring
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#driver-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Driver coverage
       
     </span>
   </a>
@@ -585,6 +574,8 @@
   
     
     
+      
+        
       
         
       
@@ -862,10 +853,65 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-you-get" class="md-nav__link">
+  <a href="#what-it-does" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What you get
+        What it does
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-it-is-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where it is used
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inside-the-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inside the module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pins-and-wiring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pins and wiring
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#driver-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Driver coverage
       
     </span>
   </a>
@@ -922,7 +968,7 @@
 
 
 <div class="kb-hero">
-<p><span class="kb-kicker">Driver</span></p>
+<p><span class="kb-kicker">Digital gas mass flow meter</span></p>
 <h1 id="sfm-flow-meter-driver">SFM Flow Meter Driver<a class="headerlink" href="#sfm-flow-meter-driver" title="Permanent link">&para;</a></h1>
 <p>A C++20 driver for the Sensirion SFM digital mass flow meters on I2C: the SFM4300, SFM3003, SFM3013, SFM3019,
 SFM3119, SFM3304, SFM3505, the legacy SFM3000, SFM3200, SFM3300, SFM3400, SFM4200 and SFM4100, and the preliminary
@@ -931,39 +977,206 @@ SFM6000D. One API, 32 variants, on any MCU.</p>
 <a class="md-button" href="api-guide/">API guide</a>
 <a class="md-button" href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter">Source on GitHub</a></p>
 </div>
-<p>The driver has no platform code. You give it a small class that brings the bus up and moves bytes; it does the
-rest: identification, scaling checks, the command sequences of each protocol family, the CRC of every word, the
-status checks, the waits and the recovery rules.</p>
+<!-- generated: chip-summary -->
+<p>The <strong>SFM flow meter</strong> is a family of digital gas mass flow sensors on I2C: each part reports the flow of its calibrated
+gases and gas mixtures and its own temperature as 16-bit words, and the reference SFM4300 does so for air, oxygen,
+nitrous oxide and carbon dioxide (Product Summary, <a href="https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=1">p.
+1</a>).</p>
+<!-- /generated -->
+
 <div class="admonition warning">
 <p class="admonition-title">Not a safety device</p>
 <p>The vendor states that these sensors are not designed for safety-critical or life-supporting use unless the
 datasheet says so. This driver is verified against a model of the chip, not against hardware, and carries no
 medical or safety claim. See <a href="contract/#what-is-not-verified">Contract</a>.</p>
 </div>
-<div class="kb-chip">
-<div class="kb-chip__head">
-<span class="kb-chip__kicker">Digital mass flow meters</span>
-<span class="kb-chip__name">SFM family</span>
-<span class="kb-chip__vendor">Sensirion</span>
-</div>
-<dl>
-<dt>Function</dt>
-<dd>Gas mass flow in standard litres per minute (SFM4100: standard cubic centimetres) and the temperature the sensor
-reports
-    (its silicon; on the SFM3003-300-CET a gas temperature sensor in the flow channel), as signed integers in
-    millilitres per minute and milli-degrees</dd>
-<dt>Interface</dt>
-<dd>I2C, 100 kHz to 1 MHz depending on the part; no register byte: raw command words and 16-bit words with a CRC-8</dd>
-<dt>Families</dt>
-<dd>SF06 (five parts), SF06 gen 2 (SFM3304), SF06 dual (SFM3505), SF05 (five legacy), SF04 (SFM4100),
-SFx6000 (SFM6000D, preliminary)</dd>
-<dt>Integrity</dt>
-<dd>CRC-8 on every word, checked before anything is decoded; status word checks; stuck lines are errors</dd>
-<dt>Supply</dt>
-<dd>3.0 V to 5.5 V (SFM4300); 3.3 V or 5 V by part, see <a href="hardware/">Hardware</a></dd>
-</dl>
-</div>
-<h2 id="what-you-get">What you get<a class="headerlink" href="#what-you-get" title="Permanent link">&para;</a></h2>
+<figure class="kb-figure">
+<img src="diagrams/chip-hero.svg#only-light" alt="Overview of the SFM flow meter, a family of digital gas mass flow sensors on I2C: each part reports the flow of its calibrated gases and gas mixtures and its own temperature as 16-bit words, and the reference SFM4300 does so for air, oxygen, nitrous oxide and carbon dioxide. A MCU talks to it over I2C; it reads back Gas flow, Sensor temperature. Headline figures: 20 or 50 slm SFM4300 flow range; 3.0 to 5.5 V SFM4300 supply; 1 MHz I2C clock at most; 2 kHz flow update rate, no averaging." width="1200" height="819"><img src="diagrams/chip-hero.dark.svg#only-dark" alt="Overview of the SFM flow meter, a family of digital gas mass flow sensors on I2C: each part reports the flow of its calibrated gases and gas mixtures and its own temperature as 16-bit words, and the reference SFM4300 does so for air, oxygen, nitrous oxide and carbon dioxide. A MCU talks to it over I2C; it reads back Gas flow, Sensor temperature. Headline figures: 20 or 50 slm SFM4300 flow range; 3.0 to 5.5 V SFM4300 supply; 1 MHz I2C clock at most; 2 kHz flow update rate, no averaging." width="1200" height="819">
+<figcaption>SFM flow meter</figcaption>
+</figure>
+
+<details class="kb-figure-desc">
+<summary>Figure description and sources</summary>
+<p>The SFM flow meter in the middle, drawn as its JST NSH 6-pin connector package. On the left the MCU that runs the driver, joined to it by I2C. Below it, what the chip reads back. The tiles at the bottom are the headline numbers, each with the datasheet section and page it comes from.</p>
+<p>Drawn from: <a href="hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/c3be7b0aca75a54f321b0cb76bb2e32600fd74a2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a>.</p>
+</details>
+<h2 id="what-it-does">What it does<a class="headerlink" href="#what-it-does" title="Permanent link">&para;</a></h2>
+<figure class="kb-figure">
+<img src="diagrams/chip-capabilities.svg#only-light" alt="Capability map of the SFM flow meter: Flow measurement (supported): Starts continuous measurement and reads each CRC-checked sample as a flow in millilitres per minute; Gas and gas mixture (supported): Picks the calibrated gas or an oxygen mixture, and changes the mixture without stopping the sensor; Temperature (supported): Reads the sensor temperature from the sample where the part sends it, or by a pointer sequence; Averaging (supported): Averages until the read, or over a fixed number of the 2 kHz measurements; Scale factor and offset (supported): Reads the sensor&#x27;s scale factor, offset and unit and checks them against the datasheet table; Product identification (supported): Reads the product identifier or serial number and matches it to one of the 32 variants; Sleep and reset (supported): Stops the measurement, sleeps and wakes the sensor, and resets it by command, reset pin or supply cycle; Status and fault checks (supported): Checks each sample&#x27;s status word and range, and reports a reset, a stale value or a CRC error; Result-ready line (not covered): IRQn goes low when a reading is ready; the driver polls over I2C and leaves the pin open." width="1200" height="1002" loading="lazy"><img src="diagrams/chip-capabilities.dark.svg#only-dark" alt="Capability map of the SFM flow meter: Flow measurement (supported): Starts continuous measurement and reads each CRC-checked sample as a flow in millilitres per minute; Gas and gas mixture (supported): Picks the calibrated gas or an oxygen mixture, and changes the mixture without stopping the sensor; Temperature (supported): Reads the sensor temperature from the sample where the part sends it, or by a pointer sequence; Averaging (supported): Averages until the read, or over a fixed number of the 2 kHz measurements; Scale factor and offset (supported): Reads the sensor&#x27;s scale factor, offset and unit and checks them against the datasheet table; Product identification (supported): Reads the product identifier or serial number and matches it to one of the 32 variants; Sleep and reset (supported): Stops the measurement, sleeps and wakes the sensor, and resets it by command, reset pin or supply cycle; Status and fault checks (supported): Checks each sample&#x27;s status word and range, and reports a reset, a stale value or a CRC error; Result-ready line (not covered): IRQn goes low when a reading is ready; the driver polls over I2C and leaves the pin open." width="1200" height="1002" loading="lazy">
+<figcaption>What the SFM flow meter does</figcaption>
+</figure>
+
+<details class="kb-figure-desc">
+<summary>Figure description and sources</summary>
+<p>Each card is one function of the SFM flow meter: an icon, its name and what it does for the application. The filled pill says how this driver covers it (legend below); the outlined pills are the chip registers behind it. The coverage table in the README gives the driver calls and the datasheet section of each card.</p>
+<p>Drawn from: <a href="hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/c3be7b0aca75a54f321b0cb76bb2e32600fd74a2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a>.</p>
+</details>
+<h2 id="where-it-is-used">Where it is used<a class="headerlink" href="#where-it-is-used" title="Permanent link">&para;</a></h2>
+<!-- generated: chip-uses -->
+<ul>
+<li>Medical gas mixing, for example anesthesia and vaporizers</li>
+<li>Industrial gas mixing, for example welding and gas purging</li>
+</ul>
+<p>Uses named by the datasheet (Product Summary, <a href="https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=1">p.
+1</a>).</p>
+<!-- /generated -->
+
+<h2 id="inside-the-module">Inside the module<a class="headerlink" href="#inside-the-module" title="Permanent link">&para;</a></h2>
+<figure class="kb-figure">
+<img src="diagrams/chip-blocks.svg#only-light" alt="Block diagram of the SFM flow meter: its function blocks, how they connect and which package pins reach each block." width="1200" height="547" loading="lazy"><img src="diagrams/chip-blocks.dark.svg#only-dark" alt="Block diagram of the SFM flow meter: its function blocks, how they connect and which package pins reach each block." width="1200" height="547" loading="lazy">
+<figcaption>Inside the SFM flow meter</figcaption>
+</figure>
+
+<details class="kb-figure-desc">
+<summary>Figure description and sources</summary>
+<p>The SFM flow meter's function blocks inside its outline. Arrows between blocks carry signals or data in the direction they point (both ways where they have two heads). The package pins stand on the left and right edges with their numbers, each wired to the block it reaches.</p>
+<p>Drawn from: <a href="hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/c3be7b0aca75a54f321b0cb76bb2e32600fd74a2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a>.</p>
+</details>
+<h2 id="pins-and-wiring">Pins and wiring<a class="headerlink" href="#pins-and-wiring" title="Permanent link">&para;</a></h2>
+<figure class="kb-figure">
+<img src="diagrams/chip-pinout.svg#only-light" alt="Pinout of the SFM flow meter in JST NSH 6-pin connector, top view: 6 pins, each with its name, its electrical type as a colour and the driver hook that uses it." width="817" height="489" loading="lazy"><img src="diagrams/chip-pinout.dark.svg#only-dark" alt="Pinout of the SFM flow meter in JST NSH 6-pin connector, top view: 6 pins, each with its name, its electrical type as a colour and the driver hook that uses it." width="817" height="489" loading="lazy">
+<figcaption>SFM flow meter pinout, JST NSH 6-pin connector</figcaption>
+</figure>
+
+<details class="kb-figure-desc">
+<summary>Figure description and sources</summary>
+<p>The SFM flow meter seen from the top, in its JST NSH 6-pin connector package. Pin 1 is marked by the dot; the numbers run counter-clockwise from it. Each pad is coloured by the pin's electrical type (legend below). Next to it is the pin's name and, in mono, the hook of the driver's port that drives or reads it; a pin without a hook is not used by the driver.</p>
+<p>Drawn from: <a href="hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/c3be7b0aca75a54f321b0cb76bb2e32600fd74a2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a>.</p>
+</details>
+<figure class="kb-figure">
+<img src="diagrams/chip-wiring-typical.svg#only-light" alt="Wiring of the SFM flow meter for the Typical application: MCU I2C SDA to SDA (Write(), Read()); MCU I2C SCL to SCL (Write(), Read()). Supplies, grounds and the support parts are listed under the drawing." width="1200" height="719" loading="lazy"><img src="diagrams/chip-wiring-typical.dark.svg#only-dark" alt="Wiring of the SFM flow meter for the Typical application: MCU I2C SDA to SDA (Write(), Read()); MCU I2C SCL to SCL (Write(), Read()). Supplies, grounds and the support parts are listed under the drawing." width="1200" height="719" loading="lazy">
+<figcaption>Wiring: Typical application</figcaption>
+</figure>
+
+<details class="kb-figure-desc">
+<summary>Figure description and sources</summary>
+<p>The MCU on the left, the SFM flow meter in the middle. Each wire to the chip is coloured by the chip pin's electrical type and carries the net name and the chip pin number above it and, under it, the driver hooks that use it (and any part on the net). The boxes underneath list the supplies, the support parts and the pins this circuit leaves unconnected.</p>
+<p>Drawn from: <a href="hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-sfm-flow-meter/blob/c3be7b0aca75a54f321b0cb76bb2e32600fd74a2/inc/sfm_flow_meter_i2c_interface.hpp"><code>inc/sfm_flow_meter_i2c_interface.hpp</code></a>.</p>
+</details>
+<p>Every connector, the addresses, supply ranges, timings and fittings of every variant: <a href="hardware/">Hardware</a>.</p>
+<h2 id="quick-start">Quick start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
+<p>Wire the sensor as above, write the port (<a href="porting/">Porting</a>), then read a flow:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">"sfm_flow_meter.hpp"</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">ReadOnce</span><span class="p">(</span><span class="n">MyPort</span><span class="o">&amp;</span><span class="w"> </span><span class="n">port</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="n">sfm</span><span class="o">::</span><span class="n">SfmFlowMeter</span><span class="o">&lt;</span><span class="n">MyPort</span><span class="o">&gt;</span><span class="w"> </span><span class="n">meter</span><span class="p">(</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="n">port</span><span class="p">,</span><span class="w"> </span><span class="n">sfm</span><span class="o">::</span><span class="n">PresetFor</span><span class="p">(</span><span class="n">sfm</span><span class="o">::</span><span class="n">Variant</span><span class="o">::</span><span class="n">SFM3003_300_CL</span><span class="p">));</span><span class="w"> </span><span class="c1">// no bus traffic yet</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">meter</span><span class="p">.</span><span class="n">EnsureInitialized</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// wakes the sensor, checks the product identifier</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">meter</span><span class="p">.</span><span class="n">StartMeasurement</span><span class="p">(</span><span class="n">sfm</span><span class="o">::</span><span class="n">Gas</span><span class="o">::</span><span class="n">Air</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// reads and checks the scaling, then starts</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">meter</span><span class="p">.</span><span class="n">AwaitPending</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// the first sample is ready after the start wait</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">sfm</span><span class="o">::</span><span class="n">Result</span><span class="o">&lt;</span><span class="n">sfm</span><span class="o">::</span><span class="n">Sample</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">meter</span><span class="p">.</span><span class="n">ReadSample</span><span class="p">();</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span><span class="c1">// s.error says why: NoData, Crc, DeviceReset, ...</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">  </span><span class="n">app</span><span class="o">::</span><span class="n">Report</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">value</span><span class="p">.</span><span class="n">flow_ml_per_min</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">value</span><span class="p">.</span><span class="n">temperature_mdegc</span><span class="p">);</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">meter</span><span class="p">.</span><span class="n">Stop</span><span class="p">().</span><span class="n">ok</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">meter</span><span class="p">.</span><span class="n">AwaitPending</span><span class="p">().</span><span class="n">ok</span><span class="p">();</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>The steps explained: <a href="quickstart/">Quickstart</a>.</p>
+<h2 id="driver-coverage">Driver coverage<a class="headerlink" href="#driver-coverage" title="Permanent link">&para;</a></h2>
+<!-- generated: chip-coverage -->
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>What the chip does</th>
+<th>Driver API</th>
+<th>Registers</th>
+<th>Status</th>
+<th>Datasheet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="api-guide/">Flow measurement</a></td>
+<td>Starts continuous measurement and reads each CRC-checked sample as a flow in millilitres per minute</td>
+<td><code>StartMeasurement</code>, <code>ReadSample</code>, <code>Poll</code>, <code>AwaitPending</code>, <code>ReadRawReply</code></td>
+<td><code>kCmdStartGas0</code>, <code>kCmdStartGas1</code></td>
+<td>Supported</td>
+<td>4.3.1, <a href="https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=10">p. 10</a></td>
+</tr>
+<tr>
+<td><a href="api-guide/">Gas and gas mixture</a></td>
+<td>Picks the calibrated gas or an oxygen mixture, and changes the mixture without stopping the sensor</td>
+<td><code>StartMeasurement</code>, <code>UpdateConcentration</code></td>
+<td><code>kCmdStartMixture0</code>, <code>kCmdUpdateConcentration</code>, <code>kCmdResultPointer</code></td>
+<td>Supported</td>
+<td>4.3.3, <a href="https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=11">p. 11</a></td>
+</tr>
+<tr>
+<td><a href="api-guide/">Temperature</a></td>
+<td>Reads the sensor temperature from the sample where the part sends it, or by a pointer sequence</td>
+<td><code>ReadSample</code>, <code>ReadTemperature</code></td>
+<td><code>kCmdSfxTemperature</code>, <code>kSf05Temperature</code></td>
+<td>Supported</td>
+<td>2.2, <a href="https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=5">p. 5</a></td>
+</tr>
+<tr>
+<td><a href="api-guide/">Averaging</a></td>
+<td>Averages until the read, or over a fixed number of the 2 kHz measurements</td>
+<td><code>SetAveraging</code></td>
+<td><code>kCmdAveraging</code></td>
+<td>Supported</td>
+<td>4.3.5, <a href="https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=12">p. 12</a></td>
+</tr>
+<tr>
+<td><a href="api-guide/">Scale factor and offset</a></td>
+<td>Reads the sensor's scale factor, offset and unit and checks them against the datasheet table</td>
+<td><code>ReadScaling</code></td>
+<td><code>kCmdReadScale</code></td>
+<td>Supported</td>
+<td>4.3.6, <a href="https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=13">p. 13</a></td>
+</tr>
+<tr>
+<td><a href="api-guide/">Product identification</a></td>
+<td>Reads the product identifier or serial number and matches it to one of the 32 variants</td>
+<td><code>BeginInitialize</code>, <code>EnsureInitialized</code>, <code>GetProductInfo</code></td>
+<td><code>kCmdProductId</code></td>
+<td>Supported</td>
+<td>4.3.9, <a href="https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=14">p. 14</a></td>
+</tr>
+<tr>
+<td><a href="api-guide/">Sleep and reset</a></td>
+<td>Stops the measurement, sleeps and wakes the sensor, and resets it by command, reset pin or supply cycle</td>
+<td><code>Stop</code>, <code>Sleep</code>, <code>WakeUp</code>, <code>SoftReset</code>, <code>HardReset</code></td>
+<td><code>kCmdStop</code>, <code>kCmdSleep</code>, <code>kGeneralCallReset</code></td>
+<td>Supported</td>
+<td>4.3.8, <a href="https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=14">p. 14</a></td>
+</tr>
+<tr>
+<td><a href="api-guide/">Status and fault checks</a></td>
+<td>Checks each sample's status word and range, and reports a reset, a stale value or a CRC error</td>
+<td><code>ReadSample</code>, <code>ReadRawReply</code></td>
+<td>-</td>
+<td>Supported</td>
+<td>4.3.2, <a href="https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=11">p. 11</a></td>
+</tr>
+<tr>
+<td><a href="hardware/">Result-ready line</a></td>
+<td>IRQn goes low when a reading is ready; the driver polls over I2C and leaves the pin open</td>
+<td>-</td>
+<td>-</td>
+<td>Not covered</td>
+<td>3.3, <a href="https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=8">p. 8</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Supported</strong>: the driver covers it and a host test checks it; <strong>Not covered</strong>: the chip has it and the driver leaves it
+alone.</p>
+<p>From <a href="hardware.yml"><code>docs/hardware.yml</code></a>; <code>kokeb-docs hardware --check</code> confirms that every API name is in
+<code>inc/sfm_flow_meter.hpp</code>, <code>inc/sfm_flow_meter_types.hpp</code> and every register in <code>inc/sfm_flow_meter_registers.hpp</code>.</p>
+<!-- /generated -->
+
+<p>The driver has no platform code. You give it a small class that brings the bus up and moves bytes; it does the
+rest: identification, scaling checks, the command sequences of each protocol family, the CRC of every word, the
+status checks, the waits and the recovery rules.</p>
 <ul>
 <li><strong>One object for every part.</strong> <code>SfmFlowMeter&lt;YourPort&gt;</code> takes a reference to your port and does no I/O until
   you initialise it. The part is data (a table of 32 rows); the code branches on the protocol family only. See

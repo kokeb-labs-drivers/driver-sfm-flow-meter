@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="547" viewBox="0 0 1200 547" role="img" aria-labelledby="chip-blocks-title chip-blocks-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
-<title id="chip-blocks-title">Inside the SFM modules</title>
-<desc id="chip-blocks-desc">Block diagram of the SFM modules: its function blocks, how they connect and which package pins reach each block.</desc>
+<title id="chip-blocks-title">Inside the SFM flow meter</title>
+<desc id="chip-blocks-desc">Block diagram of the SFM flow meter: its function blocks, how they connect and which package pins reach each block.</desc>
 <defs><marker id="fk-arrow-rail" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8893A2"/></marker></defs>
 <rect x="0.5" y="0.5" width="1199" height="546" rx="16" fill="#FFFFFF" stroke="#E2E7EE"/>
 <text x="32" y="44" font-size="12.5" font-weight="700" letter-spacing="1.2" fill="#7A360E">HARDWARE</text>
-<text x="32" y="77.3" font-size="26" font-weight="700" fill="#0E1726">Inside the SFM modules</text>
+<text x="32" y="77.3" font-size="26" font-weight="700" fill="#0E1726">Inside the SFM flow meter</text>
 <text x="32" y="103.8" font-size="15" fill="#566070">Function blocks and their links, from the datasheet's block diagram (3 Measurement Mode, p. 7). Pins on the edge carry their package number.</text>
 <rect x="32" y="119.8" width="1136" height="1" fill="#E2E7EE"/>
 <rect x="120" y="137.8" width="960" height="304" rx="14" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1.2"/>
@@ -34,8 +34,8 @@
 <rect x="113" y="354.8" width="14" height="14" rx="3" fill="#FFEEF2" stroke="#DB2752" stroke-width="1.4"/>
 <rect x="113" y="378.8" width="14" height="14" rx="3" fill="#F1F4F8" stroke="#64748B" stroke-width="1.4"/>
 <rect x="1073" y="362.8" width="14" height="14" rx="3" fill="#EAF7EF" stroke="#15803D" stroke-width="1.4"/>
-<text x="136" y="162.8" font-size="13" font-weight="700" fill="#334155">SFM MODULES</text>
-<text x="249.9" y="162.8" font-size="12" fill="#334155">JST NSH 6-pin 1.0 mm connector</text>
+<text x="136" y="162.8" font-size="13" font-weight="700" fill="#334155">SFM FLOW METER</text>
+<text x="273.1" y="162.8" font-size="12" fill="#334155">JST NSH 6-pin connector</text>
 <text x="180" y="228.6" font-size="15" font-weight="700" fill="#1E429F">I2C interface*</text>
 <text x="180" y="253.4" font-size="13" fill="#2B3442">address 0x2A to 0x2D from</text>
 <text x="180" y="272.2" font-size="13" fill="#2B3442">ADDR</text>
