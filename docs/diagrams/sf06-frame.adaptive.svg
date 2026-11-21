@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="664" viewBox="0 0 640 664" role="img" aria-labelledby="sf06-frame-title sf06-frame-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" class="fk">
+<title id="sf06-frame-title">Command and read sequences</title>
+<desc id="sf06-frame-desc">The two I2C sequences of the SFM4300: a write of a 16-bit command with a 16-bit argument and its CRC byte, and a read of 16-bit words, each followed by a CRC byte the sensor sends.</desc>
+<style>
+.fk{--fk-blue-strong:#2563EB;--fk-blue-text:#1E429F;--fk-blue-tint:#EAF2FF;--fk-brand-text:#7A360E;--fk-canvas:#FFFFFF;--fk-frame:#E2E7EE;--fk-hair:#E2E7EE;--fk-ink:#0E1726;--fk-ink2:#2B3442;--fk-muted:#566070;--fk-slate-soft:#CBD5E1;--fk-slate-text:#334155;--fk-slate-tint:#F1F4F8;--fk-teal-strong:#0B7A72;--fk-teal-text:#0B5F59;--fk-teal-tint:#E6F6F4;}
+@media (prefers-color-scheme:dark){.fk{--fk-blue-strong:#60A5FA;--fk-blue-text:#BFDBFE;--fk-blue-tint:#13233A;--fk-brand-text:#F8D27A;--fk-canvas:#0E131A;--fk-frame:#283241;--fk-hair:#252F3C;--fk-ink:#E8EDF3;--fk-ink2:#D2DAE4;--fk-muted:#9AA6B5;--fk-slate-soft:#3A4656;--fk-slate-text:#E2E8F0;--fk-slate-tint:#1B232E;--fk-teal-strong:#2BB3A3;--fk-teal-text:#A7F3E6;--fk-teal-tint:#0F2A28;}}
+:root[data-theme="dark"] .fk,[data-md-color-scheme="slate"] .fk{--fk-blue-strong:#60A5FA;--fk-blue-text:#BFDBFE;--fk-blue-tint:#13233A;--fk-brand-text:#F8D27A;--fk-canvas:#0E131A;--fk-frame:#283241;--fk-hair:#252F3C;--fk-ink:#E8EDF3;--fk-ink2:#D2DAE4;--fk-muted:#9AA6B5;--fk-slate-soft:#3A4656;--fk-slate-text:#E2E8F0;--fk-slate-tint:#1B232E;--fk-teal-strong:#2BB3A3;--fk-teal-text:#A7F3E6;--fk-teal-tint:#0F2A28;}
+:root[data-theme="light"] .fk,[data-md-color-scheme="default"] .fk{--fk-blue-strong:#2563EB;--fk-blue-text:#1E429F;--fk-blue-tint:#EAF2FF;--fk-brand-text:#7A360E;--fk-canvas:#FFFFFF;--fk-frame:#E2E7EE;--fk-hair:#E2E7EE;--fk-ink:#0E1726;--fk-ink2:#2B3442;--fk-muted:#566070;--fk-slate-soft:#CBD5E1;--fk-slate-text:#334155;--fk-slate-tint:#F1F4F8;--fk-teal-strong:#0B7A72;--fk-teal-text:#0B5F59;--fk-teal-tint:#E6F6F4;}
+.fk-f-blue-strong{fill:var(--fk-blue-strong)}.fk-s-blue-strong{stroke:var(--fk-blue-strong)}
+.fk-f-blue-text{fill:var(--fk-blue-text)}.fk-s-blue-text{stroke:var(--fk-blue-text)}
+.fk-f-blue-tint{fill:var(--fk-blue-tint)}.fk-s-blue-tint{stroke:var(--fk-blue-tint)}
+.fk-f-brand-text{fill:var(--fk-brand-text)}.fk-s-brand-text{stroke:var(--fk-brand-text)}
+.fk-f-canvas{fill:var(--fk-canvas)}.fk-s-canvas{stroke:var(--fk-canvas)}
+.fk-f-frame{fill:var(--fk-frame)}.fk-s-frame{stroke:var(--fk-frame)}
+.fk-f-hair{fill:var(--fk-hair)}.fk-s-hair{stroke:var(--fk-hair)}
+.fk-f-ink{fill:var(--fk-ink)}.fk-s-ink{stroke:var(--fk-ink)}
+.fk-f-ink2{fill:var(--fk-ink2)}.fk-s-ink2{stroke:var(--fk-ink2)}
+.fk-f-muted{fill:var(--fk-muted)}.fk-s-muted{stroke:var(--fk-muted)}
+.fk-f-slate-soft{fill:var(--fk-slate-soft)}.fk-s-slate-soft{stroke:var(--fk-slate-soft)}
+.fk-f-slate-text{fill:var(--fk-slate-text)}.fk-s-slate-text{stroke:var(--fk-slate-text)}
+.fk-f-slate-tint{fill:var(--fk-slate-tint)}.fk-s-slate-tint{stroke:var(--fk-slate-tint)}
+.fk-f-teal-strong{fill:var(--fk-teal-strong)}.fk-s-teal-strong{stroke:var(--fk-teal-strong)}
+.fk-f-teal-text{fill:var(--fk-teal-text)}.fk-s-teal-text{stroke:var(--fk-teal-text)}
+.fk-f-teal-tint{fill:var(--fk-teal-tint)}.fk-s-teal-tint{stroke:var(--fk-teal-tint)}
+@media (forced-colors:active){.fk text{fill:CanvasText}.fk rect,.fk circle{fill:Canvas;stroke:CanvasText}.fk path{stroke:CanvasText}.fk marker path{fill:CanvasText;stroke:none}}
+</style>
+<rect x="0.5" y="0.5" width="639" height="663" rx="16" class="fk-f-canvas fk-s-frame"/>
+<text x="32" y="44.4" font-size="13" font-weight="700" letter-spacing="1.2" class="fk-f-brand-text">ON THE BUS</text>
+<text x="32" y="76.2" font-size="24" font-weight="700" class="fk-f-ink">Command and read sequences</text>
+<text x="32" y="102.7" font-size="15" class="fk-f-muted">Datasheet: 4.2 I2C Sequences, Figures 2 and 3, p. 9; 4.4 Checksum</text>
+<text x="32" y="124.5" font-size="15" class="fk-f-muted">Calculation, Table 14, p. 15.</text>
+<rect x="32" y="140.4" width="576" height="1" class="fk-f-hair"/>
+<path d="M93.7 162.4 L93.7 246.4" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M136.1 162.4 L136.1 246.4" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M178.4 162.4 L178.4 246.4" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M220.8 162.4 L220.8 246.4" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M263.1 162.4 L263.1 246.4" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M305.5 162.4 L305.5 246.4" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M347.9 162.4 L347.9 246.4" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M390.2 162.4 L390.2 246.4" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M432.6 162.4 L432.6 246.4" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M474.9 162.4 L474.9 246.4" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M517.3 162.4 L517.3 246.4" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M559.6 162.4 L559.6 246.4" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M602 162.4 L602 246.4" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M32 292.5 L608 292.5" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M32 365.4 L608 365.4" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M32 438.2 L608 438.2" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M32 511.1 L608 511.1" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M432.6 215.4 L474.9 215.4" fill="none" stroke-width="1.6" class="fk-s-ink2"/>
+<path d="M432.6 241.4 L474.9 241.4" fill="none" stroke-width="1.6" class="fk-s-ink2"/>
+<path d="M559.6 215.4 L602 215.4" fill="none" stroke-width="2" class="fk-s-ink2"/>
+<path d="M93.7 180.4 L98.7 167.4 L173.4 167.4 L178.4 180.4 L173.4 193.4 L98.7 193.4 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<path d="M178.4 180.4 L183.4 167.4 L258.1 167.4 L263.1 180.4 L258.1 193.4 L183.4 193.4 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<path d="M263.1 180.4 L268.1 167.4 L342.9 167.4 L347.9 180.4 L342.9 193.4 L268.1 193.4 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<path d="M347.9 180.4 L352.9 167.4 L427.6 167.4 L432.6 180.4 L427.6 193.4 L352.9 193.4 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<path d="M432.6 180.4 L437.6 167.4 L512.3 167.4 L517.3 180.4 L512.3 193.4 L437.6 193.4 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<path d="M517.3 180.4 L522.3 167.4 L597 167.4 L602 180.4 L597 193.4 L522.3 193.4 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<path d="M93.7 228.4 L98.7 215.4 L173.4 215.4 L178.4 228.4 L173.4 241.4 L98.7 241.4 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<path d="M178.4 228.4 L183.4 215.4 L258.1 215.4 L263.1 228.4 L258.1 241.4 L183.4 241.4 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-teal-tint fk-s-teal-strong"/>
+<path d="M263.1 228.4 L268.1 215.4 L342.9 215.4 L347.9 228.4 L342.9 241.4 L268.1 241.4 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-teal-tint fk-s-teal-strong"/>
+<path d="M347.9 228.4 L352.9 215.4 L427.6 215.4 L432.6 228.4 L427.6 241.4 L352.9 241.4 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-teal-tint fk-s-teal-strong"/>
+<path d="M474.9 228.4 L479.9 215.4 L554.6 215.4 L559.6 228.4 L554.6 241.4 L479.9 241.4 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-teal-tint fk-s-teal-strong"/>
+<rect x="32" y="525.1" width="576" height="108.6" rx="10" stroke-width="1" class="fk-f-slate-tint fk-s-slate-soft"/>
+<text x="32" y="185.8" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" class="fk-f-ink">Write</text>
+<text x="136.1" y="185.5" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">Adr + W</text>
+<text x="220.8" y="185.5" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">Cmd MSB</text>
+<text x="305.5" y="185.5" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">Cmd LSB</text>
+<text x="390.2" y="185.5" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">Arg MSB</text>
+<text x="474.9" y="185.5" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">Arg LSB</text>
+<text x="559.6" y="185.5" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">CRC</text>
+<text x="32" y="233.8" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" class="fk-f-ink">Read</text>
+<text x="136.1" y="233.5" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">Adr + R</text>
+<text x="220.8" y="233.5" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-teal-text">Data MSB</text>
+<text x="305.5" y="233.5" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-teal-text">Data LSB</text>
+<text x="390.2" y="233.5" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-teal-text">CRC</text>
+<text x="517.3" y="233.5" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-teal-text">CRC</text>
+<rect x="449.7" y="211.4" width="8" height="34" rx="0" class="fk-f-canvas"/>
+<path d="M446.7 244.4 L452.7 212.4" fill="none" stroke-width="1.4" class="fk-s-ink2"/>
+<path d="M454.7 244.4 L460.7 212.4" fill="none" stroke-width="1.4" class="fk-s-ink2"/>
+<text x="32" y="276.9" font-size="17" font-weight="700" class="fk-f-ink">Values</text>
+<text x="32" y="313.3" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" class="fk-f-ink">command</text>
+<text x="608" y="313.3" font-size="15" font-weight="700" text-anchor="end" class="fk-f-ink">typ 16 bit</text>
+<text x="32" y="333.5" font-size="15" class="fk-f-ink2">Command length</text>
+<text x="32" y="353.7" font-size="14" class="fk-f-muted">Datasheet 4.2 I2C Sequences, Figures 2 and 3, p. 9</text>
+<text x="32" y="386.1" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" class="fk-f-ink">word</text>
+<text x="608" y="386.1" font-size="15" font-weight="700" text-anchor="end" class="fk-f-ink">typ 16 bit</text>
+<text x="32" y="406.4" font-size="15" class="fk-f-ink2">Argument or data word, each followed by its CRC</text>
+<text x="32" y="426.5" font-size="14" class="fk-f-muted">Datasheet 4.2 I2C Sequences, Figures 2 and 3, p. 9</text>
+<text x="32" y="459" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" class="fk-f-ink">CRC</text>
+<text x="608" y="459" font-size="15" font-weight="700" text-anchor="end" class="fk-f-ink">typ 8 bit</text>
+<text x="32" y="479.2" font-size="15" class="fk-f-ink2">CRC-8 over the two bytes before it, polynomial 0x31, init 0xFF</text>
+<text x="32" y="499.4" font-size="14" class="fk-f-muted">Datasheet 4.4 Checksum Calculation, Table 14, p. 15</text>
+<text x="46" y="553.5" font-size="17" font-weight="700" class="fk-f-slate-text">Notes</text>
+<text x="46" y="574" font-size="15" class="fk-f-slate-text">Each transfer runs from START to STOP and every byte is</text>
+<text x="46" y="595.7" font-size="15" class="fk-f-slate-text">acknowledged. The host may end a read with NACK and STOP after any</text>
+<text x="46" y="617.5" font-size="15" class="fk-f-slate-text">CRC byte. CRC(0xBEEF) = 0x92 checks an implementation.</text>
+</svg>

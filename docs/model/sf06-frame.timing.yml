@@ -1,0 +1,38 @@
+---
+# Model of the figure 'sf06-frame'. Edit this file; `kokeb-docs figures` draws it. Never edit the SVGs.
+# The two I2C sequences of the SFM4300 data sheet, section 4.2: Figure 2 (a command with an argument) and Figure 3
+# (a read of 16-bit words, each followed by its CRC byte). The checksum is Table 14 of section 4.4.
+kind: timing
+id: sf06-frame
+title: Command and read sequences
+kicker: On the bus
+alt: >-
+  The two I2C sequences of the SFM4300: a write of a 16-bit command with a 16-bit argument and its CRC byte, and a
+  read of 16-bit words, each followed by a CRC byte the sensor sends.
+reads: >-
+  The two lanes are Write and Read, each one I2C transfer from START to STOP. Write carries the address with the write
+  bit, the command MSB and LSB, the argument MSB and LSB and the CRC of the argument. Read carries the address with
+  the read bit, then the sensor sends each word as its MSB, its LSB and a CRC, up to the last CRC, which the host
+  answers with NACK before STOP; the words in between are left out.
+print: landscape
+sources:
+  - docs/model/sf06-frame.timing.yml
+bus: transaction
+refs:
+  seq: {doc: sfm4300, section: "4.2 I2C Sequences, Figures 2 and 3", page: 9}
+  crc: {doc: sfm4300, section: "4.4 Checksum Calculation, Table 14", page: 15}
+signals:
+  - {id: wr, label: Write, wave: "=.=.=.=.=.=.",
+     data: ["Adr + W", Cmd MSB, Cmd LSB, Arg MSB, Arg LSB, CRC]}
+  - {id: rd, label: Read, wave: "=.=.=.=.|=.1",
+     data: ["Adr + R", {text: Data MSB, tone: teal}, {text: Data LSB, tone: teal}, {text: CRC, tone: teal},
+            {text: CRC, tone: teal}]}
+params:
+  - {id: cmd, symbol: command, label: Command length, typ: 16, unit: bit, ref: seq}
+  - {id: word, symbol: word, label: "Argument or data word, each followed by its CRC", typ: 16, unit: bit, ref: seq}
+  - {id: crc, symbol: CRC, label: "CRC-8 over the two bytes before it, polynomial 0x31, init 0xFF", typ: 8,
+     unit: bit, ref: crc}
+notes:
+  - {text: "Each transfer runs from START to STOP and every byte is acknowledged.", ref: seq}
+  - {text: "The host may end a read with NACK and STOP after any CRC byte.", ref: seq}
+  - {text: "CRC(0xBEEF) = 0x92 checks an implementation.", ref: crc}

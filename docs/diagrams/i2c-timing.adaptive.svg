@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="535" viewBox="0 0 640 535" role="img" aria-labelledby="i2c-timing-title i2c-timing-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" class="fk">
+<title id="i2c-timing-title">I2C address byte</title>
+<desc id="i2c-timing-desc">I2C address byte of the SFM4300: the start condition, the 7-bit default address 0x2A with the write bit and the acknowledge, with the typical and maximum clock the data sheet gives.</desc>
+<style>
+.fk{--fk-blue-strong:#2563EB;--fk-blue-text:#1E429F;--fk-blue-tint:#EAF2FF;--fk-brand-text:#7A360E;--fk-canvas:#FFFFFF;--fk-frame:#E2E7EE;--fk-hair:#E2E7EE;--fk-ink:#0E1726;--fk-ink2:#2B3442;--fk-muted:#566070;--fk-slate-soft:#CBD5E1;--fk-slate-strong:#64748B;--fk-slate-text:#334155;--fk-slate-tint:#F1F4F8;}
+@media (prefers-color-scheme:dark){.fk{--fk-blue-strong:#60A5FA;--fk-blue-text:#BFDBFE;--fk-blue-tint:#13233A;--fk-brand-text:#F8D27A;--fk-canvas:#0E131A;--fk-frame:#283241;--fk-hair:#252F3C;--fk-ink:#E8EDF3;--fk-ink2:#D2DAE4;--fk-muted:#9AA6B5;--fk-slate-soft:#3A4656;--fk-slate-strong:#94A3B8;--fk-slate-text:#E2E8F0;--fk-slate-tint:#1B232E;}}
+:root[data-theme="dark"] .fk,[data-md-color-scheme="slate"] .fk{--fk-blue-strong:#60A5FA;--fk-blue-text:#BFDBFE;--fk-blue-tint:#13233A;--fk-brand-text:#F8D27A;--fk-canvas:#0E131A;--fk-frame:#283241;--fk-hair:#252F3C;--fk-ink:#E8EDF3;--fk-ink2:#D2DAE4;--fk-muted:#9AA6B5;--fk-slate-soft:#3A4656;--fk-slate-strong:#94A3B8;--fk-slate-text:#E2E8F0;--fk-slate-tint:#1B232E;}
+:root[data-theme="light"] .fk,[data-md-color-scheme="default"] .fk{--fk-blue-strong:#2563EB;--fk-blue-text:#1E429F;--fk-blue-tint:#EAF2FF;--fk-brand-text:#7A360E;--fk-canvas:#FFFFFF;--fk-frame:#E2E7EE;--fk-hair:#E2E7EE;--fk-ink:#0E1726;--fk-ink2:#2B3442;--fk-muted:#566070;--fk-slate-soft:#CBD5E1;--fk-slate-strong:#64748B;--fk-slate-text:#334155;--fk-slate-tint:#F1F4F8;}
+.fk-f-blue-strong{fill:var(--fk-blue-strong)}.fk-s-blue-strong{stroke:var(--fk-blue-strong)}
+.fk-f-blue-text{fill:var(--fk-blue-text)}.fk-s-blue-text{stroke:var(--fk-blue-text)}
+.fk-f-blue-tint{fill:var(--fk-blue-tint)}.fk-s-blue-tint{stroke:var(--fk-blue-tint)}
+.fk-f-brand-text{fill:var(--fk-brand-text)}.fk-s-brand-text{stroke:var(--fk-brand-text)}
+.fk-f-canvas{fill:var(--fk-canvas)}.fk-s-canvas{stroke:var(--fk-canvas)}
+.fk-f-frame{fill:var(--fk-frame)}.fk-s-frame{stroke:var(--fk-frame)}
+.fk-f-hair{fill:var(--fk-hair)}.fk-s-hair{stroke:var(--fk-hair)}
+.fk-f-ink{fill:var(--fk-ink)}.fk-s-ink{stroke:var(--fk-ink)}
+.fk-f-ink2{fill:var(--fk-ink2)}.fk-s-ink2{stroke:var(--fk-ink2)}
+.fk-f-muted{fill:var(--fk-muted)}.fk-s-muted{stroke:var(--fk-muted)}
+.fk-f-slate-soft{fill:var(--fk-slate-soft)}.fk-s-slate-soft{stroke:var(--fk-slate-soft)}
+.fk-f-slate-strong{fill:var(--fk-slate-strong)}.fk-s-slate-strong{stroke:var(--fk-slate-strong)}
+.fk-f-slate-text{fill:var(--fk-slate-text)}.fk-s-slate-text{stroke:var(--fk-slate-text)}
+.fk-f-slate-tint{fill:var(--fk-slate-tint)}.fk-s-slate-tint{stroke:var(--fk-slate-tint)}
+@media (forced-colors:active){.fk text{fill:CanvasText}.fk rect,.fk circle{fill:Canvas;stroke:CanvasText}.fk path{stroke:CanvasText}.fk marker path{fill:CanvasText;stroke:none}}
+</style>
+<rect x="0.5" y="0.5" width="639" height="534" rx="16" class="fk-f-canvas fk-s-frame"/>
+<text x="32" y="44.4" font-size="13" font-weight="700" letter-spacing="1.2" class="fk-f-brand-text">ON THE BUS</text>
+<text x="32" y="76.2" font-size="24" font-weight="700" class="fk-f-ink">I2C address byte</text>
+<text x="32" y="102.7" font-size="15" class="fk-f-muted">Datasheet: 2.4 Timing Specifications, p. 5; 4.1 I2C Address, Table 2, p. 9;</text>
+<text x="32" y="124.5" font-size="15" class="fk-f-muted">4.2 I2C Sequences, Figure 2, p. 9; 4 Digital Interface Description, p. 9.</text>
+<rect x="32" y="140.4" width="576" height="1" class="fk-f-hair"/>
+<path d="M88 200.6 L88 284.6" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M130.8 200.6 L130.8 284.6" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M173.7 200.6 L173.7 284.6" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M216.5 200.6 L216.5 284.6" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M259.3 200.6 L259.3 284.6" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M302.2 200.6 L302.2 284.6" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M345 200.6 L345 284.6" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M387.8 200.6 L387.8 284.6" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M430.7 200.6 L430.7 284.6" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M473.5 200.6 L473.5 284.6" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M516.3 200.6 L516.3 284.6" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M559.2 200.6 L559.2 284.6" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M602 200.6 L602 284.6" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M32 330.8 L608 330.8" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M32 403.6 L608 403.6" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M174.7 191.6 L174.7 186.6 L472.5 186.6 L472.5 191.6" fill="none" stroke-width="1.4" class="fk-s-slate-strong"/>
+<path d="M517.3 191.6 L517.3 186.6 L558.2 186.6 L558.2 191.6" fill="none" stroke-width="1.4" class="fk-s-slate-strong"/>
+<path d="M88 205.6 L130.8 205.6 L173.7 205.6 L173.7 205.6 L173.7 231.6 L195.1 231.6 L195.1 231.6 L195.1 205.6 L216.5 205.6 L216.5 205.6 L216.5 231.6 L237.9 231.6 L237.9 231.6 L237.9 205.6 L259.3 205.6 L259.3 205.6 L259.3 231.6 L280.8 231.6 L280.8 231.6 L280.8 205.6 L302.2 205.6 L302.2 205.6 L302.2 231.6 L323.6 231.6 L323.6 231.6 L323.6 205.6 L345 205.6 L345 205.6 L345 231.6 L366.4 231.6 L366.4 231.6 L366.4 205.6 L387.8 205.6 L387.8 205.6 L387.8 231.6 L409.2 231.6 L409.2 231.6 L409.2 205.6 L430.7 205.6 L430.7 205.6 L430.7 231.6 L452.1 231.6 L452.1 231.6 L452.1 205.6 L473.5 205.6 L473.5 205.6 L473.5 231.6 L494.9 231.6 L494.9 231.6 L494.9 205.6 L516.3 205.6 L516.3 205.6 L516.3 231.6 L537.8 231.6 L537.8 231.6 L537.8 205.6 L559.2 205.6 L602 205.6" fill="none" stroke-width="2" class="fk-s-ink2"/>
+<path d="M88 253.6 L130.8 253.6 L130.8 253.6 L130.8 279.6 L173.7 279.6" fill="none" stroke-width="2" class="fk-s-ink2"/>
+<path d="M173.7 279.6 L173.7 266.6" fill="none" stroke-width="2" class="fk-s-ink2"/>
+<path d="M516.3 279.6 L602 279.6" fill="none" stroke-width="2" class="fk-s-ink2"/>
+<path d="M173.7 266.6 L178.7 253.6 L211.5 253.6 L216.5 266.6 L211.5 279.6 L178.7 279.6 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<path d="M216.5 266.6 L221.5 253.6 L254.3 253.6 L259.3 266.6 L254.3 279.6 L221.5 279.6 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<path d="M259.3 266.6 L264.3 253.6 L297.2 253.6 L302.2 266.6 L297.2 279.6 L264.3 279.6 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<path d="M302.2 266.6 L307.2 253.6 L340 253.6 L345 266.6 L340 279.6 L307.2 279.6 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<path d="M345 266.6 L350 253.6 L382.8 253.6 L387.8 266.6 L382.8 279.6 L350 279.6 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<path d="M387.8 266.6 L392.8 253.6 L425.7 253.6 L430.7 266.6 L425.7 279.6 L392.8 279.6 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<path d="M430.7 266.6 L435.7 253.6 L468.5 253.6 L473.5 266.6 L468.5 279.6 L435.7 279.6 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<path d="M473.5 266.6 L478.5 253.6 L511.3 253.6 L516.3 266.6 L511.3 279.6 L478.5 279.6 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<rect x="32" y="417.6" width="576" height="86.8" rx="10" stroke-width="1" class="fk-f-slate-tint fk-s-slate-soft"/>
+<text x="323.6" y="175.8" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-slate-text">address 0x2A (ADDR open) and W</text>
+<text x="537.8" y="175.8" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-slate-text">ACK</text>
+<text x="32" y="224.1" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" class="fk-f-ink">SCL</text>
+<text x="32" y="272.1" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" class="fk-f-ink">SDA</text>
+<text x="195.1" y="271.7" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">A6</text>
+<text x="237.9" y="271.7" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">A5</text>
+<text x="280.8" y="271.7" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">A4</text>
+<text x="323.6" y="271.7" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">A3</text>
+<text x="366.4" y="271.7" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">A2</text>
+<text x="409.2" y="271.7" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">A1</text>
+<text x="452.1" y="271.7" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">A0</text>
+<text x="494.9" y="271.7" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">W</text>
+<text x="32" y="315.1" font-size="17" font-weight="700" class="fk-f-ink">Timing values</text>
+<text x="32" y="351.5" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" class="fk-f-ink">fI2C</text>
+<text x="608" y="351.5" font-size="15" font-weight="700" text-anchor="end" class="fk-f-ink">typ 400 · max 1000 kHz</text>
+<text x="32" y="371.8" font-size="15" class="fk-f-ink2">I2C SCL frequency</text>
+<text x="32" y="391.9" font-size="14" class="fk-f-muted">Datasheet 2.4 Timing Specifications, p. 5</text>
+<text x="46" y="446" font-size="17" font-weight="700" class="fk-f-slate-text">Notes</text>
+<text x="46" y="466.4" font-size="15" class="fk-f-slate-text">Other SFM parts have their own address and clock limit; see the</text>
+<text x="46" y="488.2" font-size="15" class="fk-f-slate-text">Hardware page.</text>
+</svg>

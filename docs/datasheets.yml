@@ -373,19 +373,19 @@ topics:
     section: 4 Digital interface description; 4.1 I2C address
     page: 9
     driver: "`I2cInterface`, `I2cPort`, `Config::address`, `PartInfo::address`"
-    docs: [hardware, porting, architecture]
+    docs: [hardware, porting, architecture, bus]
   - topic: Command framing and read framing
     doc: sfm4300
     section: 4.2 I2C sequences
     page: 9
     driver: "`Write()`, `Read()`, `detail::ParseWords()`"
-    docs: [porting, architecture, contract]
+    docs: [porting, architecture, contract, bus]
   - topic: CRC-8 of every word
     doc: sfm4300
     section: 4.4 Checksum calculation, Table 14
     page: 15
     driver: "`reg::Crc8()`, `Error::Crc`, `reg::CrcVectorsHold()`"
-    docs: [contract, testing, troubleshooting]
+    docs: [contract, testing, troubleshooting, bus]
   - topic: Start measurement, results and the NACK of a read without data
     doc: sfm4300
     section: 4.3.1 Start continuous measurement
@@ -451,7 +451,7 @@ topics:
     section: 2.4 Timing specification
     page: 5
     driver: "`Config::timing`, `TimingPolicy`, `Wait`, `DelayUs()`"
-    docs: [hardware, porting, architecture]
+    docs: [hardware, porting, architecture, bus]
   - topic: Electrical specification and limits
     doc: sfm4300
     section: 2.3 Electrical specification; 2.7 Absolute maximum ratings

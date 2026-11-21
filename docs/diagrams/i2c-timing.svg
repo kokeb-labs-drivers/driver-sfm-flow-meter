@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="535" viewBox="0 0 640 535" role="img" aria-labelledby="i2c-timing-title i2c-timing-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<title id="i2c-timing-title">I2C address byte</title>
+<desc id="i2c-timing-desc">I2C address byte of the SFM4300: the start condition, the 7-bit default address 0x2A with the write bit and the acknowledge, with the typical and maximum clock the data sheet gives.</desc>
+<rect x="0.5" y="0.5" width="639" height="534" rx="16" fill="#FFFFFF" stroke="#E2E7EE"/>
+<text x="32" y="44.4" font-size="13" font-weight="700" letter-spacing="1.2" fill="#7A360E">ON THE BUS</text>
+<text x="32" y="76.2" font-size="24" font-weight="700" fill="#0E1726">I2C address byte</text>
+<text x="32" y="102.7" font-size="15" fill="#566070">Datasheet: 2.4 Timing Specifications, p. 5; 4.1 I2C Address, Table 2, p. 9;</text>
+<text x="32" y="124.5" font-size="15" fill="#566070">4.2 I2C Sequences, Figure 2, p. 9; 4 Digital Interface Description, p. 9.</text>
+<rect x="32" y="140.4" width="576" height="1" fill="#E2E7EE"/>
+<path d="M88 200.6 L88 284.6" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M130.8 200.6 L130.8 284.6" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M173.7 200.6 L173.7 284.6" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M216.5 200.6 L216.5 284.6" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M259.3 200.6 L259.3 284.6" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M302.2 200.6 L302.2 284.6" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M345 200.6 L345 284.6" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M387.8 200.6 L387.8 284.6" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M430.7 200.6 L430.7 284.6" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M473.5 200.6 L473.5 284.6" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M516.3 200.6 L516.3 284.6" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M559.2 200.6 L559.2 284.6" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M602 200.6 L602 284.6" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M32 330.8 L608 330.8" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M32 403.6 L608 403.6" fill="none" stroke="#E2E7EE" stroke-width="1"/>
+<path d="M174.7 191.6 L174.7 186.6 L472.5 186.6 L472.5 191.6" fill="none" stroke="#64748B" stroke-width="1.4"/>
+<path d="M517.3 191.6 L517.3 186.6 L558.2 186.6 L558.2 191.6" fill="none" stroke="#64748B" stroke-width="1.4"/>
+<path d="M88 205.6 L130.8 205.6 L173.7 205.6 L173.7 205.6 L173.7 231.6 L195.1 231.6 L195.1 231.6 L195.1 205.6 L216.5 205.6 L216.5 205.6 L216.5 231.6 L237.9 231.6 L237.9 231.6 L237.9 205.6 L259.3 205.6 L259.3 205.6 L259.3 231.6 L280.8 231.6 L280.8 231.6 L280.8 205.6 L302.2 205.6 L302.2 205.6 L302.2 231.6 L323.6 231.6 L323.6 231.6 L323.6 205.6 L345 205.6 L345 205.6 L345 231.6 L366.4 231.6 L366.4 231.6 L366.4 205.6 L387.8 205.6 L387.8 205.6 L387.8 231.6 L409.2 231.6 L409.2 231.6 L409.2 205.6 L430.7 205.6 L430.7 205.6 L430.7 231.6 L452.1 231.6 L452.1 231.6 L452.1 205.6 L473.5 205.6 L473.5 205.6 L473.5 231.6 L494.9 231.6 L494.9 231.6 L494.9 205.6 L516.3 205.6 L516.3 205.6 L516.3 231.6 L537.8 231.6 L537.8 231.6 L537.8 205.6 L559.2 205.6 L602 205.6" fill="none" stroke="#2B3442" stroke-width="2"/>
+<path d="M88 253.6 L130.8 253.6 L130.8 253.6 L130.8 279.6 L173.7 279.6" fill="none" stroke="#2B3442" stroke-width="2"/>
+<path d="M173.7 279.6 L173.7 266.6" fill="none" stroke="#2B3442" stroke-width="2"/>
+<path d="M516.3 279.6 L602 279.6" fill="none" stroke="#2B3442" stroke-width="2"/>
+<path d="M173.7 266.6 L178.7 253.6 L211.5 253.6 L216.5 266.6 L211.5 279.6 L178.7 279.6 Z" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M216.5 266.6 L221.5 253.6 L254.3 253.6 L259.3 266.6 L254.3 279.6 L221.5 279.6 Z" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M259.3 266.6 L264.3 253.6 L297.2 253.6 L302.2 266.6 L297.2 279.6 L264.3 279.6 Z" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M302.2 266.6 L307.2 253.6 L340 253.6 L345 266.6 L340 279.6 L307.2 279.6 Z" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M345 266.6 L350 253.6 L382.8 253.6 L387.8 266.6 L382.8 279.6 L350 279.6 Z" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M387.8 266.6 L392.8 253.6 L425.7 253.6 L430.7 266.6 L425.7 279.6 L392.8 279.6 Z" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M430.7 266.6 L435.7 253.6 L468.5 253.6 L473.5 266.6 L468.5 279.6 L435.7 279.6 Z" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M473.5 266.6 L478.5 253.6 L511.3 253.6 L516.3 266.6 L511.3 279.6 L478.5 279.6 Z" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="32" y="417.6" width="576" height="86.8" rx="10" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="323.6" y="175.8" font-size="14" font-weight="600" text-anchor="middle" fill="#334155">address 0x2A (ADDR open) and W</text>
+<text x="537.8" y="175.8" font-size="14" font-weight="600" text-anchor="middle" fill="#334155">ACK</text>
+<text x="32" y="224.1" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0E1726">SCL</text>
+<text x="32" y="272.1" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0E1726">SDA</text>
+<text x="195.1" y="271.7" font-size="14" font-weight="600" text-anchor="middle" fill="#1E429F">A6</text>
+<text x="237.9" y="271.7" font-size="14" font-weight="600" text-anchor="middle" fill="#1E429F">A5</text>
+<text x="280.8" y="271.7" font-size="14" font-weight="600" text-anchor="middle" fill="#1E429F">A4</text>
+<text x="323.6" y="271.7" font-size="14" font-weight="600" text-anchor="middle" fill="#1E429F">A3</text>
+<text x="366.4" y="271.7" font-size="14" font-weight="600" text-anchor="middle" fill="#1E429F">A2</text>
+<text x="409.2" y="271.7" font-size="14" font-weight="600" text-anchor="middle" fill="#1E429F">A1</text>
+<text x="452.1" y="271.7" font-size="14" font-weight="600" text-anchor="middle" fill="#1E429F">A0</text>
+<text x="494.9" y="271.7" font-size="14" font-weight="600" text-anchor="middle" fill="#1E429F">W</text>
+<text x="32" y="315.1" font-size="17" font-weight="700" fill="#0E1726">Timing values</text>
+<text x="32" y="351.5" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0E1726">fI2C</text>
+<text x="608" y="351.5" font-size="15" font-weight="700" text-anchor="end" fill="#0E1726">typ 400 · max 1000 kHz</text>
+<text x="32" y="371.8" font-size="15" fill="#2B3442">I2C SCL frequency</text>
+<text x="32" y="391.9" font-size="14" fill="#566070">Datasheet 2.4 Timing Specifications, p. 5</text>
+<text x="46" y="446" font-size="17" font-weight="700" fill="#334155">Notes</text>
+<text x="46" y="466.4" font-size="15" fill="#334155">Other SFM parts have their own address and clock limit; see the</text>
+<text x="46" y="488.2" font-size="15" fill="#334155">Hardware page.</text>
+</svg>

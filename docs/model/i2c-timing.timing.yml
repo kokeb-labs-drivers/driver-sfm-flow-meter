@@ -1,0 +1,31 @@
+---
+# Model of the figure 'i2c-timing'. Edit this file; `kokeb-docs figures` draws it. Never edit the SVGs.
+# The SFM4300 data sheet gives no I2C timing table: section 4 refers to the I2C-bus specification. The figure draws
+# only what the data sheet gives: the default address (4.1) and the clock of 2.4 Timing Specifications.
+kind: timing
+id: i2c-timing
+title: I2C address byte
+kicker: On the bus
+alt: >-
+  I2C address byte of the SFM4300: the start condition, the 7-bit default address 0x2A with the write bit and the
+  acknowledge, with the typical and maximum clock the data sheet gives.
+reads: >-
+  The two lanes are SCL and SDA, left to right in time. SDA falls while SCL is high (the start), the seven address
+  bits and the write bit follow, each stable while SCL is high, then the sensor pulls SDA low for the acknowledge.
+  The table gives the clock frequency of the timing specification.
+print: landscape
+sources:
+  - docs/model/i2c-timing.timing.yml
+bus: i2c
+refs:
+  seq: {doc: sfm4300, section: "4.2 I2C Sequences, Figure 2", page: 9}
+signals:
+  - {id: scl, label: SCL, wave: "11nnnnnnnnn1"}
+  - {id: sda, label: SDA, wave: "10========0.", data: [A6, A5, A4, A3, A2, A1, A0, W]}
+groups:
+  - {from: 2, to: 9, label: "address 0x2A (ADDR open) and W", ref: address}
+  - {from: 10, to: 11, label: ACK, ref: seq}
+params:
+  - {id: fi2c, symbol: fI2C, label: I2C SCL frequency, typ: 400, max: 1000, unit: kHz, ref: timing}
+notes:
+  - {text: "Other SFM parts have their own address and clock limit; see the Hardware page.", ref: bus}

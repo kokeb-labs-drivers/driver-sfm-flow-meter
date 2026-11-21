@@ -31,13 +31,13 @@ SFM4300 as the reference and the other connectors are tabulated.
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="diagrams/chip-pinout.dark.svg">
   <img src="diagrams/chip-pinout.svg"
-    alt="Pinout of the SFM modules in JST NSH 6-pin 1.0 mm connector, top view: 6 pins, each with its name,
-    its electrical type as a colour and the driver hook that uses it.">
+    alt="Pinout of the SFM flow meter in JST NSH 6-pin connector, top view: 6 pins, each with its name, its
+    electrical type as a colour and the driver hook that uses it.">
 </picture>
 <!-- /figure -->
 
 <!-- generated: chip-pins -->
-JST NSH 6-pin 1.0 mm connector, 6 pins (2.8 Pin Assignment, Table 1, [p. 6](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=6)).
+JST NSH 6-pin connector, 6 pins (2.8 Pin Assignment, Table 1, [p. 6](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=6)).
 
 | Pin | Name | Type (domain) | Function | Driver hook | If unused | Datasheet |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -45,7 +45,7 @@ JST NSH 6-pin 1.0 mm connector, 6 pins (2.8 Pin Assignment, Table 1, [p. 6](http
 | 2 | `SDA` | bus (VDD) | I2C data, needs an external pull-up to the bus voltage | `Write(), Read()` | - | 4, [p. 9](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=9) |
 | 3 | `GND` | ground | Ground | - | - | 2.8, [p. 6](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=6) |
 | 4 | `VDD` | power (VDD) | Supply, 3.0 V to 5.5 V (3.3 V recommended) | - | - | 2.3, [p. 5](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=5) |
-| 5 | `SCL` | bus (VDD) | I2C clock, up to 1 MHz, needs an external pull-up | `Write(), Read()` | - | 4, [p. 9](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=9) |
+| 5 | `SCL` | bus (VDD) | I2C clock, up to 1 MHz, needs an external pull-up | `Write(), Read()` | - | 2.4, [p. 5](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=5) |
 | 6 | `IRQn` | digital out (VDD) | Active low: a result is ready, or the sensor reset | - | Leave open; never to GND or VDD | 3.3, [p. 8](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=8) |
 
 Source of this table and of the chip figures: [`docs/hardware.yml`](hardware.yml).
@@ -55,8 +55,8 @@ Source of this table and of the chip figures: [`docs/hardware.yml`](hardware.yml
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="diagrams/chip-blocks.dark.svg">
   <img src="diagrams/chip-blocks.svg"
-    alt="Block diagram of the SFM modules: its function blocks, how they connect and which package pins reach
-    each block.">
+    alt="Block diagram of the SFM flow meter: its function blocks, how they connect and which package pins
+    reach each block.">
 </picture>
 <!-- /figure -->
 
@@ -64,8 +64,8 @@ Source of this table and of the chip figures: [`docs/hardware.yml`](hardware.yml
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="diagrams/chip-circuit-typical.dark.svg">
   <img src="diagrams/chip-circuit-typical.svg"
-    alt="Schematic of the SFM modules typical application: the chip with U2 MCU, R1 resistor Rp, R2 resistor
-    Rp; the MCU wires carry the port hooks Write(), Read().">
+    alt="Schematic of the SFM flow meter typical application: the chip with U2 MCU, R1 resistor Rp, R2
+    resistor Rp; the MCU wires carry the port hooks Write(), Read().">
 </picture>
 <!-- /figure -->
 
@@ -73,7 +73,7 @@ Source of this table and of the chip figures: [`docs/hardware.yml`](hardware.yml
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="diagrams/chip-circuit-address.dark.svg">
   <img src="diagrams/chip-circuit-address.svg"
-    alt="Schematic of the SFM modules address selection: the chip with R3 resistor 2.7 kΩ.">
+    alt="Schematic of the SFM flow meter address selection: the chip with R3 resistor 2.7 kΩ.">
 </picture>
 <!-- /figure -->
 
