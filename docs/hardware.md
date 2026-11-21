@@ -45,7 +45,7 @@ JST NSH 6-pin connector, 6 pins (2.8 Pin Assignment, Table 1, [p. 6](https://sen
 | 2 | `SDA` | bus (VDD) | I2C data, needs an external pull-up to the bus voltage | `Write(), Read()` | - | 4, [p. 9](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=9) |
 | 3 | `GND` | ground | Ground | - | - | 2.8, [p. 6](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=6) |
 | 4 | `VDD` | power (VDD) | Supply, 3.0 V to 5.5 V (3.3 V recommended) | - | - | 2.3, [p. 5](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=5) |
-| 5 | `SCL` | bus (VDD) | I2C clock, up to 1 MHz, needs an external pull-up | `Write(), Read()` | - | 4, [p. 9](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=9) |
+| 5 | `SCL` | bus (VDD) | I2C clock, up to 1 MHz, needs an external pull-up | `Write(), Read()` | - | 2.4, [p. 5](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=5) |
 | 6 | `IRQn` | digital out (VDD) | Active low: a result is ready, or the sensor reset | - | Leave open; never to GND or VDD | 3.3, [p. 8](https://sensirion.com/media/documents/024CBAA1/62987ADF/Sensirion_Datasheet_SFM4300.pdf#page=8) |
 
 Source of this table and of the chip figures: [`docs/hardware.yml`](hardware.yml).

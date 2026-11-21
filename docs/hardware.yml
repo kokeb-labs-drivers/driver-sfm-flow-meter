@@ -15,6 +15,7 @@ refs:
   connector: {doc: sfm4300, section: "2.8 Pin Assignment, Table 1", page: 6}
   address: {doc: sfm4300, section: "4.1 I2C Address, Table 2", page: 9}
   electrical: {doc: sfm4300, section: "2.3 Electrical Specifications", page: 5}
+  timing: {doc: sfm4300, section: "2.4 Timing Specifications", page: 5}
   limits: {doc: sfm4300, section: "2.7 Absolute Minimum and Maximum Ratings", page: 6}
   irqn: {doc: sfm4300, section: "3.3 Active-low Interrupt Signaling", page: 8}
   bus: {doc: sfm4300, section: "4 Digital Interface Description", page: 9}
@@ -87,8 +88,8 @@ overview:
   specs:
     - {value: "20 or 50 slm", label: "SFM4300 flow range", ref: flow}
     - {value: "3.0 to 5.5 V", label: "SFM4300 supply", ref: electrical}
-    - {value: "1 MHz", label: "I2C clock at most", ref: electrical}
-    - {value: "2 kHz", label: "flow update rate, no averaging", ref: electrical}
+    - {value: "1 MHz", label: "I2C clock at most", ref: timing}
+    - {value: "2 kHz", label: "flow update rate, no averaging", ref: timing}
   system:
     host: MCU
     bus: I2C
@@ -146,7 +147,7 @@ pins:
   - {number: 4, name: VDD, type: power, domain: VDD, function: "Supply, 3.0 V to 5.5 V (3.3 V recommended)",
      ref: electrical}
   - {number: 5, name: SCL, type: bus, domain: VDD, function: "I2C clock, up to 1 MHz, needs an external pull-up",
-     hook: bus, ref: bus}
+     hook: bus, ref: timing}
   - {number: 6, name: IRQn, type: digital-out, domain: VDD,
      function: "Active low: a result is ready, or the sensor reset", unused: "Leave open; never to GND or VDD",
      ref: irqn}

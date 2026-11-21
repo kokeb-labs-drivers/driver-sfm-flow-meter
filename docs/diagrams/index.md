@@ -199,6 +199,40 @@ Drawn from:
 
 - [`docs/model/driver-states.state.yml`](../model/driver-states.state.yml)
 
+## I2C address byte
+
+<!-- figure: i2c-timing -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="i2c-timing.dark.svg">
+  <img src="i2c-timing.svg"
+    alt="I2C address byte of the SFM4300: the start condition, the 7-bit default address 0x2A with the write
+    bit and the acknowledge, with the typical and maximum clock the data sheet gives.">
+</picture>
+<!-- /figure -->
+
+Hardware description: [`docs/model/i2c-timing.timing.yml`](../model/i2c-timing.timing.yml)
+
+Drawn from:
+
+- [`docs/model/i2c-timing.timing.yml`](../model/i2c-timing.timing.yml)
+
+## Several SFM4300 on one I2C bus
+
+<!-- figure: i2c-topology -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="i2c-topology.dark.svg">
+  <img src="i2c-topology.svg"
+    alt="An I2C bus on which an MCU and up to four SFM4300 flow meters share SCL and SDA, each at the address
+    a resistor from its ADDR pin to GND selects, with one pull-up resistor per line.">
+</picture>
+<!-- /figure -->
+
+Hardware description: [`docs/model/i2c-topology.topology.yml`](../model/i2c-topology.topology.yml)
+
+Drawn from:
+
+- [`docs/model/i2c-topology.topology.yml`](../model/i2c-topology.topology.yml)
+
 ## Start, wait and read one measurement
 
 <!-- figure: measurement-steps -->
@@ -216,3 +250,20 @@ Hardware description: [`docs/model/measurement-steps.seq.yml`](../model/measurem
 Drawn from:
 
 - [`docs/model/measurement-steps.seq.yml`](../model/measurement-steps.seq.yml)
+
+## Command and read sequences
+
+<!-- figure: sf06-frame -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="sf06-frame.dark.svg">
+  <img src="sf06-frame.svg"
+    alt="The two I2C sequences of the SFM4300: a write of a 16-bit command with a 16-bit argument and its CRC
+    byte, and a read of 16-bit words, each followed by a CRC byte the sensor sends.">
+</picture>
+<!-- /figure -->
+
+Hardware description: [`docs/model/sf06-frame.timing.yml`](../model/sf06-frame.timing.yml)
+
+Drawn from:
+
+- [`docs/model/sf06-frame.timing.yml`](../model/sf06-frame.timing.yml)

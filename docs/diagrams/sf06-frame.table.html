@@ -1,0 +1,12 @@
+<details>
+<summary>Table form of this figure</summary>
+<table>
+<caption>Command and read sequences</caption>
+<thead><tr><th scope="col">Symbol</th><th scope="col">Parameter</th><th scope="col">Min</th><th scope="col">Typ</th><th scope="col">Max</th><th scope="col">Unit</th><th scope="col">Datasheet</th></tr></thead>
+<tbody>
+<tr><th scope="row">command</th><td>Command length</td><td></td><td>16</td><td></td><td>bit</td><td>4.2 I2C Sequences, Figures 2 and 3, p. 9</td></tr>
+<tr><th scope="row">word</th><td>Argument or data word, each followed by its CRC</td><td></td><td>16</td><td></td><td>bit</td><td>4.2 I2C Sequences, Figures 2 and 3, p. 9</td></tr>
+<tr><th scope="row">CRC</th><td>CRC-8 over the two bytes before it, polynomial 0x31, init 0xFF</td><td></td><td>8</td><td></td><td>bit</td><td>4.4 Checksum Calculation, Table 14, p. 15</td></tr>
+</tbody>
+</table>
+</details>

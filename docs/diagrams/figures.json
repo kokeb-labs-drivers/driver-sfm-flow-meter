@@ -124,6 +124,40 @@
     "twin": false,
     "font": ""
   },
+  "i2c-timing": {
+    "title": "I2C address byte",
+    "alt": "I2C address byte of the SFM4300: the start condition, the 7-bit default address 0x2A with the write bit and the acknowledge, with the typical and maximum clock the data sheet gives.",
+    "description": "The two lanes are SCL and SDA, left to right in time. SDA falls while SCL is high (the start), the seven address bits and the write bit follow, each stable while SCL is high, then the sensor pulls SDA low for the acknowledge. The table gives the clock frequency of the timing specification.",
+    "profile": "phone",
+    "width": 640,
+    "source": "docs/model/i2c-timing.timing.yml",
+    "sources": [
+      "docs/model/i2c-timing.timing.yml"
+    ],
+    "kind": "timing",
+    "palette": 2,
+    "print": "landscape",
+    "adaptive": true,
+    "twin": true,
+    "font": ""
+  },
+  "i2c-topology": {
+    "title": "Several SFM4300 on one I2C bus",
+    "alt": "An I2C bus on which an MCU and up to four SFM4300 flow meters share SCL and SDA, each at the address a resistor from its ADDR pin to GND selects, with one pull-up resistor per line.",
+    "description": "The MCU on top and the SFM4300 flow meters under it connect to the rails SCL and SDA on the right; the dashed card stands for the meters in between. The first SFM4300 answers at 0x2A with ADDR open and the last at 0x2D with 5.6 kΩ to GND, and one pull-up per line ties the bus to the bus voltage.",
+    "profile": "phone",
+    "width": 640,
+    "source": "docs/model/i2c-topology.topology.yml",
+    "sources": [
+      "docs/model/i2c-topology.topology.yml"
+    ],
+    "kind": "topology",
+    "palette": 2,
+    "print": "landscape",
+    "adaptive": true,
+    "twin": false,
+    "font": ""
+  },
   "measurement-steps": {
     "title": "Start, wait and read one measurement",
     "alt": "One measurement with the SFM executor: StartMeasurement reads the scale factors and starts the sensor, your code sleeps the returned wait and polls, and ReadSample then reads nine bytes, checks each CRC and returns a sample.",
@@ -139,6 +173,23 @@
     "print": "landscape",
     "adaptive": true,
     "twin": false,
+    "font": ""
+  },
+  "sf06-frame": {
+    "title": "Command and read sequences",
+    "alt": "The two I2C sequences of the SFM4300: a write of a 16-bit command with a 16-bit argument and its CRC byte, and a read of 16-bit words, each followed by a CRC byte the sensor sends.",
+    "description": "The two lanes are Write and Read, each one I2C transfer from START to STOP. Write carries the address with the write bit, the command MSB and LSB, the argument MSB and LSB and the CRC of the argument. Read carries the address with the read bit, then the sensor sends each word as its MSB, its LSB and a CRC, up to the last CRC, which the host answers with NACK before STOP; the words in between are left out.",
+    "profile": "phone",
+    "width": 640,
+    "source": "docs/model/sf06-frame.timing.yml",
+    "sources": [
+      "docs/model/sf06-frame.timing.yml"
+    ],
+    "kind": "timing",
+    "palette": 2,
+    "print": "landscape",
+    "adaptive": true,
+    "twin": true,
     "font": ""
   }
 }

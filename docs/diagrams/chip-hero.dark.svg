@@ -47,9 +47,9 @@
 <text x="336" y="770.3" font-size="16" fill="#9AA6B5">2.3, p. 5</text>
 <text x="624" y="682.4" font-size="30" font-weight="700" fill="#E8EDF3">1 MHz</text>
 <text x="624" y="712" font-size="17" fill="#D2DAE4">I2C clock at most</text>
-<text x="624" y="770.3" font-size="16" fill="#9AA6B5">2.3, p. 5</text>
+<text x="624" y="770.3" font-size="16" fill="#9AA6B5">2.4, p. 5</text>
 <text x="912" y="682.4" font-size="30" font-weight="700" fill="#E8EDF3">2 kHz</text>
 <text x="912" y="712" font-size="17" fill="#D2DAE4">flow update rate, no</text>
 <text x="912" y="735" font-size="17" fill="#D2DAE4">averaging</text>
-<text x="912" y="770.3" font-size="16" fill="#9AA6B5">2.3, p. 5</text>
+<text x="912" y="770.3" font-size="16" fill="#9AA6B5">2.4, p. 5</text>
 </svg>
